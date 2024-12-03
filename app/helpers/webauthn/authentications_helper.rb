@@ -1,0 +1,2 @@
+module Webauthn::AuthenticationsHelper
+end

@@ -1,0 +1,21 @@
+<div class="w-full">
+  <% content_for :title, "Posts" %>
+
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Posts - <%= @user.username %></h1>
+    <div class= "flex gap-4">
+      <%= link_to "WebAuthn", webauthn_credentials_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+      <%= link_to "Log Out", destroy_user_session_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium", "data-turbo-method": :delete %>
+      <%= link_to "New post", new_post_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    </div>
+  </div>
+
+  <div id="posts" class="min-w-full">
+    <% @posts.each do |post| %>
+      <%= render post %>
+      <p>
+        <%= link_to "Show this post", post, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      </p>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,2 @@
+module Webauthn::CredentialsHelper
+end
