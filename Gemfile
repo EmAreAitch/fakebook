@@ -66,3 +66,5 @@ end
 
 gem "devise", "~> 4.9"
 gem "webauthn", "~> 3.2"
+
+gem "lograge", "~> 0.14.0"

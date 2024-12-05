@@ -1,0 +1,10 @@
+<div id="<%= dom_id profile %> ">
+	<h1><%= profile.fullname %></h1>
+	<h2><%= profile.user.username %></h2>
+	<%= image_tag (profile.avatar.attached? ? profile.avatar.url : "fakebook_pfp_placeholder.jpg") %>
+	<p><%= profile.bio %></p>	
+	<p><%= profile.age %> years old</p>
+	<p><%= profile.gender.capitalize %></p>	
+	<p><%= profile.city %></p>
+	<p><%= profile.country %></p>	
+</div>

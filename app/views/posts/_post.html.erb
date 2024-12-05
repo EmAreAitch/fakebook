@@ -9,7 +9,7 @@
     <div class="flex space-x-2 overflow-x-auto w-96">
       <% post.images.each do |image| %>
         <div class="max-h-56 flex items-center justify-center">
-          <%= image_tag image, class: "max-w-full max-h-full object-contain" %>
+          <%= image_tag image.url, class: "max-w-full max-h-full object-contain" %>
         </div>
       <% end %>
     </div>
@@ -20,7 +20,7 @@
     <strong class="block font-medium mb-1">Video:</strong>
     
       <div class="w-96 h-56">
-        <%= video_tag post.video, controls: true, class: "w-full h-full object-contain" %>
+        <%= video_tag post.video.url, controls: true, class: "w-full h-full object-contain" %>
       </div>
     
   </p>

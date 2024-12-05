@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :webauthn_credentials, dependent: :destroy
+  has_one :profile, dependent: :destroy
 
   validates :webauthn_id, uniqueness: true, allow_nil: true
   validates :username, presence: true, uniqueness: { case_sensitive: false }  

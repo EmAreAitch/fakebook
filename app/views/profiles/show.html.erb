@@ -1,0 +1,10 @@
+<div class="">
+	<div class="">		
+		<% if @profile.present? %>
+			<%= link_to "Edit profile", edit_profile_path(@profile) %>		
+			<%= render "profile", profile: @profile %>
+		<% else %>
+			<h1>Profile does not exist</h1>
+		<% end %>
+	</div>
+</div>

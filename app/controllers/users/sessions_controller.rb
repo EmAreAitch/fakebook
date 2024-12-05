@@ -33,6 +33,11 @@ class Users::SessionsController < Devise::SessionsController
 
   private  
 
+  def after_sign_in_path_for(resource)
+    return new_profile_path unless resource.profile_completed?
+    super(resource)
+  end
+
   def after_sign_out_path_for(resource)
     new_user_session_path
   end

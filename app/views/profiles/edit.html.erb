@@ -1,0 +1,8 @@
+<div> 
+	<h1>Edit your profile</h1>
+	<p>Let people know what they dealing with</p>
+	<%= link_to "Back to profile", profile_path(@profile)%>
+	<div>
+		<%= render 'form', profile: @profile %>
+	</div>
+</div>
