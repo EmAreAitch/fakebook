@@ -3,7 +3,12 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
-  resources :posts
+  resources :posts do
+    member do
+      post 'like', to: 'posts#like'   # POST request to /posts/:id/like
+      delete 'like', to: 'posts#unlike' # DELETE request to /posts/:id/like
+    end
+  end
   resources :profiles, param: :username
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root 'posts#index'

@@ -1,10 +1,10 @@
 class PostsController < ApplicationController  
   before_action :set_post, only: %i[ show edit update destroy ]
-
+  before_action :set_posts_liked_ids, only: %i[ index show ]
   # GET /posts or /posts.json
   def index
-    @posts = Post.with_attachments.all
-    @user = current_user
+    @posts = Post.with_attachments_and_user.all
+    @user = current_user    
   end
 
   # GET /posts/1 or /posts/1.json
@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @post = Post.new    
   end
 
   # GET /posts/1/edit
@@ -58,14 +58,38 @@ class PostsController < ApplicationController
     end
   end
 
+  def like
+    like = Like.new(post_id: params[:id], user: current_user)
+    if like.save
+      # head :created
+      render json: "Success", status: :created
+    else
+      render json: like.errors.full_messages.join(", "), status: :unprocessable_entity
+    end
+  end
+
+  def unlike
+    like = Like.find_by(post_id: params[:id], user: current_user)
+    if like&.destroy!
+      # head :no_content
+      render json: "Success", status: :no_content
+    else
+      render json: "Something went wrong", status: :unprocessable_entity
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Post.find(params.expect(:id))
+      @post = Post.with_attachments_and_user.find(params.expect(:id))
+    end
+
+    def set_posts_liked_ids
+      @posts_liked_ids = current_user.posts_liked_ids_sorted
     end
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.expect(post: [ :content, :video, images: [] ])
+      params.expect(post: [ :content, :video, images: [] ]).merge(user: current_user)
     end
 end

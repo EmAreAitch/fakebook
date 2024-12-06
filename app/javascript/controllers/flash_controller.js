@@ -1,9 +1,8 @@
 import { Controller } from "@hotwired/stimulus"
-import {Notyf} from 'notyf'
+import { Notyf } from "notyf"
 // Connects to data-controller="flash"
 export default class extends Controller {
-  static values = { type: String }
-
+  static values = { type: String }    
   initialize() {
     this.notyf = new Notyf()
   }

@@ -24,12 +24,7 @@
   </head>
 
   <body>
-    <% if notice.present? %>
-      <div data-controller="flash" data-flash-type-value="success" class="hidden" id="notice"><%= notice %></div>
-    <% end %>
-    <% if alert.present? %>
-      <div data-controller="flash" data-flash-type-value="error" class="hidden" id="alert"><%= alert %></div>
-    <% end %>
+    <%= render "flash" %>
     <main class="container mx-auto my-2 px-5">
       <%= yield %>
     </main>

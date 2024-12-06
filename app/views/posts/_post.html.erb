@@ -1,10 +1,14 @@
-<div id="<%= dom_id post %>">
-  <p class="my-5">
+<div id="<%= dom_id post %>" class="space-y-2">
+  <p>
+    <strong class="block font-medium mb-1">User:</strong>
+    <%= link_to post.user.username, profile_path(username: post.user.username) %>
+  </p>
+  <p>
     <strong class="block font-medium mb-1">Content:</strong>
     <%= post.content %>
   </p>
   <% if post.images.attached? %>
-  <p class="my-5">
+  <p>
     <strong class="block font-medium mb-1">Images:</strong>
     <div class="flex space-x-2 overflow-x-auto w-96">
       <% post.images.each do |image| %>
@@ -16,13 +20,14 @@
   </p>
   <% end %>
   <% if post.video.attached? %>
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Video:</strong>
-    
+  <p>
+    <strong class="block font-medium mb-1">Video:</strong>    
       <div class="w-96 h-56">
         <%= video_tag post.video.url, controls: true, class: "w-full h-full object-contain" %>
-      </div>
-    
+      </div>    
   </p>
-  <% end %>
+  <% end %>  
+  <div data-controller="like" data-like-liked-text-value="<%= like_button_text(@posts_liked_ids,post) %>" data-like-url-value="<%= like_post_path(post) %>">
+    <button class="px-4 py-2 bg-gray-100 rounded-lg" data-like-target="button" data-action="like#toggleLike"></button>
+  </div>  
 </div>
