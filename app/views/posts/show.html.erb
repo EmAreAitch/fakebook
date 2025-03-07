@@ -1,11 +1,28 @@
 <div class="mx-auto md:w-2/3 w-full flex">
   <div class="mx-auto">    
-    <%= render @post %>
+    <%= render @post, posts_liked_ids: @posts_liked_ids %>
 
     <%= link_to "Edit this post", edit_post_path(@post), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to "Back to posts", posts_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <div class="inline-block ml-2">
       <%= button_to "Destroy this post", @post, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+    </div>   
+    <div data-controller="replies" data-replies-comments-count-value="<%= @post.comments_count %>">
+    <div id="<%= dom_id(@post, :comment_actions) %>">
+      <%= link_to "Reply", 
+        new_post_comment_path(@post), 
+        data: { "turbo-frame": dom_id(@post, :comment_form), "replies-target": :replyButton, action: "replies#getForm" },
+        class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"
+      %>            
+      <%= link_to post_comments_path(@post), 
+        class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium", 
+        data: { "turbo-frame": dom_id(@post, :comments), "replies-target": :listButton, action: "replies#getList" } do
+      %>
+      <span>Show</span> <span id="<%= dom_id(@post, :list_button_text) %>"><%= pluralize(@post.comments_count, "comment") %></span>
+      <% end unless @post.comments_count.zero? %>
     </div>
-  </div>
+    <%= turbo_frame_tag dom_id(@post, :comment_form), "data-replies-target": :commentForm, class: "hidden" %>
+    <%= turbo_frame_tag dom_id(@post,:comments), "data-replies-target": :commentList, class: "hidden" %>    
+  </div>    
+  </div>  
 </div>

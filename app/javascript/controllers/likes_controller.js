@@ -1,27 +1,23 @@
 import { Controller } from "@hotwired/stimulus"
 import { FetchRequest } from '@rails/request.js'
-import { Notyf } from 'notyf'
-
+import posts from 'api/PostsApi'
+import HotwireNotyf from "misc/hotwire_notyf"
 // Connects to data-controller="like"
 export default class extends Controller {
   static targets = [ "button" ]  
   static values = {
-    url: String,
+    postId: Number,
     likedText: String
   }  
-
-  initialize() {
-    this.notyf = new Notyf()
-  }
 
   async toggleLike() {    
     const method = this.likeStatus ? "delete" : "post"    
     this.toggleState()
     this.buttonTarget.disabled = true
-    const request = new FetchRequest(method, this.urlValue)
+    const request = new FetchRequest(method, posts.like.path({id: this.postIdValue}))
     const response = await request.perform()    
     if (!response.ok) {      
-      this.notyf.error(await response.text)
+      HotwireNotyf.error(await response.text)
       this.toggleState()
     }
     this.buttonTarget.disabled = false

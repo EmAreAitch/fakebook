@@ -1,0 +1,8 @@
+<h2><%= opposite_username(@chat,current_user) %></h2>
+<%= turbo_stream_from [@chat.sender_id, @chat.receiver_id].sort %>
+<div id="messages" class="space-y-4">
+	<%= render @chat.messages %>
+</div>
+<div>
+	<%= render "form", chat: @chat %>
+</div>

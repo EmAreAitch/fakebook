@@ -1,6 +1,6 @@
 module PostsHelper
 	def post_liked_by_user(posts_liked_ids, post)
-		posts_liked_ids.bsearch { |id| id <=> post.id}.present?
+		posts_liked_ids.bsearch { |id| post.id <=> id}.present?
 	end
 
 	def like_button_text(posts_liked_ids, post)

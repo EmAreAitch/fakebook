@@ -1,0 +1,21 @@
+<%= link_to "Back to posts", root_path %>
+
+<h2>Recent Chats</h2>
+
+<% @chats.each do |chat| %>	
+	<% receiver = (chat.sender == current_user ? chat.receiver : chat.sender) %>
+	<div>
+		<h3><%= receiver.username %></h3>
+		<%= link_to "Chat", chat_path(receiver.username) %>
+	</div>
+<% end %>
+
+<h2>All followings and followers</h2>
+
+<% @follows.each do |follow| %>	
+	<% receiver = (follow.follower == current_user ? follow.followed : follow.follower) %>
+	<div>
+		<h3><%= receiver.username %></h3>
+		<%= link_to "Chat", chat_path(receiver.username) %>
+	</div>
+<% end %>

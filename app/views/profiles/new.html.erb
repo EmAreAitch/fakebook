@@ -1,7 +1,7 @@
 <div> 
 	<h1>Set your profile</h1>
 	<p>Let people know what they dealing with</p>
-	<%= link_to "Use different account", destroy_user_session_path, "data-turbo-method": :delete %>
+	<%= button_to "Use different account", destroy_user_session_path, method: :delete %>
 	<div>
 		<%= render 'form', profile: @profile %>
 	</div>

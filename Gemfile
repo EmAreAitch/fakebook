@@ -51,11 +51,16 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+  gem "dotenv", "~> 3.1"
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem 'meta_request'
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem "railroady"
 end
 
 group :test do
@@ -68,3 +73,22 @@ gem "devise", "~> 4.9"
 gem "webauthn", "~> 3.2"
 
 gem "lograge", "~> 0.14.0"
+
+group :development, :test do
+  gem 'js_from_routes'
+end
+
+
+gem "groq", "~> 0.3.2"
+
+gem "down", "~> 5.4"
+
+gem "dry-schema", "~> 1.13"
+
+gem "syntax_tree", "~> 6.2"
+
+gem "ruby-lsp-rails", "~> 0.3.27"
+
+gem "hugging-face", "~> 0.3.5", require: "hugging_face"
+
+gem "scenic", "~> 1.8"

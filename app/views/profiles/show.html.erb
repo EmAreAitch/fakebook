@@ -1,8 +1,16 @@
 <div class="">
 	<div class="">		
+		<%= link_to "Back to posts", root_path %>
 		<% if @profile.present? %>
-			<%= link_to "Edit profile", edit_profile_path(@profile) %>		
+			<%= link_to "Edit profile", edit_profile_path(@profile) if @profile.user == current_user %>			
 			<%= render "profile", profile: @profile %>
+			<% unless current_user == @profile.user %>
+				<div data-controller="follows" data-follows-profile-username-value="<%= @profile.user.username %>">
+					<p data-follows-target="followStatusText" class="empty:hidden"></p>
+					<div data-follows-target="profileUserRequestAction" class="empty:hidden space-x-1"></div>
+					<div data-follows-target="currentUserRequestAction" class="empty:hidden"></div>
+				</div>			
+			<% end %>
 		<% else %>
 			<h1>Profile does not exist</h1>
 		<% end %>

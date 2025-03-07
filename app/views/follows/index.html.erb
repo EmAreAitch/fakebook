@@ -1,0 +1,22 @@
+<%= link_to "Back to profile", profile_path(@user.username) %>
+<% params = { username: @user.username } %>
+<div class="space-y-4">
+	<% @follow_requests.each do |k,v| %>
+		<div class="space-y-4">
+			<h2 class="font-bold"><%= k.humanize %></h2>
+			<% v.each do |i| %>		
+				<% if i.accepted? %>
+					<p><%= k.starts_with?("following") ? i.followed.username : i.follower.username %></p>
+					<%= button_to (i.follower == current_user ? "Unfollow" : "Remove"), follow_path(i), method: :delete, params: %>
+				<% elsif i.followed == current_user%>		
+					<p><%= k.starts_with?("following") ? i.followed.username : i.follower.username %></p>
+					<%= button_to "Accept", accept_follow_path(i), method: :patch, params: %>
+					<%= button_to "Reject", follow_path(i), method: :delete, params: %>
+				<% elsif i.follower == current_user%>
+					<p><%= k.starts_with?("following") ? i.followed.username : i.follower.username %></p>
+					<%= button_to "Remove", follow_path(i), method: :delete, params: %>
+				<% end %>			
+			<% end %>
+		</div>
+	<% end %>
+</div>

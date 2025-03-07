@@ -1,10 +1,11 @@
+<% _like_button_text_ =  like_button_text(posts_liked_ids,post) %>
 <div id="<%= dom_id post %>" class="space-y-2">
   <p>
-    <strong class="block font-medium mb-1">User:</strong>
+    <strong class="font-medium mb-1">User: </strong>
     <%= link_to post.user.username, profile_path(username: post.user.username) %>
   </p>
   <p>
-    <strong class="block font-medium mb-1">Content:</strong>
+    <strong class="font-medium mb-1">Content: </strong>
     <%= post.content %>
   </p>
   <% if post.images.attached? %>
@@ -27,7 +28,11 @@
       </div>    
   </p>
   <% end %>  
-  <div data-controller="like" data-like-liked-text-value="<%= like_button_text(@posts_liked_ids,post) %>" data-like-url-value="<%= like_post_path(post) %>">
-    <button class="px-4 py-2 bg-gray-100 rounded-lg" data-like-target="button" data-action="like#toggleLike"></button>
-  </div>  
+  <div data-controller="likes" data-likes-liked-text-value="<%= _like_button_text_ %>" data-likes-post-id-value="<%= post.id %>">
+    <button class="px-4 py-2 bg-gray-100 rounded-lg" data-likes-target="button" data-action="likes#toggleLike"><%= _like_button_text_ %></button>
+  </div>
+  <p>
+    <strong class="font-medium mb-1">Comments: </strong>
+    <%= tag.span post.comments_count, id: dom_id(post, :comments_count) %>
+  </p>
 </div>

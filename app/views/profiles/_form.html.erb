@@ -30,10 +30,12 @@
 		<%= f.label :bio %><br>
 		<%= f.textarea :bio, rows: 2, required: true %>
 	</div>
-	<div class="field">
-		<%= f.label :avatar %><br>
-		<%= f.file_field :avatar %>
-	</div>
+	<%= f.fields_for :user do |user_form| %>
+    <div class="field">
+      <%= user_form.label :avatar %><br>
+      <%= user_form.file_field :avatar %>
+    </div>
+  <% end %>
 	<div class="field">
 		<%= f.label :country %><br>
 		<%= f.text_field :country %>

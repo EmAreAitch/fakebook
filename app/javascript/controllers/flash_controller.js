@@ -1,12 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
-import { Notyf } from "notyf"
+import HotwireNotyf from "misc/hotwire_notyf"
 // Connects to data-controller="flash"
 export default class extends Controller {
-  static values = { type: String }    
-  initialize() {
-    this.notyf = new Notyf()
-  }
+  static values = { type: String }      
+  
   connect() {    
-    this.notyf[this.typeValue](this.element.textContent)
+    HotwireNotyf[this.typeValue](this.element.textContent)
   }
 }

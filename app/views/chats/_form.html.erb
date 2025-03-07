@@ -1,0 +1,9 @@
+<%= form_with(model: chat, id: "chat_form") do |f| %>
+	<%= f.hidden_field :receiver_id unless chat.persisted? %>
+	<%= f.fields_for :messages, chat.messages.build do |mf| %>
+		<%= mf.label :content %> <br>
+		<%= mf.textarea :content, class: "w-full" %>		
+	<% end %> 
+	<br>
+	<%= f.submit "Send" %>
+<% end %>

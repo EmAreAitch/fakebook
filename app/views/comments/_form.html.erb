@@ -1,0 +1,6 @@
+<%= form_with(model: comment, url: comment_form_url_path(comment)) do |f| %>
+	<%= f.label :content %> <br>
+	<%= f.textarea :content, class: "w-full" %> <br>
+	<%= tag.span comment.errors.full_messages_for(:content).join(", "), class: "block" if comment.errors.include?(:content) %>
+	<%= f.submit %>
+<% end  %>

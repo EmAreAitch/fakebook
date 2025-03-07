@@ -1,4 +1,6 @@
 class Users::SessionsController < Devise::SessionsController
+  skip_before_action :verify_profile_existence, only: [:destroy]
+
   def new
     session.delete(:webauthn_authentication)
     super

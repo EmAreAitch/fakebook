@@ -1,0 +1,7 @@
+<%= turbo_frame_tag @comments_dom_id do %>
+ <% if @comments.present? %>
+ 	<%= render @comments %>
+ <% else %>
+ 	<p class="only:block hidden">No Comments on this post</p>
+ <% end %>
+<% end %>

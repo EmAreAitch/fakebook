@@ -1,0 +1,21 @@
+<div id="<%= dom_id comment %>" >
+	<strong><%= comment.user.username %></strong>
+	<p><%= comment.content %></p>	
+	<div data-controller="replies">
+    <div id="<%= dom_id(comment, :comment_actions) %>">
+      <%= link_to "Reply", 
+      new_post_comment_reply_path(comment.post_id, comment), 
+      class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium",
+      data: { "turbo-frame": dom_id(comment, :comment_form), "replies-target": :replyButton, action: "replies#getForm" } 
+  		%>
+      <%= link_to post_comment_replies_path(comment.post_id, comment),  
+        class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium",
+        data: { "turbo-frame": dom_id(comment, :comments), "replies-target": :listButton, action: "replies#getList" } do
+      %>
+      <span>Show</span> <span id="<%= dom_id(comment, :list_button_text) %>"><%= pluralize(comment.comments_count, "reply") %></span>
+      <% end unless comment.comments_count.zero? %>
+    </div>
+    <%= turbo_frame_tag dom_id(comment, :comment_form), "data-replies-target": :commentForm, class: "hidden" %>
+    <%= turbo_frame_tag dom_id(comment,:comments), "data-replies-target": :commentList, class: "pl-4 block hidden"  %>
+  </div>
+</div>
