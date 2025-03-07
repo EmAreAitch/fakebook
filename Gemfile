@@ -83,7 +83,7 @@ gem "groq", "~> 0.3.2"
 
 gem "down", "~> 5.4"
 
-gem "dry-schema", "~> 1.13"
+gem "dry-schema", "~> 1.14"
 
 gem "syntax_tree", "~> 6.2"
 
