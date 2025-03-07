@@ -87,7 +87,7 @@ gem "dry-schema", "~> 1.13"
 
 gem "syntax_tree", "~> 6.2"
 
-gem "ruby-lsp-rails", "~> 0.3.27"
+gem "ruby-lsp-rails", "~> 0.4.0"
 
 gem "hugging-face", "~> 0.3.5", require: "hugging_face"
 
