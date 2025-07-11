@@ -7,6 +7,8 @@ one:
   country: MyString
   city: MyString
   profession: MyString
+  user: one
+  dob: <%= 13.years.ago.to_date %>
 
 two:
   first_name: MyString
@@ -15,3 +17,5 @@ two:
   country: MyString
   city: MyString
   profession: MyString
+  user: two
+  dob: <%= 15.years.ago.to_date %>

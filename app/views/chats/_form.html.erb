@@ -1,9 +1,22 @@
-<%= form_with(model: chat, id: "chat_form") do |f| %>
-	<%= f.hidden_field :receiver_id unless chat.persisted? %>
-	<%= f.fields_for :messages, chat.messages.build do |mf| %>
-		<%= mf.label :content %> <br>
-		<%= mf.textarea :content, class: "w-full" %>		
-	<% end %> 
-	<br>
-	<%= f.submit "Send" %>
+<!-- app/views/chats/_form.html.erb -->
+<%= form_with(model: chat, id: "chat_form", class: "w-full") do |f| %>
+  <%= f.hidden_field :receiver_id unless chat.persisted? %>
+
+  <div class="flex items-end gap-2">
+    <%= f.fields_for :messages, chat.messages.build do |mf| %>
+      <div class="flex-1">
+        <%= mf.text_area :content,
+          placeholder: "Type your message...",
+          rows: 1,
+          class: "scroll-hidden w-full px-4 py-2 bg-primary-800 text-white placeholder-secondary-500 border border-primary-700 rounded-full focus:outline-none focus:ring-2 focus:ring-accent-500 resize-none"
+        %>
+      </div>
+    <% end %>
+
+    <div class="pb-1"> <!-- Adjust this padding if needed -->
+      <%= f.submit "Send",
+        class: "px-4 py-2 bg-accent-600 text-white rounded-full hover:bg-accent-600 transition-all shadow-md"
+      %>
+    </div>
+  </div>
 <% end %>

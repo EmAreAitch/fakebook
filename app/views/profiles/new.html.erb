@@ -1,8 +1,15 @@
-<div> 
-	<h1>Set your profile</h1>
-	<p>Let people know what they dealing with</p>
-	<%= button_to "Use different account", destroy_user_session_path, method: :delete %>
-	<div>
-		<%= render 'form', profile: @profile %>
-	</div>
+<div class="max-w-2xl mx-auto px-6 py-10 text-gray-200">
+  <!-- Header Section -->
+  <div class="mb-8 text-center">
+    <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">Set your profile</h1>
+    <p class="text-gray-400">Let people know what they're dealing with</p>
+    <div class="mt-4">
+      <%= button_to "Use different account", destroy_user_session_path, method: :delete, class: "inline-block bg-red-600 hover:bg-red-700 text-white text-sm font-semibold px-4 py-2 rounded-md" %>
+    </div>
+  </div>
+
+  <!-- Profile Form -->
+  <div class="bg-primary-800 bg-opacity-70 backdrop-blur-md p-6 rounded-xl shadow-lg">
+    <%= render 'form', profile: @profile %>
+  </div>
 </div>

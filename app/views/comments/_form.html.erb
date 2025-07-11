@@ -1,6 +1,12 @@
-<%= form_with(model: comment, url: comment_form_url_path(comment)) do |f| %>
-	<%= f.label :content %> <br>
-	<%= f.textarea :content, class: "w-full" %> <br>
-	<%= tag.span comment.errors.full_messages_for(:content).join(", "), class: "block" if comment.errors.include?(:content) %>
-	<%= f.submit %>
-<% end  %>
+<%= form_with(model: comment, url: comment_form_url_path(comment), class: "space-y-6 py-6") do |f| %>
+  <div>    
+    <%= f.text_area :content, rows: 4, class: "mt-1 block w-full rounded-lg border border-gray-200 bg-transparent text-gray-200 shadow-sm focus:border-accent-500 focus:ring-accent-500 text-base font-body", placeholder: "Write your comment.." %>
+    <% if comment.errors.include?(:content) %>
+      <%= tag.span comment.errors.full_messages_for(:content).join(", "), class: "mt-2 text-sm text-red-600 font-body" %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.submit "Post Comment", class: "inline-flex items-center px-5 py-2.5 bg-accent-600 hover:bg-accent-500 text-white text-sm font-semibold rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-600 font-ui" %>
+  </div>
+<% end %>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark">
+    <title><%= content_for(:title) || "FakeBook" %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="icon" href="/icon.png" type="image/png" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <%= stylesheet_link_tag :all, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="font-body bg-primary-900 text-gray-300 bg-texture min-h-screen flex items-center justify-center px-4">
+    <main class="w-full max-w-md">
+      <div class="mb-10 text-center">
+        <h1 class="text-5xl font-heading text-accent-500 font-bold">FakeBook</h1>
+        <p class="text-gray-400 mt-2 text-lg">Connect. Share. Belong.</p>
+      </div>
+
+      <div class="bg-primary-800 rounded-xl">
+        <%= render "flash" %>
+        <%= yield %>
+      </div>
+    </main>
+  </body>
+</html>

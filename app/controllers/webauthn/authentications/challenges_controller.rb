@@ -1,6 +1,6 @@
 class Webauthn::Authentications::ChallengesController < ApplicationController
   skip_before_action :authenticate_user!
-
+  layout "devise"
   def create
     user = User.find_by(id: session[:webauthn_authentication]["user_id"])
 
@@ -16,7 +16,7 @@ class Webauthn::Authentications::ChallengesController < ApplicationController
       end
     else
       respond_to do |format|
-        format.json { render json: {message: "Authentication failed"}, status: :unprocessable_entity }
+        format.json { render json: { message: "Authentication failed" }, status: :unprocessable_entity }
       end
     end
   end

@@ -1,4 +1,7 @@
-<div>
-	<p>By: <b><%= message.user.username %></b></p>
-	<p><%= message.content %></p>
+<div class="message-wrapper mb-2 flex <%= dom_id(message.user) %>">
+  <div class="message-bubble px-4 py-2 rounded-xl shadow-md backdrop-blur-sm max-w-full wrap-break-word">    
+    <div class="message-content text-sm leading-relaxed">
+      <%= message.content %>
+    </div>
+  </div>
 </div>

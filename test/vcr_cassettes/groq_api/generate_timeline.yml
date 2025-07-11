@@ -1,0 +1,541 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.groq.com/openai/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"deepseek-r1-distill-llama-70b","messages":[{"role":"system","content":"Generate
+        a JSON object for an AI-powered influencer''s content strategy. The object
+        should include a tweet topic timeline comprising exactly 365 daily tweet topics.
+        Each topic must be:\n\n- Unique with no repetitions.\n- Brief (ideally under
+        100 characters).\n- Specifically tailored to the provided interests.\n- Niche
+        and innovative, avoiding generic ideas.\n\nRequirements:\n1. Create 365 topics
+        formatted as numbered strings (e.g., \"1. topic1\", \"2. topic2\", etc.).\n2.
+        Each topic should be clear, concise, and directly reflect the given interests.\n3.
+        Do not include any additional keys or explanatory text in the JSON output.\n4.
+        Ensure the output is a valid JSON object with the following structure:\n\n{\n  \"topics\":
+        [\n    \"1. topic1\",\n    \"2. topic2\",\n    \"3. topic3\",\n    ...\n    \"365.
+        topic365\"\n  ]\n}\n\nTailor each topic to inspire engaging, daily tweets
+        that resonate with the niche audience.\n"},{"role":"user","content":"RUBY,
+        RUBY ON RAILS, WEB DEVELOPEMT, BACKEND DEVELOPMENT"}],"max_tokens":32768,"temperature":1,"response_format":{"type":"json_object"}}'
+    headers:
+      Authorization:
+      - Bearer <GROQ_API_KEY>
+      User-Agent:
+      - groq-ruby/0.3.2
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 20 Mar 2025 17:27:57 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private, max-age=0, no-store, no-cache, must-revalidate
+      Vary:
+      - Origin
+      X-Groq-Region:
+      - gcp-asia-south1
+      X-Ratelimit-Limit-Requests:
+      - '1000'
+      X-Ratelimit-Limit-Tokens:
+      - '6000'
+      X-Ratelimit-Remaining-Requests:
+      - '999'
+      X-Ratelimit-Remaining-Tokens:
+      - '5754'
+      X-Ratelimit-Reset-Requests:
+      - 1m26.4s
+      X-Ratelimit-Reset-Tokens:
+      - 2.46s
+      X-Request-Id:
+      - req_01jpt9hczsem9vbt7scrk75dxz
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=coWH2aTGpA9UzqkKdb8bu5nCOzg_xj8IA045HD1CIAM-1742491677-1.0.1.1-fBwKA545F7Q9KY9N2zZhxfqGeYNnS968u1Dsw5qaAn0XjeGAIlPyX02ZJljQiEYbPMPmoM6hauttJaiqu_5wnMoMLAuZRILND1N52NTdg1M;
+        path=/; expires=Thu, 20-Mar-25 17:57:57 GMT; domain=.groq.com; HttpOnly; Secure;
+        SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 9236ebf27f14a845-DEL
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"chatcmpl-1d1089b5-e3bb-490e-9f47-9fbf952984ee","object":"chat.completion","created":1742491661,"model":"deepseek-r1-distill-llama-70b","choices":[{"index":0,"message":{"role":"assistant","content":"{\n  \"topics\":
+        [\n    \"1. Ruby gems you might not know\",\n    \"2. Optimizing Rails queries\",\n    \"3.
+        Debugging Ruby code tips\",\n    \"4. Best practices for Ruby methods\",\n    \"5.
+        Rails API vs. MVC\",\n    \"6. Understanding Ruby memory management\",\n    \"7.
+        Implementing SOLID principles in Rails\",\n    \"8. Ruby on Rails security
+        best practices\",\n    \"9. Performance tuning for Rails apps\",\n    \"10.
+        Hidden gems in the Ruby standard library\",\n    \"11. Customizing Rails generators\",\n    \"12.
+        Building a Ruby DSL\",\n    \"13. Rails caching strategies\",\n    \"14. Ruby
+        concurrency and parallelism\",\n    \"15. Testing strategies for Rails\",\n    \"16.
+        Ruby metaprogramming techniques\",\n    \"17. Rails internationalization\",\n    \"18.
+        Ruby version compatibility\",\n    \"19. Optimizing database queries in Rails\",\n    \"20.
+        Ruby code refactoring tips\",\n    \"21. Rails error handling\",\n    \"22.
+        Using Ruby''s enumerable methods\",\n    \"23. Setting up a Rails development
+        environment\",\n    \"24. Understanding Ruby''s object model\",\n    \"25.
+        Rails deployment strategies\",\n    \"26. Custom validators in Rails\",\n    \"27.
+        Ruby''s module system\",\n    \"28. Rails routing best practices\",\n    \"29.
+        Testing Ruby code with RSpec\",\n    \"30. Building RESTful APIs with Rails\",\n    \"31.
+        Ruby''s binding and closures\",\n    \"32. Rails middleware explained\",\n    \"33.
+        Using Ruby''s singleton classes\",\n    \"34. Optimizing asset delivery in
+        Rails\",\n    \"35. Understanding Ruby''s method lookup\",\n    \"36. Rails
+        and WebSockets\",\n    \"37. Ruby''s class hierarchy\",\n    \"38. Building
+        a Ruby plugin\",\n    \"39. Rails cache stores\",\n    \"40. Using Ruby''s
+        struct\",\n    \"41. Rails migration best practices\",\n    \"42. Understanding
+        Ruby''s proc\",\n    \"43. Implementing authentication in Rails\",\n    \"44.
+        Ruby''s block syntax variations\",\n    \"45. Customizing Rails'' Active Record\",\n    \"46.
+        Understanding Ruby''s gem ecosystem\",\n    \"47. Rails and database indexing\",\n    \"48.
+        Ruby''s garbage collection\",\n    \"49. Building a Ruby on Rails plugin\",\n    \"50.
+        Customizing Rails'' Active Admin\",\n    \"51. Understanding Ruby''s regex\",\n    \"52.
+        Rails and CORS\",\n    \"53. Ruby''s symbol to proc\",\n    \"54. Building
+        a Rails engine\",\n    \"55. Customizing Rails'' Action Mailer\",\n    \"56.
+        Understanding Ruby''s Comparable module\",\n    \"57. Rails and geolocation\",\n    \"58.
+        Ruby''s Range objects\",\n    \"59. Building a custom Rails validator\",\n    \"60.
+        Customizing Rails'' Action Cable\",\n    \"61. Understanding Ruby''s Singleton
+        pattern\",\n    \"62. Rails and pagination\",\n    \"63. Ruby''s lambda syntax\",\n    \"64.
+        Customizing Rails'' Active Storage\",\n    \"65. Understanding Ruby''s syntax
+        sugar\",\n    \"66. Rails and rate limiting\",\n    \"67. Ruby''s method chaining\",\n    \"68.
+        Building a custom Rails generator\",\n    \"69. Customizing Rails'' Action
+        Text\",\n    \"70. Understanding Ruby''s singleton methods\",\n    \"71. Rails
+        and service objects\",\n    \"72. Ruby''s class inheritance\",\n    \"73.
+        Customizing Rails'' Action View\",\n    \"74. Understanding Ruby''s module
+        mixins\",\n    \"75. Rails and background jobs\",\n    \"76. Ruby''s code
+        quality tools\",\n    \"77. Customizing Rails'' Active Job\",\n    \"78. Understanding
+        Ruby''s enumerable mixin\",\n    \"79. Rails and caching strategies\",\n    \"80.
+        Ruby''s exception handling\",\n    \"81. Customizing Rails'' Action Controller\",\n    \"82.
+        Understanding Ruby''s object creation\",\n    \"83. Rails and dependency injection\",\n    \"84.
+        Ruby''s class variables\",\n    \"85. Customizing Rails'' Active Model\",\n    \"86.
+        Understanding Ruby''s instance variables\",\n    \"87. Rails and form builders\",\n    \"88.
+        Ruby''s method_overriding\",\n    \"89. Customizing Rails'' Action Dispatch\",\n    \"90.
+        Understanding Ruby''s singleton classes\",\n    \"91. Rails and JSON serialization\",\n    \"92.
+        Ruby''s class methods\",\n    \"93. Customizing Rails'' Active Record\",\n    \"94.
+        Understanding Ruby''s object lifecycle\",\n    \"95. Rails and request handling\",\n    \"96.
+        Ruby''s metaprogramming\",\n    \"97. Customizing Rails'' Active Support\",\n    \"98.
+        Understanding Ruby''s monkey patching\",\n    \"99. Rails and performance
+        benchmarks\",\n    \"100. Ruby''s method_missing\",\n    \"101. Customizing
+        Rails'' Action View Helpers\",\n    \"102. Understanding Ruby''s code introspection\",\n    \"103.
+        Rails and database transactions\",\n    \"104. Ruby''s constant lookup\",\n    \"105.
+        Customizing Rails'' Action Mailer Templates\",\n    \"106. Understanding Ruby''s
+        scope gates\",\n    \"107. Rails and caching mechanisms\",\n    \"108. Ruby''s
+        variable naming conventions\",\n    \"109. Customizing Rails'' Active Job
+        Retries\",\n    \"110. Understanding Ruby''s lexical scoping\",\n    \"111.
+        Rails and testing frameworks\",\n    \"112. Ruby''s method definitions\",\n    \"113.
+        Customizing Rails'' Action Cable Channels\",\n    \"114. Understanding Ruby''s
+        operator overloading\",\n    \"115. Rails and third-party APIs\",\n    \"116.
+        Ruby''s method delegation\",\n    \"117. Customizing Rails'' Active Storage
+        Services\",\n    \"118. Understanding Ruby''s code style guides\",\n    \"119.
+        Rails and SEO optimization\",\n    \"120. Ruby''s method hooks\",\n    \"121.
+        Customizing Rails'' Action Text Editors\",\n    \"122. Understanding Ruby''s
+        code analysis tools\",\n    \"123. Rails and webhooks\",\n    \"124. Ruby''s
+        method profiling\",\n    \"125. Customizing Rails'' Active Job Queues\",\n    \"126.
+        Understanding Ruby''s code generation\",\n    \"127. Rails and remote work\",\n    \"128.
+        Ruby''s method tracing\",\n    \"129. Customizing Rails'' Action Dispatch
+        Routes\",\n    \"130. Understanding Ruby''s code readability\",\n    \"131.
+        Rails and documentation\",\n    \"132. Ruby''s method documentation\",\n    \"133.
+        Customizing Rails'' Active Admin Plugins\",\n    \"134. Understanding Ruby''s
+        code smells\",\n    \"135. Rails and code reviews\",\n    \"136. Ruby''s method
+        extraction\",\n    \"137. Customizing Rails'' Action Cable Connections\",\n    \"138.
+        Understanding Ruby''s code structure\",\n    \"139. Rails and CI/CD pipelines\",\n    \"140.
+        Ruby''s method organization\",\n    \"141. Customizing Rails'' Action Controller
+        Filters\",\n    \"142. Understanding Ruby''s code maintainability\",\n    \"143.
+        Rails and deployment scripts\",\n    \"144. Ruby''s method overriding\",\n    \"145.
+        Customizing Rails'' Active Model Validations\",\n    \"146. Understanding
+        Ruby''s code reusability\",\n    \"147. Rails and logging best practices\",\n    \"148.
+        Ruby''s method overloading\",\n    \"149. Customizing Rails'' Action View
+        Layouts\",\n    \"150. Understanding Ruby''s code modularity\",\n    \"151.
+        Rails and monitoring tools\",\n    \"152. Ruby''s method specialization\",\n    \"153.
+        Customizing Rails'' Action Mailer Layouts\",\n    \"154. Understanding Ruby''s
+        code complexity\",\n    \"155. Rails and scaling strategies\",\n    \"156.
+        Ruby''s method caching\",\n    \"157. Customizing Rails'' Action Cable Broadcasts\",\n    \"158.
+        Understanding Ruby''s code conciseness\",\n    \"159. Rails and error tracking\",\n    \"160.
+        Ruby''s method composition\",\n    \"161. Customizing Rails'' Active Job Adapters\",\n    \"162.
+        Understanding Ruby''s code consistency\",\n    \"163. Rails and performance
+        monitoring\",\n    \"164. Ruby''s method memoization\",\n    \"165. Customizing
+        Rails'' Action Text Attachments\",\n    \"166. Understanding Ruby''s code
+        clarity\",\n    \"167. Rails and team collaboration\",\n    \"168. Ruby''s
+        method aliasing\",\n    \"169. Customizing Rails'' Action Controller Concerns\",\n    \"170.
+        Understanding Ruby''s code quality metrics\",\n    \"171. Rails and Agile
+        development\",\n    \"172. Ruby''s method wrappers\",\n    \"173. Customizing
+        Rails'' Active Model Serializers\",\n    \"174. Understanding Ruby''s code
+        organization\",\n    \"175. Rails and Test-Driven Development\",\n    \"176.
+        Ruby''s method decorators\",\n    \"177. Customizing Rails'' Action Mailer
+        Deliveries\",\n    \"178. Understanding Ruby''s code refactoring\",\n    \"179.
+        Rails and Behavior-Driven Development\",\n    \"180. Ruby''s method interception\",\n    \"181.
+        Customizing Rails'' Action Cable Subscriptions\",\n    \"182. Understanding
+        Ruby''s code maintainability\",\n    \"183. Rails and Continuous Integration\",\n    \"184.
+        Ruby''s method introspection\",\n    \"185. Customizing Rails'' Active Storage
+        Analyzers\",\n    \"186. Understanding Ruby''s code profiling\",\n    \"187.
+        Rails and Continuous Deployment\",\n    \"188. Ruby''s method reflection\",\n    \"189.
+        Customizing Rails'' Action View Partial Templates\",\n    \"190. Understanding
+        Ruby''s code benchmarks\",\n    \"191. Rails and Infrastructure as Code\",\n    \"192.
+        Ruby''s method mocking\",\n    \"193. Customizing Rails'' Action Cable Subscribers\",\n    \"194.
+        Understanding Ruby''s code scalability\",\n    \"195. Rails and Cloud Native
+        Applications\",\n    \"196. Ruby''s method stubbing\",\n    \"197. Customizing
+        Rails'' Active Job Priority Queues\",\n    \"198. Understanding Ruby''s code
+        extensibility\",\n    \"199. Rails and Event-Driven Architecture\",\n    \"200.
+        Ruby''s method chaining\",\n    \"201. Customizing Rails'' Action View Component
+        System\",\n    \"202. Understanding Ruby''s code modularity\",\n    \"203.
+        Rails and Microservices Architecture\",\n    \"204. Ruby''s method composition\",\n    \"205.
+        Customizing Rails'' Action Cable Presence\",\n    \"206. Understanding Ruby''s
+        code reusability\",\n    \"207. Rails and Domain-Driven Design\",\n    \"208.
+        Ruby''s method decorators\",\n    \"209. Customizing Rails'' Action Text Attachments\",\n    \"210.
+        Understanding Ruby''s code readability\",\n    \"211. Rails and Command Query
+        Separation\",\n    \"212. Ruby''s method profiling\",\n    \"213. Customizing
+        Rails'' Action Mailer Previews\",\n    \"214. Understanding Ruby''s code maintainability\",\n    \"215.
+        Rails and Hexagonal Architecture\",\n    \"216. Ruby''s method benchmarking\",\n    \"217.
+        Customizing Rails'' Active Job Retries\",\n    \"218. Understanding Ruby''s
+        code quality\",\n    \"219. Rails and Clean Architecture\",\n    \"220. Ruby''s
+        method caching\",\n    \"221. Customizing Rails'' Action Controller Renderer\",\n    \"222.
+        Understanding Ruby''s code style guides\",\n    \"223. Rails and Clean Code
+        Principles\",\n    \"224. Ruby''s method optimizations\",\n    \"225. Customizing
+        Rails'' Action View Helpers\",\n    \"226. Understanding Ruby''s code standards\",\n    \"227.
+        Rails and Software Design Patterns\",\n    \"228. Ruby''s method refactorings\",\n    \"229.
+        Customizing Rails'' Action Cable Broadcasts\",\n    \"230. Understanding Ruby''s
+        code consistency\",\n    \"231. Rails and Test Automation\",\n    \"232. Ruby''s
+        method naming\",\n    \"233. Customizing Rails'' Active Model Callbacks\",\n    \"234.
+        Understanding Ruby''s code duplication\",\n    \"235. Rails and Code Review
+        Tools\",\n    \"236. Ruby''s method organization\",\n    \"237. Customizing
+        Rails'' Action Mailer Deliveries\",\n    \"238. Understanding Ruby''s code
+        smells\",\n    \"239. Rails and Code Metrics Tools\",\n    \"240. Ruby''s
+        method best practices\",\n    \"241. Customizing Rails'' Action Controller
+        Filters\",\n    \"242. Understanding Ruby''s code maintainability\",\n    \"243.
+        Rails and Agile Methodologies\",\n    \"244. Ruby''s method coding standards\",\n    \"245.
+        Customizing Rails'' Action View Layouts\",\n    \"246. Understanding Ruby''s
+        code modularity\",\n    \"247. Rails and Scrum Framework\",\n    \"248. Ruby''s
+        method guidelines\",\n    \"249. Customizing Rails'' Action Cable Connections\",\n    \"250.
+        Understanding Ruby''s code quality assurance\",\n    \"251. Rails and Kanban
+        Methodology\",\n    \"252. Ruby''s method conventions\",\n    \"253. Customizing
+        Rails'' Active Job Adapters\",\n    \"254. Understanding Ruby''s code structure\",\n    \"255.
+        Rails and Extreme Programming\",\n    \"256. Ruby''s method patterns\",\n    \"257.
+        Customizing Rails'' Action Mailer Layouts\",\n    \"258. Understanding Ruby''s
+        code organization\",\n    \"259. Rails and Lean Software Development\",\n    \"260.
+        Ruby''s method principles\",\n    \"261. Customizing Rails'' Action View Partial
+        Templates\",\n    \"262. Understanding Ruby''s code clarity\",\n    \"263.
+        Rails and Crystal Clear Method\",\n    \"264. Ruby''s method standards\",\n    \"265.
+        Customizing Rails'' Action Controller Concerns\",\n    \"266. Understanding
+        Ruby''s code conciseness\",\n    \"267. Rails and Pair Programming\",\n    \"268.
+        Ruby''s method practices\",\n    \"269. Customizing Rails'' Action Text Editors\",\n    \"270.
+        Understanding Ruby''s code consistency\",\n    \"271. Rails and Code Pair
+        Review\",\n    \"272. Ruby''s method habits\",\n    \"273. Customizing Rails''
+        Action Cable Channels\",\n    \"274. Understanding Ruby''s code complexity\",\n    \"275.
+        Rails and Behavior-Driven Development\",\n    \"276. Ruby''s method quality\",\n    \"277.
+        Customizing Rails'' Active Model Serializers\",\n    \"278. Understanding
+        Ruby''s code maintainability\",\n    \"279. Rails and Acceptance Test-Driven
+        Development\",\n    \"280. Ruby''s method reliability\",\n    \"281. Customizing
+        Rails'' Action Mailer Deliveries\",\n    \"282. Understanding Ruby''s code
+        modularity\",\n    \"283. Rails and Continuous Delivery\",\n    \"284. Ruby''s
+        method scalability\",\n    \"285. Customizing Rails'' Action Controller Renderer\",\n    \"286.
+        Understanding Ruby''s code reusability\",\n    \"287. Rails and Continuous
+        Integration\",\n    \"288. Ruby''s method flexibility\",\n    \"289. Customizing
+        Rails'' Action View Component System\",\n    \"290. Understanding Ruby''s
+        code readability\",\n    \"291. Rails and DevOps Practices\",\n    \"292.
+        Ruby''s method maintainability\",\n    \"293. Customizing Rails'' Action Cable
+        Presence\",\n    \"294. Understanding Ruby''s code style\",\n    \"295. Rails
+        and Site Reliability Engineering\",\n    \"296. Ruby''s method organization\",\n    \"297.
+        Customizing Rails'' Action Mailer Previews\",\n    \"298. Understanding Ruby''s
+        code structure\",\n    \"299. Rails and Chaos Engineering\",\n    \"300. Ruby''s
+        method standards\",\n    \"301. Customizing Rails'' Action Controller Concerns\",\n    \"302.
+        Understanding Ruby''s code clarity\",\n    \"303. Rails and Cloud Engineering\",\n    \"304.
+        Ruby''s method conventions\",\n    \"305. Customizing Rails'' Action View
+        Layouts\",\n    \"306. Understanding Ruby''s code maintainability\",\n    \"307.
+        Rails and Edge Computing\",\n    \"308. Ruby''s method guidelines\",\n    \"309.
+        Customizing Rails'' Action Cable Broadcasts\",\n    \"310. Understanding Ruby''s
+        code quality\",\n    \"311. Rails and Serverless Architecture\",\n    \"312.
+        Ruby''s method best practices\",\n    \"313. Customizing Rails'' Active Job
+        Priority Queues\",\n    \"314. Understanding Ruby''s code reusability\",\n    \"315.
+        Rails and Function as a Service\",\n    \"316. Ruby''s method patterns\",\n    \"317.
+        Customizing Rails'' Action View Helpers\",\n    \"318. Understanding Ruby''s
+        code modularity\",\n    \"319. Rails and Event-Driven Architecture\",\n    \"320.
+        Ruby''s method practices\",\n    \"321. Customizing Rails'' Action Mailer
+        Layouts\",\n    \"322. Understanding Ruby''s code scalability\",\n    \"323.
+        Rails and Microservices Patterns\",\n    \"324. Ruby''s method naming\",\n    \"325.
+        Customizing Rails'' Action Controller Filters\",\n    \"326. Understanding
+        Ruby''s code maintainability\",\n    \"327. Rails and Service-Oriented Architecture\",\n    \"328.
+        Ruby''s method coding standards\",\n    \"329. Customizing Rails'' Action
+        Text Attachments\",\n    \"330. Understanding Ruby''s code clarity\",\n    \"331.
+        Rails and Hexagonal Architecture\",\n    \"332. Ruby''s method guidelines\",\n    \"333.
+        Customizing Rails'' Action Cable Connections\",\n    \"334. Understanding
+        Ruby''s code structure\",\n    \"335. Rails and Clean Architecture\",\n    \"336.
+        Ruby''s method principles\",\n    \"337. Customizing Rails'' Action Mailer
+        Templates\",\n    \"338. Understanding Ruby''s code consistency\",\n    \"339.
+        Rails and Domain-Driven Design\",\n    \"340. Ruby''s method patterns\",\n    \"341.
+        Customizing Rails'' Action View Partial Templates\",\n    \"342. Understanding
+        Ruby''s code modularity\",\n    \"343. Rails and Test-Driven Development\",\n    \"344.
+        Ruby''s method standards\",\n    \"345. Customizing Rails'' Action Cable Presence\",\n    \"346.
+        Understanding Ruby''s code reusability\",\n    \"347. Rails and Behavior-Driven
+        Development\",\n    \"348. Ruby''s method practices\",\n    \"349. Customizing
+        Rails'' Action Mailer Deliveries\",\n    \"350. Understanding Ruby''s code
+        maintainability\",\n    \"351. Rails and Acceptance Testing\",\n    \"352.
+        Ruby''s method best practices\",\n    \"353. Customizing Rails'' Action Controller
+        Renderer\",\n    \"354. Understanding Ruby''s code quality\",\n    \"355.
+        Rails and End-to-End Testing\",\n    \"356. Ruby''s method conventions\",\n    \"357.
+        Customizing Rails'' Action View Layouts\",\n    \"358. Understanding Ruby''s
+        code structure\",\n    \"359. Rails and Automated Testing\",\n    \"360. Ruby''s
+        method guidelines\",\n    \"361. Customizing Rails'' Action Mailer Previews\",\n    \"362.
+        Understanding Ruby''s code clarity\",\n    \"363. Rails and Continuous Testing\",\n    \"364.
+        Ruby''s method standards\",\n    \"365. Customizing Rails'' Action Controller
+        Concerns\"\n  ]\n}","reasoning":"Okay, so the user wants me to generate a
+        JSON object for an AI-powered influencer''s content strategy. The JSON should
+        include exactly 365 unique daily tweet topics. Each topic needs to be brief,
+        tailored to the provided interests, niche, and innovative.\n\nFirst, I need
+        to understand the interests: RUBY, RUBY ON RAILS, WEB DEVELOPMENT, and BACKEND
+        DEVELOPMENT. So the influencer is targeting developers, specifically those
+        in the Ruby and Rails ecosystem, focusing on backend stuff. They probably
+        want to establish themselves as an expert in this niche, providing valuable
+        and engaging content daily.\n\nThe user has specified that each topic must
+        be unique, no repeats. So I''ll have to make sure each of the 365 topics is
+        distinct. They also want the topics to be clear and concise, ideally under
+        100 characters. That means each topic should be a short phrase or question
+        that sparks discussion or provides value without being too lengthy.\n\nI should
+        start by brainstorming categories within these interests. For Ruby, maybe
+        tips, lesser-known features, coding challenges. For Rails, perhaps best practices,
+        project setups, specific gems. Web development could include trends, SEO tips,
+        user experience. Backend development might cover APIs, databases, security.\n\nI''ll
+        also need to ensure the topics are niche and innovative. So instead of generic
+        topics like \"Top 5 Ruby Gems,\" I can get more specific, like \"How to implement
+        a custom validator in Rails models.\" That adds more value and shows expertise.\n\nSince
+        it''s for daily tweets, each topic should encourage interaction. Questions
+        like \"What''s your favorite Ruby gem and why?\" can engage the audience.
+        Maybe include some how-tos, tips, and behind-the-scenes looks into projects
+        to vary the content.\n\nI''ll need to list out these topics systematically,
+        making sure each day covers a different aspect without repeating. It might
+        help to break it down week by week, focusing on different sub-topics each
+        week. For example, one week on Ruby tips, another on Rails best practices,
+        then web dev trends, and so on.\n\nI also need to ensure the JSON structure
+        is correct. The output should be a JSON object with a \"topics\" array, each
+        element being a string in the format \"1. topic\". No additional keys or text.
+        I''ll have to make sure the JSON is valid and properly formatted.\n\nFinally,
+        after compiling the list, I''ll do a quick check for uniqueness and conciseness.
+        Maybe use a tool to count characters and ensure each topic is under 100. Also,
+        ensure that each topic is relevant and tailored to the audience''s interests
+        without being too broad.\n\nAlright, time to draft these topics, keeping all
+        the above considerations in mind. I''ll start numbering them from 1 to 365,
+        making sure each is unique and fits the criteria. Once done, I''ll format
+        them into the JSON structure as specified. Let me get to work on this.\n"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.12198152599999999,"prompt_tokens":236,"prompt_time":0.018132625,"completion_tokens":4405,"completion_time":16.018181818,"total_tokens":4641,"total_time":16.036314443},"system_fingerprint":"fp_2834edf0f4","x_groq":{"id":"req_01jpt9hczsem9vbt7scrk75dxz"}}
+
+        '
+  recorded_at: Thu, 20 Mar 2025 17:27:57 GMT
+- request:
+    method: post
+    uri: https://api.groq.com/openai/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"deepseek-r1-distill-llama-70b","messages":[{"role":"system","content":"Generate
+        a JSON object for a topic-based post. The object should include:\n1. content:
+        A detailed, up-to-date post strictly adhering to the provided topic. The post
+        should:\n   - Begin with the topic title.\n   - Include clear and structured
+        points or numbered lists.\n   - Be engaging and easy to read.\n   - Only include
+        a conclusion section if it is absolutely necessary for clarity or summarization.
+        If the content is already clear and complete, do not append a conclusion.\n   -
+        Reflect current information without referencing outdated events.\n2. images:
+        Optional image prompts that visually complement the post content. Decide whether
+        to include images based on the nature of the content:\n   - If the topic naturally
+        benefits from visual representation (e.g., art, locations, step-by-step guides),
+        include 1 or 2 extremely detailed image prompts.\n   - If visual context does
+        not add significant value, leave the images field as an empty array.\n   -
+        **Important:** These image prompts will be used by another generative AI to
+        produce images. Therefore, the descriptions must be extremely detailed—vividly
+        describing the scene, colors, composition, and style—while being mindful of
+        AI limitations. In particular, avoid including excessive text within the image
+        prompt since generating text in images can be challenging.\n3. tags: Mandatory
+        interest-based tags generated in two categories:\n   a. **Niche Tags (3-5
+        tags):** Capture the specific subject matter or context of the post.\n      -
+        Must include at least one tag that explicitly classifies the niche domain
+        of the content.\n      - The domain classification tag should be as broad
+        as possible, directly tied to the content, and unambiguous.\n      - Avoid
+        overly technical or narrow terms.\n   b. **General Tags (7-10 tags):** Represent
+        broad topics with universal appeal and indicate the overall domain of the
+        content.\n      - Must include at least one tag that explicitly classifies
+        the general domain of the content.\n      - The domain classification tag
+        should be as broad as possible, directly tied to the content, and unambiguous.\n   -
+        **Do not repeat tags:** Ensure that no tag appears in both the niche and general
+        categories.\n   - Tags should be generic, engaging, and interesting—optimized
+        for user curiosity and discoverability.\n   - All tags must be lemmatized
+        (reduced to their base form).\n   - **Directness Requirement:** Every tag
+        must be 100% directly related to the post content with zero ambiguity.\n   -
+        If a compound topic exists (e.g., \"ruby on rails\"), include:\n     - The
+        full compound topic.\n     - Key components if they are relevant as standalone
+        interests (e.g., \"ruby\").\n     - Standalone components should be weighted
+        at 90% of the compound tag''s weight, rounded to the nearest multiple of 5.\n   -
+        Use only lowercase alphanumeric characters and spaces (no punctuation, special
+        symbols, dashes, or underscores).\n\n# Weighting System for Tags\n- Each tag
+        must be assigned a weight from 1 to 100.\n  - **Niche tags:** Weights should
+        fall between 85 and 100 (most specific and targeted).\n  - **General tags:**
+        Weights should fall between 60 and 85 (broad and widely relevant).\n\nOutput:\nA
+        JSON object with the format:\n\n{\n  \"content\": \"Topic Title\n\n  A detailed
+        post about the topic using bullet points or numbers. [Include a conclusion
+        section only if absolutely necessary]\",\n  \"images\": [\n    \"Extremely
+        detailed image prompt 1\",\n    \"Extremely detailed image prompt 2\"\n  ],\n  \"tags\":
+        {\n    \"niche\": {\n      \"tag1\": weight1,\n      \"tag2\": weight2,\n      ...\n    },\n    \"general\":
+        {\n      \"tag1\": weight1,\n      \"tag2\": weight2,\n      ...\n    }\n  }\n}\n\nGuidelines:\n-
+        Ensure the content is detailed, up-to-date, structured, and closely related
+        to the topic.\n- For the images field, use logical reasoning to decide whether
+        to include images:\n     - If the topic naturally lends itself to visual illustration
+        or benefits from visual context, include 1 or 2 extremely detailed image prompts.\n     -
+        Otherwise, leave the images field as an empty array.\n- **Important:** The
+        image prompts will be used by another generative AI to create images, so the
+        descriptions must be crafted with its limitations in mind (e.g., difficulty
+        in rendering excessive text).\n- Only include a conclusion in the post content
+        if it is absolutely necessary for clarity or summarization.\n- Do not include
+        personal opinions or time-specific elements.\n"},{"role":"user","content":"Ruby
+        gems you might not know"}],"max_tokens":32768,"temperature":0,"response_format":{"type":"json_object"}}'
+    headers:
+      Authorization:
+      - Bearer <GROQ_API_KEY>
+      User-Agent:
+      - groq-ruby/0.3.2
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 20 Mar 2025 17:35:23 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private, max-age=0, no-store, no-cache, must-revalidate
+      Vary:
+      - Origin
+      X-Groq-Region:
+      - gcp-asia-south1
+      X-Ratelimit-Limit-Requests:
+      - '1000'
+      X-Ratelimit-Limit-Tokens:
+      - '6000'
+      X-Ratelimit-Remaining-Requests:
+      - '999'
+      X-Ratelimit-Remaining-Tokens:
+      - '4884'
+      X-Ratelimit-Reset-Requests:
+      - 1m26.4s
+      X-Ratelimit-Reset-Tokens:
+      - 11.16s
+      X-Request-Id:
+      - req_01jpt9zbv3ep48yvdb7ncywzed
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=yREnHVoDBavnGxtY7HPz0SRuPBD_Jin0rvWTX817pUM-1742492123-1.0.1.1-gnlMUOclORutwpQ5pj85b.3xlLfdUkB1KdIvahQeXtRr1z9ihyS.GRZOeHrSJKnLb22a7xBxmkSSqahQj.XCkweo0AgzQsKVTLjz05yUNhs;
+        path=/; expires=Thu, 20-Mar-25 18:05:23 GMT; domain=.groq.com; HttpOnly; Secure;
+        SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 9236f71ee8b75a12-DEL
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpZCI6ImNoYXRjbXBsLWQ2YzNhY2FlLTIwMmEtNDAwZC04NjNhLTc0MWY4NDhkNjVkNSIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbiIsImNyZWF0ZWQiOjE3NDI0OTIxMTgsIm1vZGVsIjoiZGVlcHNlZWstcjEtZGlzdGlsbC1sbGFtYS03MGIiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwibWVzc2FnZSI6eyJyb2xlIjoiYXNzaXN0YW50IiwiY29udGVudCI6IntcbiAgXCJjb250ZW50XCI6IFwiUnVieSBHZW1zIFlvdSBNaWdodCBOb3QgS25vd1xcblxcbjEuICoqUnVieSBHZW1zKiogYXJlIGxpYnJhcmllcyB0aGF0IGV4dGVuZCB0aGUgZnVuY3Rpb25hbGl0eSBvZiB0aGUgUnVieSBwcm9ncmFtbWluZyBsYW5ndWFnZSwgYWxsb3dpbmcgZGV2ZWxvcGVycyB0byBhZGQgc3BlY2lmaWMgZmVhdHVyZXMgdG8gdGhlaXIgYXBwbGljYXRpb25zIHdpdGhvdXQgcmVpbnZlbnRpbmcgdGhlIHdoZWVsLiBCZWxvdyBhcmUgc29tZSBsZXNzZXIta25vd24gUnVieSBnZW1zIHRoYXQgY2FuIGVuaGFuY2UgeW91ciBkZXZlbG9wbWVudCB3b3JrZmxvdzpcXG5cXG4yLiAqKkFyZWwqKjogQXJlbCBzdGFuZHMgZm9yIEEgUmVsYXRpb25hbCBBbGdlYnJhLiBJdOKAmXMgYSBTUUwgQVNUIG1hbmFnZXIgZm9yIFJ1YnksIHdoaWNoIGFsbG93cyB5b3UgdG8gYnVpbGQgYW5kIG1hbmlwdWxhdGUgU1FMIHF1ZXJpZXMgaW4gYSBzYWZlIGFuZCBlbGVnYW50IHdheS4gSXTigJlzIHBhcnRpY3VsYXJseSB1c2VmdWwgZm9yIGNvbXBsZXggZGF0YWJhc2UgcXVlcmllcyBhbmQgaXMgdGhlIGZvdW5kYXRpb24gb2YgQWN0aXZlUmVjb3JkLlxcblxcbjMuICoqIHByeSoqOiBQcnkgaXMgYW4gYWx0ZXJuYXRpdmUgdG8gdGhlIHN0YW5kYXJkIElSQiAoSW50ZXJhY3RpdmUgUnVieSkgc2hlbGwuIEl0IG9mZmVycyBhIG1vcmUgcG93ZXJmdWwgYW5kIGZsZXhpYmxlIHdheSB0byBleHBsb3JlIGFuZCBkZWJ1ZyB5b3VyIGNvZGUuIEZlYXR1cmVzIGluY2x1ZGUgc3ludGF4IGhpZ2hsaWdodGluZywgY29kZSBjb21wbGV0aW9uLCBhbmQgdGhlIGFiaWxpdHkgdG8gbmF2aWdhdGUgeW91ciBhcHBsaWNhdGlvbuKAmXMgY29kZWJhc2UuXFxuXFxuNC4gKipOb2tvZ2lyaSoqOiBOb2tvZ2lyaSBpcyBhIGdlbSBmb3IgcGFyc2luZyBhbmQgbWFuaXB1bGF0aW5nIEhUTUwgYW5kIFhNTCBkb2N1bWVudHMuIEl04oCZcyBidWlsdCBvbiB0b3Agb2YgdGhlIGxpYnhtbCBhbmQgbGlieHNsdCBsaWJyYXJpZXMsIG1ha2luZyBpdCBmYXN0IGFuZCBlZmZpY2llbnQuIEl04oCZcyBvZnRlbiB1c2VkIGZvciB3ZWIgc2NyYXBpbmcgYW5kIGRhdGEgZXh0cmFjdGlvbi5cXG5cXG41LiAqKlNpZGVraXEqKjogU2lkZWtpcSBpcyBhIGJhY2tncm91bmQgam9iIGZyYW1ld29yayBmb3IgUnVieS4gSXQgYWxsb3dzIHlvdSB0byBvZmZsb2FkIHRhc2tzIGZyb20geW91ciBhcHBsaWNhdGlvbuKAmXMgbWFpbiB0aHJlYWQsIGltcHJvdmluZyBwZXJmb3JtYW5jZSBhbmQgcmVzcG9uc2l2ZW5lc3MuIEl0IHN1cHBvcnRzIHF1ZXVlcywgcmV0cmllcywgYW5kIGhhcyBhIHdlYiBpbnRlcmZhY2UgZm9yIG1vbml0b3Jpbmcgam9icy5cXG5cXG42LiAqKlB1bWEqKjogUHVtYSBpcyBhIGZhc3QgYW5kIHNjYWxhYmxlIHdlYiBzZXJ2ZXIgZm9yIFJ1YnkgYW5kIFJhY2sgYXBwbGljYXRpb25zLiBJdOKAmXMgZGVzaWduZWQgdG8gaGFuZGxlIGhpZ2ggY29uY3VycmVuY3kgYW5kIGlzIHRoZSBkZWZhdWx0IHNlcnZlciBmb3IgUmFpbHMgYXBwbGljYXRpb25zIHN0YXJ0aW5nIGZyb20gdmVyc2lvbiA1LiBJdCBzdXBwb3J0cyBib3RoIEhUVFAvMS4xIGFuZCBIVFRQLzIuXFxuXFxuNy4gKipCdW5kbGVyKio6IEJ1bmRsZXIgaXMgYSBnZW0gdGhhdCBtYW5hZ2VzIHlvdXIgYXBwbGljYXRpb27igJlzIGRlcGVuZGVuY2llcy4gSXQgZW5zdXJlcyB0aGF0IGFsbCB0aGUgZ2VtcyB5b3VyIGFwcGxpY2F0aW9uIHJlbGllcyBvbiBhcmUgaW5zdGFsbGVkIGFuZCB1cC10by1kYXRlLiBJdOKAmXMgYW4gZXNzZW50aWFsIHRvb2wgZm9yIG1haW50YWluaW5nIGEgY29uc2lzdGVudCBhbmQgcmVwcm9kdWNpYmxlIGRldmVsb3BtZW50IGVudmlyb25tZW50LlxcblxcbjguICoqUmFrZSoqOiBSYWtlIGlzIGEgYnVpbGQgdG9vbCBmb3IgUnVieS4gSXQgYWxsb3dzIHlvdSB0byBhdXRvbWF0ZSB0YXNrcyBzdWNoIGFzIHJ1bm5pbmcgdGVzdHMsIGJ1aWxkaW5nIGRvY3VtZW50YXRpb24sIGFuZCBkZXBsb3lpbmcgYXBwbGljYXRpb25zLiBJdOKAmXMgc2ltaWxhciB0byBNYWtlIGJ1dCBpcyB3cml0dGVuIGluIFJ1YnkgYW5kIGlzIG1vcmUgZmxleGlibGUgYW5kIGV4dGVuc2libGUuXFxuXFxuOS4gKipSZXNxdWUqKjogUmVzcXVlIGlzIGFub3RoZXIgYmFja2dyb3VuZCBqb2IgcXVldWUgc3lzdGVtIGZvciBSdWJ5LiBJdOKAmXMgYmFja2VkIGJ5IFJlZGlzIGFuZCBhbGxvd3MgeW91IHRvIHF1ZXVlIGFuZCBwcm9jZXNzIGpvYnMgYXN5bmNocm9ub3VzbHkuIEl04oCZcyBzaW1wbGUgdG8gc2V0IHVwIGFuZCB1c2UsIG1ha2luZyBpdCBhIGdvb2QgY2hvaWNlIGZvciBzbWFsbCB0byBtZWRpdW0tc2l6ZWQgYXBwbGljYXRpb25zLlxcblxcbjEwLiAqKkZhY3RvcnlCb3QqKjogRmFjdG9yeUJvdCBpcyBhIGdlbSBmb3IgY3JlYXRpbmcgdGVzdCBmaXh0dXJlcy4gSXQgYWxsb3dzIHlvdSB0byBkZWZpbmUgZmFjdG9yaWVzIGZvciB5b3VyIG1vZGVscywgbWFraW5nIGl0IGVhc3kgdG8gZ2VuZXJhdGUgdGVzdCBkYXRhLiBJdOKAmXMgYSBwb3B1bGFyIGFsdGVybmF0aXZlIHRvIFJhaWxz4oCZIGJ1aWx0LWluIGZpeHR1cmVzIGFuZCBpcyBrbm93biBmb3IgaXRzIHNpbXBsaWNpdHkgYW5kIGZsZXhpYmlsaXR5LlxcblxcblRoZXNlIGdlbXMgY2FuIGhlbHAgeW91IHN0cmVhbWxpbmUgeW91ciBkZXZlbG9wbWVudCBwcm9jZXNzLCBpbXByb3ZlIHBlcmZvcm1hbmNlLCBhbmQgYWRkIG5ldyBmdW5jdGlvbmFsaXRpZXMgdG8geW91ciBSdWJ5IGFwcGxpY2F0aW9ucy5cIixcbiAgXCJpbWFnZXNcIjogW10sXG4gIFwidGFnc1wiOiB7XG4gICAgXCJuaWNoZVwiOiB7XG4gICAgICBcInJ1YnlcIjogMTAwLFxuICAgICAgXCJydWJ5IGdlbXNcIjogOTUsXG4gICAgICBcInJ1YnkgbGlicmFyaWVzXCI6IDkwXG4gICAgfSxcbiAgICBcImdlbmVyYWxcIjoge1xuICAgICAgXCJzb2Z0d2FyZSBkZXZlbG9wbWVudFwiOiA4NSxcbiAgICAgIFwiY29kaW5nXCI6IDgwLFxuICAgICAgXCJ3ZWIgZGV2ZWxvcG1lbnRcIjogNzUsXG4gICAgICBcInRlY2hub2xvZ3lcIjogNzAsXG4gICAgICBcImRldmVsb3BlciB0b29sc1wiOiA2NSxcbiAgICAgIFwib3BlbiBzb3VyY2VcIjogNzUsXG4gICAgICBcImNvZGluZyB0aXBzXCI6IDcwXG4gICAgfVxuICB9XG59IiwicmVhc29uaW5nIjoiT2theSwgc28gSSBuZWVkIHRvIGNyZWF0ZSBhIEpTT04gb2JqZWN0IGZvciBhIHRvcGljLWJhc2VkIHBvc3QgYWJvdXQgXCJSdWJ5IEdlbXMgWW91IE1pZ2h0IE5vdCBLbm93LlwiIExldCBtZSBicmVhayBkb3duIHRoZSByZXF1aXJlbWVudHMgc3RlcCBieSBzdGVwLlxuXG5GaXJzdCwgdGhlIGNvbnRlbnQuIEl0IHNob3VsZCBzdGFydCB3aXRoIHRoZSB0b3BpYyB0aXRsZSBhbmQgaW5jbHVkZSBjbGVhciwgc3RydWN0dXJlZCBwb2ludHMuIEkgc2hvdWxkIG1ha2UgaXQgZW5nYWdpbmcgYW5kIGVhc3kgdG8gcmVhZC4gU2luY2UgdGhlIHRvcGljIGlzIGFib3V0IFJ1YnkgZ2VtcywgSSBjYW4gbGlzdCBzb21lIGxlc3Nlci1rbm93biBvbmVzLCBleHBsYWluaW5nIGVhY2ggYnJpZWZseS4gSSBkb24ndCB0aGluayBhIGNvbmNsdXNpb24gaXMgbmVjZXNzYXJ5IGhlcmUgYmVjYXVzZSBlYWNoIHBvaW50IGlzIHNlbGYtZXhwbGFuYXRvcnkuXG5cbk5leHQsIGltYWdlcy4gVGhlIHRvcGljIGlzIGFib3V0IFJ1YnkgZ2Vtcywgd2hpY2ggYXJlIHByb2dyYW1taW5nIGxpYnJhcmllcy4gVmlzdWFscyBtaWdodCBub3QgYWRkIG11Y2ggdmFsdWUgaGVyZSBzaW5jZSBpdCdzIG1vcmUgYWJvdXQgY29kZSB0aGFuIHZpc3VhbHMuIFNvLCBJJ2xsIGxlYXZlIHRoZSBpbWFnZXMgYXJyYXkgZW1wdHkuXG5cbk5vdywgdGFncy4gSSBuZWVkIHRvIHNwbGl0IHRoZW0gaW50byBuaWNoZSBhbmQgZ2VuZXJhbC4gRm9yIG5pY2hlIHRhZ3MsIEkgc2hvdWxkIGhhdmUgMy01IHNwZWNpZmljIHRhZ3MuIFNpbmNlIHRoZSB0b3BpYyBpcyBhYm91dCBSdWJ5IGdlbXMsIFwicnVieVwiIGFuZCBcInJ1YnkgZ2Vtc1wiIGFyZSBvYnZpb3VzLiBNYXliZSBhZGQgXCJwcm9ncmFtbWluZ1wiIGFzIGEgYnJvYWRlciBuaWNoZSB0YWcuIFdhaXQsIGJ1dCBcInByb2dyYW1taW5nXCIgaXMgbW9yZSBnZW5lcmFsLiBIbW0sIG1heWJlIFwicnVieSBsaWJyYXJpZXNcIiBhcyBhbm90aGVyIG5pY2hlIHRhZy4gVGhhdCBnaXZlcyBtZSB0aHJlZSBuaWNoZSB0YWdzLlxuXG5Gb3IgZ2VuZXJhbCB0YWdzLCBJIG5lZWQgNy0xMC4gVGhleSBzaG91bGQgYmUgYnJvYWRlciBidXQgc3RpbGwgcmVsZXZhbnQuIFwiU29mdHdhcmUgZGV2ZWxvcG1lbnQsXCIgXCJjb2RpbmcsXCIgXCJ3ZWIgZGV2ZWxvcG1lbnQsXCIgXCJ0ZWNobm9sb2d5LFwiIFwiZGV2ZWxvcGVyIHRvb2xzLFwiIFwib3BlbiBzb3VyY2UsXCIgYW5kIFwiY29kaW5nIHRpcHNcIiBzZWVtIGFwcHJvcHJpYXRlLiBFYWNoIG9mIHRoZXNlIGlzIGJyb2FkIGFuZCBkaXJlY3RseSByZWxhdGVkIHRvIHRoZSBjb250ZW50LlxuXG5Bc3NpZ25pbmcgd2VpZ2h0czogTmljaGUgdGFncyBzaG91bGQgYmUgODUtMTAwLiBJJ2xsIGdpdmUgXCJydWJ5XCIgMTAwLCBcInJ1YnkgZ2Vtc1wiIDk1LCBhbmQgXCJydWJ5IGxpYnJhcmllc1wiIDkwLiBGb3IgZ2VuZXJhbCB0YWdzLCB3ZWlnaHRzIGJldHdlZW4gNjAtODUuIFwiU29mdHdhcmUgZGV2ZWxvcG1lbnRcIiBhdCA4NSwgXCJjb2RpbmdcIiBhdCA4MCwgXCJ3ZWIgZGV2ZWxvcG1lbnRcIiBhdCA3NSwgXCJ0ZWNobm9sb2d5XCIgYXQgNzAsIFwiZGV2ZWxvcGVyIHRvb2xzXCIgYXQgNjUsIFwib3BlbiBzb3VyY2VcIiBhdCA3NSwgYW5kIFwiY29kaW5nIHRpcHNcIiBhdCA3MC5cblxuSSBuZWVkIHRvIGVuc3VyZSBubyB0YWdzIGFyZSByZXBlYXRlZCBiZXR3ZWVuIG5pY2hlIGFuZCBnZW5lcmFsLiBBbHNvLCBhbGwgdGFncyBtdXN0IGJlIGluIGxvd2VyY2FzZSB3aXRob3V0IGFueSBzcGVjaWFsIGNoYXJhY3RlcnMuXG5cblB1dHRpbmcgaXQgYWxsIHRvZ2V0aGVyLCB0aGUgSlNPTiBzdHJ1Y3R1cmUgc2hvdWxkIGhhdmUgdGhlIGNvbnRlbnQgYXMgYSBzdHJpbmcgd2l0aCB0aGUgdG9waWMgYW5kIGJ1bGxldCBwb2ludHMsIGFuIGVtcHR5IGltYWdlcyBhcnJheSwgYW5kIHRoZSB0YWdzIG9iamVjdCB3aXRoIG5pY2hlIGFuZCBnZW5lcmFsIHNlY3Rpb25zLCBlYWNoIGNvbnRhaW5pbmcgdGhlIHJlc3BlY3RpdmUgdGFncyBhbmQgdGhlaXIgd2VpZ2h0cy5cbiJ9LCJsb2dwcm9icyI6bnVsbCwiZmluaXNoX3JlYXNvbiI6InN0b3AifV0sInVzYWdlIjp7InF1ZXVlX3RpbWUiOjAuMDUzODY4NjkzOTk5OTk5OTk1LCJwcm9tcHRfdG9rZW5zIjo5NjAsInByb21wdF90aW1lIjowLjA3MzU3NTg0NywiY29tcGxldGlvbl90b2tlbnMiOjExNjQsImNvbXBsZXRpb25fdGltZSI6NC4yMzI3MjcyNzMsInRvdGFsX3Rva2VucyI6MjEyNCwidG90YWxfdGltZSI6NC4zMDYzMDMxMn0sInN5c3RlbV9maW5nZXJwcmludCI6ImZwXzI4MzRlZGYwZjQiLCJ4X2dyb3EiOnsiaWQiOiJyZXFfMDFqcHQ5emJ2M2VwNDh5dmRiN25jeXd6ZWQifX0K
+  recorded_at: Thu, 20 Mar 2025 17:35:23 GMT
+- request:
+    method: post
+    uri: https://api.groq.com/openai/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"deepseek-r1-distill-llama-70b","messages":[{"role":"system","content":"Generate
+        a JSON object for an AI-powered influencer''s content strategy. The object
+        should include a tweet topic timeline comprising exactly 365 daily tweet topics.
+        Each topic must be:\n\n- Unique with no repetitions.\n- Brief (ideally under
+        100 characters).\n- Specifically tailored to the provided interests.\n- Niche
+        and innovative, avoiding generic ideas.\n\nRequirements:\n1. Create 365 topics
+        formatted as numbered strings (e.g., \"1. topic1\", \"2. topic2\", etc.).\n2.
+        Each topic should be clear, concise, and directly reflect the given interests.\n3.
+        Do not include any additional keys or explanatory text in the JSON output.\n4.
+        Ensure the output is a valid JSON object with the following structure:\n\n{\n  \"topics\":
+        [\n    \"1. topic1\",\n    \"2. topic2\",\n    \"3. topic3\",\n    ...\n    \"365.
+        topic365\"\n  ]\n}\n\nTailor each topic to inspire engaging, daily tweets
+        that resonate with the niche audience.\n"},{"role":"user","content":"RUBY,
+        RUBY ON RAILS, WEB DEVELOPEMT, BACKEND DEVELOPMENT"}],"max_tokens":32768,"temperature":1,"response_format":{"type":"json_object"}}'
+    headers:
+      Authorization:
+      - Bearer <GROQ_API_KEY>
+      User-Agent:
+      - groq-ruby/0.3.2
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 20 Mar 2025 17:35:45 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private, max-age=0, no-store, no-cache, must-revalidate
+      Vary:
+      - Origin
+      X-Groq-Region:
+      - gcp-asia-south1
+      X-Ratelimit-Limit-Requests:
+      - '1000'
+      X-Ratelimit-Limit-Tokens:
+      - '6000'
+      X-Ratelimit-Remaining-Requests:
+      - '998'
+      X-Ratelimit-Remaining-Tokens:
+      - '3667'
+      X-Ratelimit-Reset-Requests:
+      - 2m48.068s
+      X-Ratelimit-Reset-Tokens:
+      - 23.326s
+      X-Request-Id:
+      - req_01jpt9zgf0ep4846g7q1vqsbt7
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=taIoeX_g.yhNKNW5PABvQuIoQ1EUBaYMEJYZNsDRmcA-1742492145-1.0.1.1-9MtME6jiBnxZZK_R2_8rkcM.u_ZkUwaRlTzXcCg8KfTqEAV5D82PdSUPP5MqfICKkGt.06W0ZcQhdXwqT2OV8HWsLLvU6aK_pljXrwvfloM;
+        path=/; expires=Thu, 20-Mar-25 18:05:45 GMT; domain=.groq.com; HttpOnly; Secure;
+        SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 9236f73b5edca788-DEL
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpZCI6ImNoYXRjbXBsLTQ4OTkwOWZmLTE2ODYtNDQzYy1hZmE3LTFmOTVkMTg1YjI4NyIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbiIsImNyZWF0ZWQiOjE3NDI0OTIxMjQsIm1vZGVsIjoiZGVlcHNlZWstcjEtZGlzdGlsbC1sbGFtYS03MGIiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwibWVzc2FnZSI6eyJyb2xlIjoiYXNzaXN0YW50IiwiY29udGVudCI6IntcbiAgXCJ0b3BpY3NcIjogW1xuICAgIFwiMS4gRXhwbG9yaW5nIFJ1YnkncyBtZXRhcHJvZ3JhbW1pbmcgY2FwYWJpbGl0aWVzLlwiLFxuICAgIFwiMi4gVG9wIFJ1YnkgZ2VtcyBmb3IgYmFja2VuZCBkZXZlbG9wbWVudCBpbiAyMDIzLlwiLFxuICAgIFwiMy4gVW5kZXJzdGFuZGluZyBSYWlscycgQWN0aXZlUmVjb3JkIHF1ZXJ5IG9wdGltaXphdGlvbi5cIixcbiAgICBcIjQuIEJ1aWxkaW5nIFJFU1RmdWwgQVBJcyB3aXRoIFJ1Ynkgb24gUmFpbHMuXCIsXG4gICAgXCI1LiBCZXN0IHByYWN0aWNlcyBmb3IgUnVieSBjb2RlIHJlYWRhYmlsaXR5LlwiLFxuICAgIFwiNi4gSG93IHRvIGltcGxlbWVudCBXZWJTb2NrZXRzIGluIGEgUmFpbHMgYXBwLlwiLFxuICAgIFwiNy4gUnVieSBvbiBSYWlscyB2cy4gRGphbmdvIGZvciBiYWNrZW5kIGRldmVsb3BtZW50LlwiLFxuICAgIFwiOC4gQWR2YW5jZWQgUnVieSBlbnVtZXJhdGlvbiB0ZWNobmlxdWVzLlwiLFxuICAgIFwiOS4gT3B0aW1pemluZyBkYXRhYmFzZSBxdWVyaWVzIGluIFJhaWxzIGFwcGxpY2F0aW9ucy5cIixcbiAgICBcIjEwLiBVc2luZyBSdWJ5J3MgbGFtYmRhIGZ1bmN0aW9ucyBlZmZlY3RpdmVseS5cIixcbiAgICBcIjExLiBDcmVhdGluZyBtaWNyb3NlcnZpY2VzIHdpdGggUnVieSBvbiBSYWlscy5cIixcbiAgICBcIjEyLiBEZWJ1Z2dpbmcgY29tbW9uIFJ1Ynkgb24gUmFpbHMgaXNzdWVzLlwiLFxuICAgIFwiMTMuIEludHJvZHVjdGlvbiB0byBSdWJ5J3Mgb2JqZWN0IG1vZGVsLlwiLFxuICAgIFwiMTQuIEhvdyB0byBzdHJ1Y3R1cmUgYSBSYWlscyBwcm9qZWN0IGZvciBzY2FsYWJpbGl0eS5cIixcbiAgICBcIjE1LiBSdWJ5J3MgY29uY3VycmVuY3kgbW9kZWwgZXhwbGFpbmVkLlwiLFxuICAgIFwiMTYuIEJlc3QgUnVieSBvbiBSYWlscyBwcmFjdGljZXMgZm9yIHRlYW0gY29sbGFib3JhdGlvbi5cIixcbiAgICBcIjE3LiBVbmRlcnN0YW5kaW5nIFJ1YnkncyBtb2R1bGUgc3lzdGVtLlwiLFxuICAgIFwiMTguIEhvdyB0byBpbXBsZW1lbnQgY2FjaGluZyBpbiBSYWlscyBhcHBsaWNhdGlvbnMuXCIsXG4gICAgXCIxOS4gUnVieSBvbiBSYWlscyBzZWN1cml0eSBiZXN0IHByYWN0aWNlcy5cIixcbiAgICBcIjIwLiBFeHBsb3JpbmcgUnVieSdzIGVudW1lcmFibGUgbWV0aG9kcy5cIixcbiAgICBcIjIxLiBIb3cgdG8gdXNlIFJ1YnkncyBiaW5kaW5nIGZvciBtZXRhcHJvZ3JhbW1pbmcuXCIsXG4gICAgXCIyMi4gQnVpbGRpbmcgYSBSYWlscyBBUEkgZnJvbSBzY3JhdGNoLlwiLFxuICAgIFwiMjMuIFJ1YnkncyBzaW5nbGV0b24gY2xhc3NlcyBhbmQgdGhlaXIgdXNlIGNhc2VzLlwiLFxuICAgIFwiMjQuIEhvdyB0byB1c2UgUnVieSdzIGRlbGVnYXRlcyBmb3IgY2xlYW5lciBjb2RlLlwiLFxuICAgIFwiMjUuIE9wdGltaXppbmcgYXNzZXQgZGVsaXZlcnkgaW4gUmFpbHMgYXBwbGljYXRpb25zLlwiLFxuICAgIFwiMjYuIFJ1YnkncyBtZXRob2RfbWlzc2luZyBhbmQgaXRzIGFwcGxpY2F0aW9ucy5cIixcbiAgICBcIjI3LiBIb3cgdG8gaW1wbGVtZW50IGF1dGhlbnRpY2F0aW9uIGluIFJhaWxzIHVzaW5nIERldmlzZS5cIixcbiAgICBcIjI4LiBVbmRlcnN0YW5kaW5nIFJ1YnkncyBtZW1vcnkgbWFuYWdlbWVudC5cIixcbiAgICBcIjI5LiBIb3cgdG8gdXNlIFJ1YnkncyBvYnNlcnZlciBwYXR0ZXJuIGZvciByYWlscyBhcHBzLlwiLFxuICAgIFwiMzAuIEJlc3QgcHJhY3RpY2VzIGZvciBSYWlscyBtb2RlbCB2YWxpZGF0aW9uLlwiLFxuICAgIFwiMzEuIFJ1YnkncyBtZXRob2QgY2hhaW5pbmcgYW5kIGl0cyBiZW5lZml0cy5cIixcbiAgICBcIjMyLiBIb3cgdG8gaW1wbGVtZW50IGJhY2tncm91bmQgam9icyBpbiBSYWlscy5cIixcbiAgICBcIjMzLiBVbmRlcnN0YW5kaW5nIFJ1YnkncyBjbGFzcyBoaWVyYXJjaHkuXCIsXG4gICAgXCIzNC4gSG93IHRvIHVzZSBSdWJ5J3MgbWl4aW5zIGVmZmVjdGl2ZWx5LlwiLFxuICAgIFwiMzUuIEJlc3QgcHJhY3RpY2VzIGZvciBSYWlscyByb3V0ZSBkZWZpbml0aW9ucy5cIixcbiAgICBcIjM2LiBSdWJ5J3MgbWV0aG9kIG92ZXJyaWRpbmcgYW5kIGl0cyBpbXBsaWNhdGlvbnMuXCIsXG4gICAgXCIzNy4gSG93IHRvIHVzZSBSdWJ5J3MgcHJvY3MgZm9yIGNsZWFuZXIgY29kZS5cIixcbiAgICBcIjM4LiBVbmRlcnN0YW5kaW5nIFJ1YnkncyB0cnV0aHkgYW5kIGZhbHN5IHZhbHVlcy5cIixcbiAgICBcIjM5LiBIb3cgdG8gaW1wbGVtZW50IGludGVybmF0aW9uYWxpemF0aW9uIGluIFJhaWxzLlwiLFxuICAgIFwiNDAuIFJ1YnkncyBvYmplY3Qgb3JpZW50YXRpb24gYW5kIGl0cyBiZW5lZml0cy5cIixcbiAgICBcIjQxLiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgbWlncmF0aW9uIGZpbGVzLlwiLFxuICAgIFwiNDIuIEhvdyB0byB1c2UgUnVieSdzIHRhcCBtZXRob2QgZWZmZWN0aXZlbHkuXCIsXG4gICAgXCI0My4gVW5kZXJzdGFuZGluZyBSdWJ5J3MgY2xhc3MgdmFyaWFibGVzIGFuZCBjb25zdGFudHMuXCIsXG4gICAgXCI0NC4gSG93IHRvIGltcGxlbWVudCBjYWNoaW5nIHN0cmF0ZWdpZXMgaW4gUmFpbHMuXCIsXG4gICAgXCI0NS4gUnVieSdzIHJlZmxlY3Rpb24gY2FwYWJpbGl0aWVzIGFuZCB0aGVpciB1c2VzLlwiLFxuICAgIFwiNDYuIEhvdyB0byB1c2UgUnVieSdzIHNlbmQgbWV0aG9kIHNhZmVseS5cIixcbiAgICBcIjQ3LiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgZGF0YWJhc2Ugc2NoZW1hIGRlc2lnbi5cIixcbiAgICBcIjQ4LiBSdWJ5J3MgbWV0aG9kIGRlZmluaXRpb25zIGFuZCBzeW50YXguXCIsXG4gICAgXCI0OS4gSG93IHRvIGltcGxlbWVudCBjdXN0b20gdmFsaWRhdGlvbnMgaW4gUmFpbHMuXCIsXG4gICAgXCI1MC4gVW5kZXJzdGFuZGluZyBSdWJ5J3MgZXhjZXB0aW9uIGhhbmRsaW5nLlwiLFxuICAgIFwiNTEuIEhvdyB0byB1c2UgUnVieSdzIGR5bmFtaWMgbWV0aG9kIGludm9jYXRpb24uXCIsXG4gICAgXCI1Mi4gQmVzdCBwcmFjdGljZXMgZm9yIFJhaWxzIGNvbnRyb2xsZXIgYWN0aW9ucy5cIixcbiAgICBcIjUzLiBSdWJ5J3MgdmFyaWFibGUgc2NvcGluZyBhbmQgaXRzIG51YW5jZXMuXCIsXG4gICAgXCI1NC4gSG93IHRvIGltcGxlbWVudCBSYWlscyBlbmdpbmUgcGx1Z2lucy5cIixcbiAgICBcIjU1LiBVbmRlcnN0YW5kaW5nIFJ1YnkncyBjbGFzcyBpbmhlcml0YW5jZS5cIixcbiAgICBcIjU2LiBIb3cgdG8gdXNlIFJ1YnkncyBjbG9zdXJlcyBmb3IgYmV0dGVyIGNvZGUuXCIsXG4gICAgXCI1Ny4gQmVzdCBwcmFjdGljZXMgZm9yIFJhaWxzIG1vZGVsIGFzc29jaWF0aW9ucy5cIixcbiAgICBcIjU4LiBSdWJ5J3Mgb3BlcmF0b3Igb3ZlcmxvYWRpbmcgYW5kIGl0cyB1c2VzLlwiLFxuICAgIFwiNTkuIEhvdyB0byBpbXBsZW1lbnQgY3VzdG9tIHJvdXRlcyBpbiBSYWlscy5cIixcbiAgICBcIjYwLiBVbmRlcnN0YW5kaW5nIFJ1YnkncyBsYW1iZGEgY2FsY3VsdXMgaW5mbHVlbmNlcy5cIixcbiAgICBcIjYxLiBIb3cgdG8gdXNlIFJ1YnkncyBjYXNlIHN0YXRlbWVudHMgZWZmZWN0aXZlbHkuXCIsXG4gICAgXCI2Mi4gQmVzdCBwcmFjdGljZXMgZm9yIFJhaWxzIHZpZXcgdGVtcGxhdGVzLlwiLFxuICAgIFwiNjMuIFJ1YnkncyBvYmplY3QgaW5pdGlhbGl6ZXJzIGFuZCB0aGVpciBjdXN0b21pemF0aW9uLlwiLFxuICAgIFwiNjQuIEhvdyB0byBpbXBsZW1lbnQgY3VzdG9tIGdlbmVyYXRvcnMgaW4gUmFpbHMuXCIsXG4gICAgXCI2NS4gVW5kZXJzdGFuZGluZyBSdWJ5J3MgY2xhc3MgbWV0aG9kcy5cIixcbiAgICBcIjY2LiBIb3cgdG8gdXNlIFJ1YnkncyBwYXR0ZXJuIG1hdGNoaW5nIGZvciBjbGVhbmVyIGNvZGUuXCIsXG4gICAgXCI2Ny4gQmVzdCBwcmFjdGljZXMgZm9yIFJhaWxzIGFzc2V0IHBpcGVsaW5lIHVzYWdlLlwiLFxuICAgIFwiNjguIFJ1YnkncyBtZXRob2QgbG9va3VwIGFuZCBtZXRob2RfbWlzc2luZy5cIixcbiAgICBcIjY5LiBIb3cgdG8gaW1wbGVtZW50IGN1c3RvbSBoZWxwZXIgbWV0aG9kcyBpbiBSYWlscy5cIixcbiAgICBcIjcwLiBVbmRlcnN0YW5kaW5nIFJ1YnkncyBzeW1ib2xpYyBjb25zdGFudHMuXCIsXG4gICAgXCI3MS4gSG93IHRvIHVzZSBSdWJ5J3MgdHJ5IG1ldGhvZCBmb3IgbmlsIHNhZmV0eS5cIixcbiAgICBcIjcyLiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgYXBwbGljYXRpb24gY29uZmlndXJhdGlvbi5cIixcbiAgICBcIjczLiBSdWJ5J3MgY2xhc3MgaW5zdGFuY2UgdmFyaWFibGVzIGFuZCB0aGVpciB1c2UuXCIsXG4gICAgXCI3NC4gSG93IHRvIGltcGxlbWVudCBjdXN0b20gUmFrZSB0YXNrcyBpbiBSYWlscy5cIixcbiAgICBcIjc1LiBVbmRlcnN0YW5kaW5nIFJ1YnkncyBzaW5nbGV0b24gbWV0aG9kcy5cIixcbiAgICBcIjc2LiBIb3cgdG8gdXNlIFJ1YnkncyBhbGlhc2VzIGZvciBtZXRob2QgcmVuYW1pbmcuXCIsXG4gICAgXCI3Ny4gQmVzdCBwcmFjdGljZXMgZm9yIFJhaWxzIGVycm9yIGhhbmRsaW5nLlwiLFxuICAgIFwiNzguIFJ1YnkncyBwcml2YXRlIGFuZCBwcm90ZWN0ZWQgbWV0aG9kcyBleHBsYWluZWQuXCIsXG4gICAgXCI3OS4gSG93IHRvIGltcGxlbWVudCBjdXN0b20gdmFsaWRhdG9ycyBpbiBSYWlscy5cIixcbiAgICBcIjgwLiBVbmRlcnN0YW5kaW5nIFJ1YnkncyBtZXRob2QgY2hhaW5pbmcgYW5kIHBpcGVsaW5pbmcuXCIsXG4gICAgXCI4MS4gSG93IHRvIHVzZSBSdWJ5J3MgZXZhbCBmb3IgZHluYW1pYyBjb2RlIGV4ZWN1dGlvbi5cIixcbiAgICBcIjgyLiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgZGVwbG95bWVudCBzdHJhdGVnaWVzLlwiLFxuICAgIFwiODMuIFJ1YnkncyBjb25zdGFudCBsb29rdXAgYW5kIHJlc29sdXRpb24uXCIsXG4gICAgXCI4NC4gSG93IHRvIGltcGxlbWVudCBjdXN0b20gaG9va3MgaW4gUmFpbHMgbW9kZWxzLlwiLFxuICAgIFwiODUuIFVuZGVyc3RhbmRpbmcgUnVieSdzIGdlbSBwYWNrYWdpbmcgc3lzdGVtLlwiLFxuICAgIFwiODYuIEhvdyB0byB1c2UgUnVieSdzIHJha2UgdG8gYXV0b21hdGUgdGFza3MuXCIsXG4gICAgXCI4Ny4gQmVzdCBwcmFjdGljZXMgZm9yIFJhaWxzIHRlc3Rpbmcgc3RyYXRlZ2llcy5cIixcbiAgICBcIjg4LiBSdWJ5J3MgbWV0aG9kIHN1cGVyIGFuZCBpdHMgdXNhZ2UuXCIsXG4gICAgXCI4OS4gSG93IHRvIGltcGxlbWVudCBjdXN0b20gcm91dGVzIHdpdGggUmFpbHMgY29uY2VybnMuXCIsXG4gICAgXCI5MC4gVW5kZXJzdGFuZGluZyBSdWJ5J3MgbW9kdWxlIGluY2x1c2lvbiBhbmQgbWl4ZWQtaW4gbWV0aG9kcy5cIixcbiAgICBcIjkxLiBIb3cgdG8gdXNlIFJ1YnkncyBMb2dnZXIgZm9yIGFwcGxpY2F0aW9uIGxvZ2dpbmcuXCIsXG4gICAgXCI5Mi4gQmVzdCBwcmFjdGljZXMgZm9yIFJhaWxzIGNhY2hpbmcgbWVjaGFuaXNtcy5cIixcbiAgICBcIjkzLiBSdWJ5J3MgY2xhc3MgbW9kdWxlIGFuZCBpdHMgYXBwbGljYXRpb25zLlwiLFxuICAgIFwiOTQuIEhvdyB0byBpbXBsZW1lbnQgY3VzdG9tIHNjb3BlcyBpbiBSYWlscyBtb2RlbHMuXCIsXG4gICAgXCI5NS4gVW5kZXJzdGFuZGluZyBSdWJ5J3MgbWV0aG9kQWR2aWNlIGFuZCBpdHMgYXBwbGljYXRpb25zLlwiLFxuICAgIFwiOTYuIEhvdyB0byB1c2UgUnVieSdzIFN0cmluZyBpbnRlcnBvbGF0aW9uIGZvciBjbGFyaXR5LlwiLFxuICAgIFwiOTcuIEJlc3QgcHJhY3RpY2VzIGZvciBSYWlscyBxdWVyeSBvcHRpbWl6YXRpb24uXCIsXG4gICAgXCI5OC4gUnVieSdzIHNpbmdsZXRvbiBjbGFzcyBhbmQgbWV0YXByb2dyYW1taW5nLlwiLFxuICAgIFwiOTkuIEhvdyB0byBpbXBsZW1lbnQgY3VzdG9tIG1pZGRsZXdhcmUgaW4gUmFpbHMuXCIsXG4gICAgXCIxMDAuIFVuZGVyc3RhbmRpbmcgUnVieSdzIGluc3RhbmNlIHZhcmlhYmxlcyBhbmQgdGhlaXIgc2NvcGUuXCIsXG4gICAgXCIxMDEuIEhvdyB0byB1c2UgUnVieSdzIHdpdGhfb3B0aW9ucyBmb3IgY2xlYW5lciBjb2RlLlwiLFxuICAgIFwiMTAyLiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgbWlncmF0aW9uIGJlc3QgcHJhY3RpY2VzLlwiLFxuICAgIFwiMTAzLiBSdWJ5J3MgbW9kdWxlIG1peGlucyBhbmQgdGhlaXIgdXNhZ2UgcGF0dGVybnMuXCIsXG4gICAgXCIxMDQuIEhvdyB0byBpbXBsZW1lbnQgY3VzdG9tIHZhbGlkYXRvcnMgZm9yIFJhaWxzIGZvcm1zLlwiLFxuICAgIFwiMTA1LiBVbmRlcnN0YW5kaW5nIFJ1YnkncyBjb3JlIGNsYXNzZXMgYW5kIHRoZWlyIGV4dGVuc2lvbnMuXCIsXG4gICAgXCIxMDYuIEhvdyB0byB1c2UgUnVieSdzIGFzeW5jaHJvbnkgZm9yIGNvbmN1cnJlbnQgcHJvY2Vzc2luZy5cIixcbiAgICBcIjEwNy4gQmVzdCBwcmFjdGljZXMgZm9yIFJhaWxzIHN0YXRlIG1hbmFnZW1lbnQuXCIsXG4gICAgXCIxMDguIFJ1YnkncyBtZXRob2Qgb3ZlcmxvYWRpbmcgYW5kIGl0cyBsaW1pdGF0aW9ucy5cIixcbiAgICBcIjEwOS4gSG93IHRvIGltcGxlbWVudCBjdXN0b20gVUkgY29tcG9uZW50cyBpbiBSYWlscy5cIixcbiAgICBcIjExMC4gVW5kZXJzdGFuZGluZyBSdWJ5J3MgY2xhc3MgaGllcmFyY2h5IGFuZCBpbmhlcml0YW5jZS5cIixcbiAgICBcIjExMS4gSG93IHRvIHVzZSBSdWJ5J3MgeWFyZCBkb2N1bWVudGF0aW9uIHRvb2xzIGVmZmVjdGl2ZWx5LlwiLFxuICAgIFwiMTEyLiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgUkVTVGZ1bCBBUEkgZGVzaWduLlwiLFxuICAgIFwiMTEzLiBSdWJ5J3Mgb2JqZWN0IG1vZGVsIGFuZCBpdHMgZmxleGliaWxpdHkuXCIsXG4gICAgXCIxMTQuIEhvdyB0byBpbXBsZW1lbnQgY3VzdG9tIHNlYXJjaCBmdW5jdGlvbmFsaXR5IGluIFJhaWxzLlwiLFxuICAgIFwiMTE1LiBVbmRlcnN0YW5kaW5nIFJ1YnkncyBtb2R1bGUgc3lzdGVtIGFuZCBuYW1lc3BhY2VzLlwiLFxuICAgIFwiMTE2LiBIb3cgdG8gdXNlIFJ1YnkncyByYWtlIHRhc2tzIGZvciBDSS9DRCBwaXBlbGluZXMuXCIsXG4gICAgXCIxMTcuIEJlc3QgcHJhY3RpY2VzIGZvciBSYWlscyBzZWN1cml0eSBjb25maWd1cmF0aW9ucy5cIixcbiAgICBcIjExOC4gUnVieSdzIGNsb3N1cmVzIGFuZCB0aGVpciBhcHBsaWNhdGlvbnMgaW4gUmFpbHMuXCIsXG4gICAgXCIxMTkuIEhvdyB0byBpbXBsZW1lbnQgY3VzdG9tIGF1dGhlbnRpY2F0aW9uIGluIFJhaWxzLlwiLFxuICAgIFwiMTIwLiBVbmRlcnN0YW5kaW5nIFJ1YnkncyBtZXRob2QgZGVmaW5pdGlvbnMgYW5kIHN5bnRheCBzdWdhci5cIixcbiAgICBcIjEyMS4gSG93IHRvIHVzZSBSdWJ5J3MgbWluaXRlc3QgZm9yIHVuaXQgdGVzdGluZy5cIixcbiAgICBcIjEyMi4gQmVzdCBwcmFjdGljZXMgZm9yIFJhaWxzIHJvdXRlIG5lc3RpbmcgYW5kIHJlc291cmNlcy5cIixcbiAgICBcIjEyMy4gUnVieSdzIGR5bmFtaWMgbWV0aG9kIGludm9jYXRpb24gYW5kIGl0cyBiZW5lZml0cy5cIixcbiAgICBcIjEyNC4gSG93IHRvIGltcGxlbWVudCBjdXN0b20gZm9ybSBidWlsZGVycyBpbiBSYWlscy5cIixcbiAgICBcIjEyNS4gVW5kZXJzdGFuZGluZyBSdWJ5J3MgY2xhc3Mgc2luZ2xldG9uIG1ldGhvZHMgYW5kIHRoZWlyIHVzZXMuXCIsXG4gICAgXCIxMjYuIEhvdyB0byB1c2UgUnVieSdzIHByeSBmb3IgaW50ZXJhY3RpdmUgZGVidWdnaW5nLlwiLFxuICAgIFwiMTI3LiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgZ2VtcyBhbmQgcGx1Z2luIG1hbmFnZW1lbnQuXCIsXG4gICAgXCIxMjguIFJ1YnkncyBjbGFzcyBtZXRob2QgaW5oZXJpdGFuY2UgYW5kIG92ZXJyaWRlcy5cIixcbiAgICBcIjEyOS4gSG93IHRvIGltcGxlbWVudCBjdXN0b20gdmFsaWRhdG9ycyB3aXRoIEFjdGl2ZU1vZGVsLlwiLFxuICAgIFwiMTMwLiBVbmRlcnN0YW5kaW5nIFJ1YnkncyBtZXRhcHJvZ3JhbW1pbmcgd2l0aCBlaWdlbmNsYXNzZXMuXCIsXG4gICAgXCIxMzEuIEhvdyB0byB1c2UgUnVieSdzIHJlc3BvbmRlcnMgZm9yIFJhaWxzIGNvbnRyb2xsZXIgcmVzcG9uc2VzLlwiLFxuICAgIFwiMTMyLiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgZGF0YWJhc2UgdHJhbnNhY3Rpb25zLlwiLFxuICAgIFwiMTMzLiBSdWJ5J3MgbWV0aG9kIGRlbGVnYXRpb24gYW5kIGl0cyB1c2UgY2FzZXMuXCIsXG4gICAgXCIxMzQuIEhvdyB0byBpbXBsZW1lbnQgY3VzdG9tIGNhY2hpbmcgc3RyYXRlZ2llcyBpbiBSYWlscy5cIixcbiAgICBcIjEzNS4gVW5kZXJzdGFuZGluZyBSdWJ5J3MgVGhyZWFkIGFuZCBGaWJlciBjb25jdXJyZW5jeSBtb2RlbHMuXCIsXG4gICAgXCIxMzYuIEhvdyB0byB1c2UgUnVieSdzIEFjdGlvbkNhYmxlIGZvciByZWFsLXRpbWUgZmVhdHVyZXMuXCIsXG4gICAgXCIxMzcuIEJlc3QgcHJhY3RpY2VzIGZvciBSYWlscyBhcHBsaWNhdGlvbiBzY2FsaW5nLlwiLFxuICAgIFwiMTM4LiBSdWJ5J3MgY2xhc3MgYXR0cmlidXRlIGFjY2VzcyBhbmQgbWFuaXB1bGF0aW9uLlwiLFxuICAgIFwiMTM5LiBIb3cgdG8gaW1wbGVtZW50IGN1c3RvbSBSRVNUZnVsIHJlc291cmNlcyBpbiBSYWlscy5cIixcbiAgICBcIjE0MC4gVW5kZXJzdGFuZGluZyBSdWJ5J3MgcmVmbGVjdGlvbiBmb3IgY2xhc3MgbWV0aG9kcy5cIixcbiAgICBcIjE0MS4gSG93IHRvIHVzZSBSdWJ5J3MgcGVyZm9ybWFuY2UgbW9uaXRvcmluZyB0b29scy5cIixcbiAgICBcIjE0Mi4gQmVzdCBwcmFjdGljZXMgZm9yIFJhaWxzIGZvcm0gYnVpbGRlcnMgYW5kIGhlbHBlcnMuXCIsXG4gICAgXCIxNDMuIFJ1YnkncyBwcml2YXRlIGFuZCBwcm90ZWN0ZWQgbWV0aG9kcyBpbiBwcmFjdGljZS5cIixcbiAgICBcIjE0NC4gSG93IHRvIGltcGxlbWVudCBjdXN0b20gZGVwbG95IHNjcmlwdHMgZm9yIFJhaWxzIGFwcHMuXCIsXG4gICAgXCIxNDUuIFVuZGVyc3RhbmRpbmcgUnVieSdzIGF1dG9sb2FkIGFuZCByZXF1aXJlIG1lY2hhbmljcy5cIixcbiAgICBcIjE0Ni4gSG93IHRvIHVzZSBSdWJ5J3MgbWlncmF0aW9uIGZvciBkYXRhYmFzZSBjaGFuZ2VzLlwiLFxuICAgIFwiMTQ3LiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgcG9seW1vcnBoaWMgYXNzb2NpYXRpb25zLlwiLFxuICAgIFwiMTQ4LiBSdWJ5J3Mgc2luZ2xldG9uIHBhdHRlcm4gYW5kIGl0cyBpbXBsZW1lbnRhdGlvbnMuXCIsXG4gICAgXCIxNDkuIEhvdyB0byBpbXBsZW1lbnQgY3VzdG9tIEFjdGlvbk1haWxlciB0ZW1wbGF0ZXMuXCIsXG4gICAgXCIxNTAuIFVuZGVyc3RhbmRpbmcgUnVieSdzIGNsYXNzIG1ldGhvZCBkZWZpbml0aW9ucyBhbmQgb3ZlcnJpZGVzLlwiLFxuICAgIFwiMTUxLiBIb3cgdG8gdXNlIFJ1YnkncyBpbnRlcmFjdGl2ZSBzaGVsbCAoSVJCKSBlZmZlY3RpdmVseS5cIixcbiAgICBcIjE1Mi4gQmVzdCBwcmFjdGljZXMgZm9yIFJhaWxzIGRhdGFiYXNlIGluZGV4IG9wdGltaXphdGlvbi5cIixcbiAgICBcIjE1My4gUnVieSdzIG1ldGhvZEFkdmljZSBhbmQgaXRzIGFwcGxpY2F0aW9ucyBpbiBkZWJ1Z2dpbmcuXCIsXG4gICAgXCIxNTQuIEhvdyB0byBpbXBsZW1lbnQgY3VzdG9tIEFjdGlvblZpZXcgY29tcG9uZW50cy5cIixcbiAgICBcIjE1NS4gVW5kZXJzdGFuZGluZyBSdWJ5J3MgTW9kdWxlIG1peGlucyBhbmQgY29tcG9zaXRpb24uXCIsXG4gICAgXCIxNTYuIEhvdyB0byB1c2UgUnVieSdzIGNocm9uaWMgZ2VtIGZvciBkYXRlIHBhcnNpbmcuXCIsXG4gICAgXCIxNTcuIEJlc3QgcHJhY3RpY2VzIGZvciBSYWlscyByb3V0aW5nIGJlc3QgcHJhY3RpY2VzLlwiLFxuICAgIFwiMTU4LiBSdWJ5J3MgbWV0aG9kIG1ldGhvZCBhbmQgaXRzIGFwcGxpY2F0aW9ucy5cIixcbiAgICBcIjE1OS4gSG93IHRvIGltcGxlbWVudCBjdXN0b20gQWN0aXZlSm9iIHByb2Nlc3NvcnMuXCIsXG4gICAgXCIxNjAuIFVuZGVyc3RhbmRpbmcgUnVieSdzIGNsYXNzIGhpZXJhcmNoeSBhbmQgbWV0aG9kIGxvb2t1cC5cIixcbiAgICBcIjE2MS4gSG93IHRvIHVzZSBSdWJ5J3MgbWVjaGFuaXplIGdlbSBmb3Igd2ViIHNjcmFwaW5nLlwiLFxuICAgIFwiMTYyLiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgcm91dGUgb3B0aW1pemF0aW9uLlwiLFxuICAgIFwiMTYzLiBSdWJ5J3MgY2xhc3MgYW5kIGluc3RhbmNlIG1ldGhvZCBkZWZpbml0aW9ucy5cIixcbiAgICBcIjE2NC4gSG93IHRvIGltcGxlbWVudCBjdXN0b20gcmFpbHMgZW5naW5lIGV4dGVuc2lvbnMuXCIsXG4gICAgXCIxNjUuIFVuZGVyc3RhbmRpbmcgUnVieSdzIGR5bmFtaWMgY2xhc3MgZ2VuZXJhdGlvbi5cIixcbiAgICBcIjE2Ni4gSG93IHRvIHVzZSBSdWJ5J3MgQWN0aXZlU3VwcG9ydCBjb3JlIGV4dGVuc2lvbnMuXCIsXG4gICAgXCIxNjcuIEJlc3QgcHJhY3RpY2VzIGZvciBSYWlscyBhcHBsaWNhdGlvbiBjYWNoaW5nIHN0cmF0ZWdpZXMuXCIsXG4gICAgXCIxNjguIFJ1YnkncyBzaW5nbGV0b24gbWV0aG9kcyBhbmQgdGhlaXIgYXBwbGljYXRpb25zLlwiLFxuICAgIFwiMTY5LiBIb3cgdG8gaW1wbGVtZW50IGN1c3RvbSBBY3RpdmVTdG9yYWdlIGF0dGFjaG1lbnRzLlwiLFxuICAgIFwiMTcwLiBVbmRlcnN0YW5kaW5nIFJ1YnkncyBlaWdlbmNsYXNzIGFuZCBtZXRhcHJvZ3JhbW1pbmcuXCIsXG4gICAgXCIxNzEuIEhvdyB0byB1c2UgUnVieSdzIG5va29naXJpIGZvciBYTUwvSFRNTCBwYXJzaW5nLlwiLFxuICAgIFwiMTcyLiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgbW9kZWwgY2FsbGJhY2tzIGFuZCBob29rcy5cIixcbiAgICBcIjE3My4gUnVieSdzIGNsYXNzIHZhcmlhYmxlcyBhbmQgdGhlaXIgcHJvcGVyIHVzZS5cIixcbiAgICBcIjE3NC4gSG93IHRvIGltcGxlbWVudCBjdXN0b20gcm91dGUgY29uY2VybnMgaW4gUmFpbHMuXCIsXG4gICAgXCIxNzUuIFVuZGVyc3RhbmRpbmcgUnVieSdzIG1vZHVsZSBzeXN0ZW0gYW5kIG1peGlucy5cIixcbiAgICBcIjE3Ni4gSG93IHRvIHVzZSBSdWJ5J3MgQ2FweWJhcmEgZm9yIGludGVncmF0aW9uIHRlc3RpbmcuXCIsXG4gICAgXCIxNzcuIEJlc3QgcHJhY3RpY2VzIGZvciBSYWlscyBBUEkgZG9jdW1lbnRhdGlvbiB1c2luZyBTd2FnZ2VyLlwiLFxuICAgIFwiMTc4LiBSdWJ5J3MgbWV0aG9kIHN1cGVyIGFuZCBpdHMgdXNhZ2UgcGF0dGVybnMuXCIsXG4gICAgXCIxNzkuIEhvdyB0byBpbXBsZW1lbnQgY3VzdG9tIHNjb3BlcyBhbmQgcXVlcmllcyBpbiBSYWlscy5cIixcbiAgICBcIjE4MC4gVW5kZXJzdGFuZGluZyBSdWJ5J3MgY2xhc3MgbWV0aG9kIGluaGVyaXRhbmNlLlwiLFxuICAgIFwiMTgxLiBIb3cgdG8gdXNlIFJ1YnkncyByYWNrIG1pZGRsZXdhcmUgaW4gUmFpbHMgYXBwcy5cIixcbiAgICBcIjE4Mi4gQmVzdCBwcmFjdGljZXMgZm9yIFJhaWxzIGFzc2V0IHBpcGVsaW5lIG9wdGltaXphdGlvbi5cIixcbiAgICBcIjE4My4gUnVieSdzIG9iamVjdCBtb2RlbCBhbmQgaXRzIGZsZXhpYmlsaXR5LlwiLFxuICAgIFwiMTg0LiBIb3cgdG8gaW1wbGVtZW50IGN1c3RvbSBkYXRhIHZhbGlkYXRpb24gaW4gUmFpbHMgbW9kZWxzLlwiLFxuICAgIFwiMTg1LiBVbmRlcnN0YW5kaW5nIFJ1YnkncyBtZXRob2QgZGVmaW5pdGlvbiBzeW50YXguXCIsXG4gICAgXCIxODYuIEhvdyB0byB1c2UgUnVieSdzIHByeS1ieWVidWcgZm9yIGRlYnVnZ2luZy5cIixcbiAgICBcIjE4Ny4gQmVzdCBwcmFjdGljZXMgZm9yIFJhaWxzIHJvdXRlIGNhY2hpbmcgc3RyYXRlZ2llcy5cIixcbiAgICBcIjE4OC4gUnVieSdzIHNpbmdsZXRvbiBjbGFzc2VzIGFuZCB0aGVpciBtZXRob2RzLlwiLFxuICAgIFwiMTg5LiBIb3cgdG8gaW1wbGVtZW50IGN1c3RvbSBhdXRob3JpemF0aW9uIGluIFJhaWxzLlwiLFxuICAgIFwiMTkwLiBVbmRlcnN0YW5kaW5nIFJ1YnkncyBjbGFzcyBtZXRob2QgZGVmaW5pdGlvbnMuXCIsXG4gICAgXCIxOTEuIEhvdyB0byB1c2UgUnVieSdzIEFjdGlvblRleHQgZm9yIHJpY2ggdGV4dCBlZGl0aW5nLlwiLFxuICAgIFwiMTkyLiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgbW9kZWwgYXNzb2NpYXRpb25zIG9wdGltaXphdGlvbi5cIixcbiAgICBcIjE5My4gUnVieSdzIG1vZHVsZSBpbmNsdXNpb24gYW5kIG1ldGhvZCBsb29rdXAuXCIsXG4gICAgXCIxOTQuIEhvdyB0byBpbXBsZW1lbnQgY3VzdG9tIEFjdGl2ZUFkbWluIGRhc2hib2FyZHMuXCIsXG4gICAgXCIxOTUuIFVuZGVyc3RhbmRpbmcgUnVieSdzIGVpZ2VuY2xhc3MgYW5kIGl0cyBhcHBsaWNhdGlvbnMuXCIsXG4gICAgXCIxOTYuIEhvdyB0byB1c2UgUnVieSdzIFNpZGVraXEgZm9yIGJhY2tncm91bmQgcHJvY2Vzc2luZy5cIixcbiAgICBcIjE5Ny4gQmVzdCBwcmFjdGljZXMgZm9yIFJhaWxzIGFwcGxpY2F0aW9uIGxvZ3MgYW5kIG1vbml0b3JpbmcuXCIsXG4gICAgXCIxOTguIFJ1YnkncyBjbGFzcyBoaWVyYXJjaHkgYW5kIG1ldGhvZCByZXNvbHV0aW9uIG9yZGVyLlwiLFxuICAgIFwiMTk5LiBIb3cgdG8gaW1wbGVtZW50IGN1c3RvbSBkZXZpc2Ugc3RyYXRlZ2llcy5cIixcbiAgICBcIjIwMC4gVW5kZXJzdGFuZGluZyBSdWJ5J3MgbW9kdWxlIHN5c3RlbSBhbmQgbmFtZXNwYWNlcy5cIixcbiAgICBcIjIwMS4gSG93IHRvIHVzZSBSdWJ5J3MgUmVzcXVlIGZvciBqb2IgcXVldWluZy5cIixcbiAgICBcIjIwMi4gQmVzdCBwcmFjdGljZXMgZm9yIFJhaWxzIFJFU1RmdWwgQVBJIHZlcnNpb25pbmcuXCIsXG4gICAgXCIyMDMuIFJ1YnkncyBtZXRob2QgaW52b2NhdGlvbiBhbmQgZHluYW1pYyBkaXNwYXRjaC5cIixcbiAgICBcIjIwNC4gSG93IHRvIGltcGxlbWVudCBjdXN0b20gQ2FwaXN0cmFubyBkZXBsb3ltZW50IHNjcmlwdHMuXCIsXG4gICAgXCIyMDUuIFVuZGVyc3RhbmRpbmcgUnVieSdzIHNpbmdsZXRvbiBtZXRob2RzIGFuZCB0aGVpciB1c2UgY2FzZXMuXCIsXG4gICAgXCIyMDYuIEhvdyB0byB1c2UgUnVieSdzIFJlZmluZXJ5IENNUyBmb3IgY29udGVudCBtYW5hZ2VtZW50LlwiLFxuICAgIFwiMjA3LiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgZm9ybSBidWlsZGVyIGN1c3RvbWl6YXRpb24uXCIsXG4gICAgXCIyMDguIFJ1YnkncyBjbGFzcyB2YXJpYWJsZXMgYW5kIHRoZWlyIHByb3BlciB1c2UgaW4gT09QLlwiLFxuICAgIFwiMjA5LiBIb3cgdG8gaW1wbGVtZW50IGN1c3RvbSBTcHJlZSBDb21tZXJjZSBleHRlbnNpb25zLlwiLFxuICAgIFwiMjEwLiBVbmRlcnN0YW5kaW5nIFJ1YnkncyBtb2R1bGUgc3lzdGVtIGFuZCBpdHMgZmxleGliaWxpdHkuXCIsXG4gICAgXCIyMTEuIEhvdyB0byB1c2UgUnVieSdzIFZvbHQgZm9yIHJlYWN0aXZlIHdlYiBhcHBsaWNhdGlvbnMuXCIsXG4gICAgXCIyMTIuIEJlc3QgcHJhY3RpY2VzIGZvciBSYWlscyBoYXNfbWFueSB0aHJvdWdoIGFzc29jaWF0aW9ucy5cIixcbiAgICBcIjIxMy4gUnVieSdzIG1ldGhvZCBvdmVybG9hZGluZyBhbmQgcGFyYW1ldGVyIGhhbmRsaW5nLlwiLFxuICAgIFwiMjE0LiBIb3cgdG8gaW1wbGVtZW50IGN1c3RvbSBkZXZpc2UgbW9kdWxlcy5cIixcbiAgICBcIjIxNS4gVW5kZXJzdGFuZGluZyBSdWJ5J3MgY2xhc3MgbWV0aG9kIGRlZmluaXRpb25zIGFuZCBvdmVycmlkZXMuXCIsXG4gICAgXCIyMTYuIEhvdyB0byB1c2UgUnVieSdzIEhhbmFtaSBmb3IgbW9kZXJuIHdlYiBhcHBzLlwiLFxuICAgIFwiMjE3LiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgcm91dGUgb3B0aW1pemF0aW9uIHRlY2huaXF1ZXMuXCIsXG4gICAgXCIyMTguIFJ1YnkncyBzaW5nbGV0b24gcGF0dGVybiBhbmQgaXRzIGFwcGxpY2F0aW9ucy5cIixcbiAgICBcIjIxOS4gSG93IHRvIGltcGxlbWVudCBjdXN0b20gZGV2aXNlIGF1dGhlbnRpY2F0aW9uIHN0cmF0ZWdpZXMuXCIsXG4gICAgXCIyMjAuIFVuZGVyc3RhbmRpbmcgUnVieSdzIGVpZ2VuY2xhc3MgYW5kIGl0cyBhcHBsaWNhdGlvbnMuXCIsXG4gICAgXCIyMjEuIEhvdyB0byB1c2UgUnVieSdzIEdyYXBlIGZvciBidWlsZGluZyBBUElzLlwiLFxuICAgIFwiMjIyLiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgcXVlcnkgb3B0aW1pemF0aW9uIHRlY2huaXF1ZXMuXCIsXG4gICAgXCIyMjMuIFJ1YnkncyBjbGFzcyBoaWVyYXJjaHkgYW5kIG1ldGhvZCByZXNvbHV0aW9uLlwiLFxuICAgIFwiMjI0LiBIb3cgdG8gaW1wbGVtZW50IGN1c3RvbSBBY3RpdmVKb2IgYWRhcHRlcnMuXCIsXG4gICAgXCIyMjUuIFVuZGVyc3RhbmRpbmcgUnVieSdzIG1vZHVsZSBtaXhpbnMgYW5kIGNvbXBvc2l0aW9uLlwiLFxuICAgIFwiMjI2LiBIb3cgdG8gdXNlIFJ1YnkncyByYWNrIGZvciBtaWRkbGV3YXJlIGFwcGxpY2F0aW9ucy5cIixcbiAgICBcIjIyNy4gQmVzdCBwcmFjdGljZXMgZm9yIFJhaWxzIGNhY2hpbmcgc3RyYXRlZ2llcyBhbmQgdGVjaG5pcXVlcy5cIixcbiAgICBcIjIyOC4gUnVieSdzIHNpbmdsZXRvbiBtZXRob2RzIGFuZCB0aGVpciBhcHBsaWNhdGlvbnMuXCIsXG4gICAgXCIyMjkuIEhvdyB0byBpbXBsZW1lbnQgY3VzdG9tIENhcHliYXJhIGRyaXZlcnMuXCIsXG4gICAgXCIyMzAuIFVuZGVyc3RhbmRpbmcgUnVieSdzIGNsYXNzIHZhcmlhYmxlcyBhbmQgY29uc3RhbnRzLlwiLFxuICAgIFwiMjMxLiBIb3cgdG8gdXNlIFJ1YnkncyBBY3RpdmVTdXBwb3J0IGZvciBkYXRlL3RpbWUgY2FsY3VsYXRpb25zLlwiLFxuICAgIFwiMjMyLiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgcm91dGUgbmVzdGluZyBhbmQgcmVzb3VyY2VzLlwiLFxuICAgIFwiMjMzLiBSdWJ5J3MgbWV0aG9kIGludm9jYXRpb24gYW5kIGR5bmFtaWMgZGlzcGF0Y2ggbWVjaGFuaXNtcy5cIixcbiAgICBcIjIzNC4gSG93IHRvIGltcGxlbWVudCBjdXN0b20gU2lkZWtpcSB3b3JrZXJzLlwiLFxuICAgIFwiMjM1LiBVbmRlcnN0YW5kaW5nIFJ1YnkncyBtb2R1bGUgc3lzdGVtIGFuZCBpdHMgZmxleGliaWxpdHkuXCIsXG4gICAgXCIyMzYuIEhvdyB0byB1c2UgUnVieSdzIG5va29naXJpIGZvciBYTUwgcGFyc2luZyBhbmQgbWFuaXB1bGF0aW9uLlwiLFxuICAgIFwiMjM3LiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgZm9ybSBidWlsZGVyIGFuZCBoZWxwZXIgbWV0aG9kcy5cIixcbiAgICBcIjIzOC4gUnVieSdzIHNpbmdsZXRvbiBwYXR0ZXJuIGFuZCBpdHMgYXBwbGljYXRpb25zIGluIFJhaWxzLlwiLFxuICAgIFwiMjM5LiBIb3cgdG8gaW1wbGVtZW50IGN1c3RvbSBkZXZpc2UgbW9kdWxlcyBmb3IgdXNlciBtYW5hZ2VtZW50LlwiLFxuICAgIFwiMjQwLiBVbmRlcnN0YW5kaW5nIFJ1YnkncyBjbGFzcyBtZXRob2QgZGVmaW5pdGlvbnMgYW5kIG92ZXJyaWRlcy5cIixcbiAgICBcIjI0MS4gSG93IHRvIHVzZSBSdWJ5J3MgcHJ5IGZvciBkZWJ1Z2dpbmcgYW5kIGV4cGxvcmF0aW9uLlwiLFxuICAgIFwiMjQyLiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgYXNzZXQgcGlwZWxpbmUgb3B0aW1pemF0aW9uLlwiLFxuICAgIFwiMjQzLiBSdWJ5J3MgY2xhc3MgaGllcmFyY2h5IGFuZCBtZXRob2QgbG9va3VwIHBhdGguXCIsXG4gICAgXCIyNDQuIEhvdyB0byBpbXBsZW1lbnQgY3VzdG9tIFNwcmVlIGV4dGVuc2lvbnMgZm9yIGUtY29tbWVyY2UuXCIsXG4gICAgXCIyNDUuIFVuZGVyc3RhbmRpbmcgUnVieSdzIGVpZ2VuY2xhc3MgYW5kIGl0cyBhcHBsaWNhdGlvbnMgaW4gbWV0YXByb2dyYW1taW5nLlwiLFxuICAgIFwiMjQ2LiBIb3cgdG8gdXNlIFJ1YnkncyBDYXBpc3RyYW5vIGZvciBkZXBsb3ltZW50IGF1dG9tYXRpb24uXCIsXG4gICAgXCIyNDcuIEJlc3QgcHJhY3RpY2VzIGZvciBSYWlscyBxdWVyeSBvcHRpbWl6YXRpb24gYW5kIGluZGV4aW5nLlwiLFxuICAgIFwiMjQ4LiBSdWJ5J3Mgc2luZ2xldG9uIG1ldGhvZHMgYW5kIHRoZWlyIHVzYWdlIHBhdHRlcm5zLlwiLFxuICAgIFwiMjQ5LiBIb3cgdG8gaW1wbGVtZW50IGN1c3RvbSBBY3RpdmVBZG1pbiBzZWN0aW9ucyBhbmQgZmlsdGVycy5cIixcbiAgICBcIjI1MC4gVW5kZXJzdGFuZGluZyBSdWJ5J3MgbW9kdWxlIHN5c3RlbSBhbmQgbmFtZXNwYWNlcy5cIixcbiAgICBcIjI1MS4gSG93IHRvIHVzZSBSdWJ5J3MgQWN0aXZlQ2FibGUgZm9yIHJlYWwtdGltZSBjb21tdW5pY2F0aW9uLlwiLFxuICAgIFwiMjUyLiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgY2FjaGluZyBtZWNoYW5pc21zIGFuZCBzdHJhdGVnaWVzLlwiLFxuICAgIFwiMjUzLiBSdWJ5J3MgY2xhc3MgbWV0aG9kcyBhbmQgdGhlaXIgZGVmaW5pdGlvbiBzeW50YXguXCIsXG4gICAgXCIyNTQuIEhvdyB0byBpbXBsZW1lbnQgY3VzdG9tIEFjdGlvblZpZXcgY29tcG9uZW50cyBhbmQgaGVscGVycy5cIixcbiAgICBcIjI1NS4gVW5kZXJzdGFuZGluZyBSdWJ5J3MgbWV0aG9kIGRlZmluaXRpb25zIGFuZCBvdmVycmlkZXMuXCIsXG4gICAgXCIyNTYuIEhvdyB0byB1c2UgUnVieSdzIENocm9uaWMgZm9yIG5hdHVyYWwgbGFuZ3VhZ2UgZGF0ZSBwYXJzaW5nLlwiLFxuICAgIFwiMjU3LiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgUkVTVGZ1bCBBUEkgZGVzaWduIHBhdHRlcm5zLlwiLFxuICAgIFwiMjU4LiBSdWJ5J3Mgc2luZ2xldG9uIHBhdHRlcm4gYW5kIGl0cyBhcHBsaWNhdGlvbnMgaW4gUmFpbHMgYXBwcy5cIixcbiAgICBcIjI1OS4gSG93IHRvIGltcGxlbWVudCBjdXN0b20gdmFsaWRhdG9ycyBmb3IgQWN0aXZlTW9kZWwuXCIsXG4gICAgXCIyNjAuIFVuZGVyc3RhbmRpbmcgUnVieSdzIGVpZ2VuY2xhc3MgYW5kIGl0cyBtZXRhcHJvZ3JhbW1pbmcgYXBwbGljYXRpb25zLlwiLFxuICAgIFwiMjYxLiBIb3cgdG8gdXNlIFJ1YnkncyBSZXNxdWUgZm9yIGpvYiBxdWV1aW5nIGFuZCBwcm9jZXNzaW5nLlwiLFxuICAgIFwiMjYyLiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgcm91dGUgb3B0aW1pemF0aW9uIGFuZCBtYW5hZ2VtZW50LlwiLFxuICAgIFwiMjYzLiBSdWJ5J3MgY2xhc3MgaGllcmFyY2h5IGFuZCBtZXRob2QgcmVzb2x1dGlvbiBvcmRlci5cIixcbiAgICBcIjI2NC4gSG93IHRvIGltcGxlbWVudCBjdXN0b20gZGV2aXNlIGF1dGhlbnRpY2F0aW9uIG1vZHVsZXMuXCIsXG4gICAgXCIyNjUuIFVuZGVyc3RhbmRpbmcgUnVieSdzIG1vZHVsZSBzeXN0ZW0gYW5kIG1peGlucyB1c2FnZS5cIixcbiAgICBcIjI2Ni4gSG93IHRvIHVzZSBSdWJ5J3MgVm9sdCBmb3IgYnVpbGRpbmcgcmVhY3RpdmUgYXBwbGljYXRpb25zLlwiLFxuICAgIFwiMjY3LiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgaGFzX21hbnkgdGhyb3VnaCBhc3NvY2lhdGlvbnMuXCIsXG4gICAgXCIyNjguIFJ1YnkncyBtZXRob2QgaW52b2NhdGlvbiBhbmQgZHluYW1pYyBkaXNwYXRjaCBpbiBhY3Rpb24uXCIsXG4gICAgXCIyNjkuIEhvdyB0byBpbXBsZW1lbnQgY3VzdG9tIEFjdGl2ZVN0b3JhZ2UgYXR0YWNobWVudHMgYW5kIHZhcmlhbnRzLlwiLFxuICAgIFwiMjcwLiBVbmRlcnN0YW5kaW5nIFJ1YnkncyBjbGFzcyB2YXJpYWJsZXMgYW5kIHRoZWlyIHByb3BlciB1c2FnZS5cIixcbiAgICBcIjI3MS4gSG93IHRvIHVzZSBSdWJ5J3MgR3JhcGUgZm9yIGJ1aWxkaW5nIFJFU1RmdWwgQVBJcy5cIixcbiAgICBcIjI3Mi4gQmVzdCBwcmFjdGljZXMgZm9yIFJhaWxzIHF1ZXJ5IG9wdGltaXphdGlvbiBhbmQgcGVyZm9ybWFuY2UuXCIsXG4gICAgXCIyNzMuIFJ1YnkncyBzaW5nbGV0b24gbWV0aG9kcyBhbmQgdGhlaXIgdXNlIGluIFJhaWxzLlwiLFxuICAgIFwiMjc0LiBIb3cgdG8gaW1wbGVtZW50IGN1c3RvbSBTaWRla2lxIHdvcmtlcnMgYW5kIGpvYnMuXCIsXG4gICAgXCIyNzUuIFVuZGVyc3RhbmRpbmcgUnVieSdzIGVpZ2VuY2xhc3MgYW5kIGl0cyBhcHBsaWNhdGlvbnMgaW4gUnVieSBvbiBSYWlscy5cIixcbiAgICBcIjI3Ni4gSG93IHRvIHVzZSBSdWJ5J3MgUmFjayBmb3IgY3JlYXRpbmcgbWlkZGxld2FyZSBhbmQgYXBwbGljYXRpb25zLlwiLFxuICAgIFwiMjc3LiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgY2FjaGluZyBhbmQgcGVyZm9ybWFuY2Ugb3B0aW1pemF0aW9uLlwiLFxuICAgIFwiMjc4LiBSdWJ5J3MgY2xhc3MgbWV0aG9kIGRlZmluaXRpb25zIGFuZCB0aGVpciBhcHBsaWNhdGlvbnMgaW4gUmFpbHMuXCIsXG4gICAgXCIyNzkuIEhvdyB0byBpbXBsZW1lbnQgY3VzdG9tIENhcGlzdHJhbm8gdGFza3MgZm9yIGRlcGxveW1lbnQuXCIsXG4gICAgXCIyODAuIFVuZGVyc3RhbmRpbmcgUnVieSdzIG1vZHVsZSBzeXN0ZW0gYW5kIGl0cyBmbGV4aWJpbGl0eS5cIixcbiAgICBcIjI4MS4gSG93IHRvIHVzZSBSdWJ5J3MgTm9rb2dpcmkgZm9yIFhNTCBhbmQgSFRNTCBwYXJzaW5nIGFuZCBtYW5pcHVsYXRpb24uXCIsXG4gICAgXCIyODIuIEJlc3QgcHJhY3RpY2VzIGZvciBSYWlscyBmb3JtIGJ1aWxkZXIgYW5kIGhlbHBlciBtZXRob2RzLlwiLFxuICAgIFwiMjgzLiBSdWJ5J3Mgc2luZ2xldG9uIHBhdHRlcm4gYW5kIGl0cyBhcHBsaWNhdGlvbnMgaW4gd2ViIGRldmVsb3BtZW50LlwiLFxuICAgIFwiMjg0LiBIb3cgdG8gaW1wbGVtZW50IGN1c3RvbSBBY3RpdmVBZG1pbiBkYXNoYm9hcmRzIGFuZCBmaWx0ZXJzLlwiLFxuICAgIFwiMjg1LiBVbmRlcnN0YW5kaW5nIFJ1YnkncyBtZXRob2QgZGVmaW5pdGlvbnMgYW5kIG92ZXJyaWRlcyBpbiBPT1AuXCIsXG4gICAgXCIyODYuIEhvdyB0byB1c2UgUnVieSdzIFByeS1CeWVidWcgZm9yIGRlYnVnZ2luZyBhbmQgdHJvdWJsZXNob290aW5nLlwiLFxuICAgIFwiMjg3LiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgcm91dGUgbmVzdGluZyBhbmQgcmVzb3VyY2UgbWFuYWdlbWVudC5cIixcbiAgICBcIjI4OC4gUnVieSdzIGNsYXNzIGhpZXJhcmNoeSBhbmQgbWV0aG9kIGxvb2t1cCBtZWNoYW5pc21zLlwiLFxuICAgIFwiMjg5LiBIb3cgdG8gaW1wbGVtZW50IGN1c3RvbSBTcHJlZSBDb21tZXJjZSBleHRlbnNpb25zIGZvciBlLWNvbW1lcmNlLlwiLFxuICAgIFwiMjkwLiBVbmRlcnN0YW5kaW5nIFJ1YnkncyBlaWdlbmNsYXNzIGFuZCBpdHMgcm9sZSBpbiBtZXRhcHJvZ3JhbW1pbmcuXCIsXG4gICAgXCIyOTEuIEhvdyB0byB1c2UgUnVieSdzIEFjdGlvblRleHQgZm9yIHJpY2ggdGV4dCBjb250ZW50IG1hbmFnZW1lbnQuXCIsXG4gICAgXCIyOTIuIEJlc3QgcHJhY3RpY2VzIGZvciBSYWlscyBhc3NldCBwaXBlbGluZSBhbmQgcGVyZm9ybWFuY2Ugb3B0aW1pemF0aW9uLlwiLFxuICAgIFwiMjkzLiBSdWJ5J3MgY2xhc3MgdmFyaWFibGVzIGFuZCB0aGVpciB1c2FnZSBpbiBvYmplY3Qtb3JpZW50ZWQgZGVzaWduLlwiLFxuICAgIFwiMjk0LiBIb3cgdG8gaW1wbGVtZW50IGN1c3RvbSBDYXB5YmFyYSBkcml2ZXJzIGZvciB0ZXN0aW5nLlwiLFxuICAgIFwiMjk1LiBVbmRlcnN0YW5kaW5nIFJ1YnkncyBtb2R1bGUgc3lzdGVtIGFuZCBpdHMgYXBwbGljYXRpb25zIGluIFJhaWxzLlwiLFxuICAgIFwiMjk2LiBIb3cgdG8gdXNlIFJ1YnkncyBBY3RpdmVDYWJsZSBmb3IgcmVhbC10aW1lIGZlYXR1cmVzIGluIFJhaWxzLlwiLFxuICAgIFwiMjk3LiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgY2FjaGluZyBzdHJhdGVnaWVzIGFuZCBpbXBsZW1lbnRhdGlvbi5cIixcbiAgICBcIjI5OC4gUnVieSdzIHNpbmdsZXRvbiBtZXRob2RzIGFuZCB0aGVpciB1c2UgY2FzZXMgaW4gUmFpbHMgZGV2ZWxvcG1lbnQuXCIsXG4gICAgXCIyOTkuIEhvdyB0byBpbXBsZW1lbnQgY3VzdG9tIEFjdGl2ZUpvYiBhZGFwdGVycyBmb3Igam9iIHByb2Nlc3NpbmcuXCIsXG4gICAgXCIzMDAuIFVuZGVyc3RhbmRpbmcgUnVieSdzIG1ldGhvZCBkZWZpbml0aW9ucyBhbmQgZHluYW1pYyBtZXRob2QgaW52b2NhdGlvbi5cIixcbiAgICBcIjMwMS4gSG93IHRvIHVzZSBSdWJ5J3MgQ2FwaXN0cmFubyBmb3IgYXV0b21hdGluZyBkZXBsb3ltZW50IHByb2Nlc3Nlcy5cIixcbiAgICBcIjMwMi4gQmVzdCBwcmFjdGljZXMgZm9yIFJhaWxzIHJvdXRlIG9wdGltaXphdGlvbiBhbmQgbWFuYWdlbWVudCB0ZWNobmlxdWVzLlwiLFxuICAgIFwiMzAzLiBSdWJ5J3MgY2xhc3MgaGllcmFyY2h5IGFuZCBtZXRob2QgcmVzb2x1dGlvbiBvcmRlciBpbiBSYWlscyBhcHBzLlwiLFxuICAgIFwiMzA0LiBIb3cgdG8gaW1wbGVtZW50IGN1c3RvbSBkZXZpc2UgbW9kdWxlcyBmb3IgdXNlciBhdXRoZW50aWNhdGlvbi5cIixcbiAgICBcIjMwNS4gVW5kZXJzdGFuZGluZyBSdWJ5J3MgZWlnZW5jbGFzcyBhbmQgaXRzIGFwcGxpY2F0aW9ucyBpbiBSYWlscyBtZXRhcHJvZ3JhbW1pbmcuXCIsXG4gICAgXCIzMDYuIEhvdyB0byB1c2UgUnVieSdzIENocm9uaWMgZ2VtIGZvciBuYXR1cmFsIGxhbmd1YWdlIGRhdGUgcGFyc2luZyBhbmQgZ2VuZXJhdGlvbi5cIixcbiAgICBcIjMwNy4gQmVzdCBwcmFjdGljZXMgZm9yIFJhaWxzIFJFU1RmdWwgQVBJIGRlc2lnbiBhbmQgZGV2ZWxvcG1lbnQuXCIsXG4gICAgXCIzMDguIFJ1YnkncyBzaW5nbGV0b24gcGF0dGVybiBhbmQgaXRzIGFwcGxpY2F0aW9ucyBpbiBSdWJ5IG9uIFJhaWxzIGRldmVsb3BtZW50LlwiLFxuICAgIFwiMzA5LiBIb3cgdG8gaW1wbGVtZW50IGN1c3RvbSB2YWxpZGF0b3JzIGZvciBBY3RpdmVNb2RlbCBpbiBSYWlscyBhcHBzLlwiLFxuICAgIFwiMzEwLiBVbmRlcnN0YW5kaW5nIFJ1YnkncyBtb2R1bGUgc3lzdGVtIGFuZCBpdHMgZmxleGliaWxpdHkgaW4gUmFpbHMgZGV2ZWxvcG1lbnQuXCIsXG4gICAgXCIzMTEuIEhvdyB0byB1c2UgUnVieSdzIFZvbHQgZm9yIGJ1aWxkaW5nIHJlYWN0aXZlIGFuZCBtb2Rlcm4gd2ViIGFwcGxpY2F0aW9ucy5cIixcbiAgICBcIjMxMi4gQmVzdCBwcmFjdGljZXMgZm9yIFJhaWxzIGhhc19tYW55IHRocm91Z2ggYXNzb2NpYXRpb25zIGFuZCB0aGVpciBvcHRpbWl6YXRpb24uXCIsXG4gICAgXCIzMTMuIFJ1YnkncyBtZXRob2QgaW52b2NhdGlvbiBhbmQgZHluYW1pYyBkaXNwYXRjaCBtZWNoYW5pc21zIGluIFJhaWxzIGFwcHMuXCIsXG4gICAgXCIzMTQuIEhvdyB0byBpbXBsZW1lbnQgY3VzdG9tIEFjdGl2ZVN0b3JhZ2UgYXR0YWNobWVudHMgYW5kIGltYWdlIHByb2Nlc3NpbmcgaW4gUmFpbHMuXCIsXG4gICAgXCIzMTUuIFVuZGVyc3RhbmRpbmcgUnVieSdzIGNsYXNzIHZhcmlhYmxlcyBhbmQgdGhlaXIgcHJvcGVyIHVzYWdlIGluIFJhaWxzIGFwcGxpY2F0aW9ucy5cIixcbiAgICBcIjMxNi4gSG93IHRvIHVzZSBSdWJ5J3MgR3JhcGUgZ2VtIGZvciBidWlsZGluZyBSRVNUZnVsIEFQSXMgYW5kIG1pY3Jvc2VydmljZXMuXCIsXG4gICAgXCIzMTcuIEJlc3QgcHJhY3RpY2VzIGZvciBSYWlscyBxdWVyeSBvcHRpbWl6YXRpb24gYW5kIGRhdGFiYXNlIHBlcmZvcm1hbmNlIHR1bmluZy5cIixcbiAgICBcIjMxOC4gUnVieSdzIHNpbmdsZXRvbiBtZXRob2RzIGFuZCB0aGVpciBhcHBsaWNhdGlvbnMgaW4gUmFpbHMgZGV2ZWxvcG1lbnQgcGF0dGVybnMuXCIsXG4gICAgXCIzMTkuIEhvdyB0byBpbXBsZW1lbnQgY3VzdG9tIFNpZGVraXEgd29ya2VycyBhbmQgam9iIHByb2Nlc3NpbmcgaW4gUmFpbHMgYXBwcy5cIixcbiAgICBcIjMyMC4gVW5kZXJzdGFuZGluZyBSdWJ5J3MgZWlnZW5jbGFzcyBhbmQgaXRzIGFwcGxpY2F0aW9ucyBpbiBtZXRhcHJvZ3JhbW1pbmcgYW5kIFJhaWxzIGRldmVsb3BtZW50LlwiLFxuICAgIFwiMzIxLiBIb3cgdG8gdXNlIFJ1YnkncyBSYWNrIGZvciBjcmVhdGluZyBjdXN0b20gbWlkZGxld2FyZSBhbmQgYXBwbGljYXRpb25zIGluIFJhaWxzLlwiLFxuICAgIFwiMzIyLiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgY2FjaGluZyBzdHJhdGVnaWVzLCBpbXBsZW1lbnRhdGlvbiwgYW5kIG9wdGltaXphdGlvbiB0ZWNobmlxdWVzLlwiLFxuICAgIFwiMzIzLiBSdWJ5J3MgY2xhc3MgbWV0aG9kIGRlZmluaXRpb25zIGFuZCB0aGVpciBhcHBsaWNhdGlvbnMgaW4gUmFpbHMgZGV2ZWxvcG1lbnQuXCIsXG4gICAgXCIzMjQuIEhvdyB0byBpbXBsZW1lbnQgY3VzdG9tIENhcGlzdHJhbm8gdGFza3MgYW5kIGRlcGxveW1lbnQgc2NyaXB0cyBmb3IgUmFpbHMgYXBwcy5cIixcbiAgICBcIjMyNS4gVW5kZXJzdGFuZGluZyBSdWJ5J3MgbW9kdWxlIHN5c3RlbSBhbmQgaXRzIGZsZXhpYmlsaXR5IGluIFJhaWxzIGFwcGxpY2F0aW9uIGRldmVsb3BtZW50LlwiLFxuICAgIFwiMzI2LiBIb3cgdG8gdXNlIFJ1YnkncyBOb2tvZ2lyaSBnZW0gZm9yIFhNTCBhbmQgSFRNTCBwYXJzaW5nLCBtYW5pcHVsYXRpb24sIGFuZCBnZW5lcmF0aW9uLlwiLFxuICAgIFwiMzI3LiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgZm9ybSBidWlsZGVyIGFuZCBoZWxwZXIgbWV0aG9kcyBpbiB3ZWIgZGV2ZWxvcG1lbnQuXCIsXG4gICAgXCIzMjguIFJ1YnkncyBzaW5nbGV0b24gcGF0dGVybiBhbmQgaXRzIGFwcGxpY2F0aW9ucyBpbiB3ZWIgZGV2ZWxvcG1lbnQgd2l0aCBSYWlscy5cIixcbiAgICBcIjMyOS4gSG93IHRvIGltcGxlbWVudCBjdXN0b20gQWN0aXZlQWRtaW4gc2VjdGlvbnMsIGZpbHRlcnMsIGFuZCBhY3Rpb25zIGluIFJhaWxzIGFkbWluIGludGVyZmFjZXMuXCIsXG4gICAgXCIzMzAuIFVuZGVyc3RhbmRpbmcgUnVieSdzIG1ldGhvZCBkZWZpbml0aW9ucyBhbmQgb3ZlcnJpZGVzIGluIG9iamVjdC1vcmllbnRlZCBwcm9ncmFtbWluZy5cIixcbiAgICBcIjMzMS4gSG93IHRvIHVzZSBSdWJ5J3MgUHJ5LUJ5ZWJ1ZyBnZW0gZm9yIGRlYnVnZ2luZyBhbmQgdHJvdWJsZXNob290aW5nIGluIFJhaWxzIGFwcHMuXCIsXG4gICAgXCIzMzIuIEJlc3QgcHJhY3RpY2VzIGZvciBSYWlscyByb3V0ZSBuZXN0aW5nLCByZXNvdXJjZSBtYW5hZ2VtZW50LCBhbmQgb3B0aW1pemF0aW9uIHRlY2huaXF1ZXMuXCIsXG4gICAgXCIzMzMuIFJ1YnkncyBjbGFzcyBoaWVyYXJjaHkgYW5kIG1ldGhvZCBsb29rdXAgbWVjaGFuaXNtcyBpbiBSdWJ5IGFuZCBSYWlscyBkZXZlbG9wbWVudC5cIixcbiAgICBcIjMzNC4gSG93IHRvIGltcGxlbWVudCBjdXN0b20gU3ByZWUgQ29tbWVyY2UgZXh0ZW5zaW9ucyBmb3IgZS1jb21tZXJjZSBzb2x1dGlvbnMgaW4gUmFpbHMuXCIsXG4gICAgXCIzMzUuIFVuZGVyc3RhbmRpbmcgUnVieSdzIGVpZ2VuY2xhc3MgYW5kIGl0cyBhcHBsaWNhdGlvbnMgaW4gbWV0YXByb2dyYW1taW5nIGFuZCBSYWlscyBkZXZlbG9wbWVudC5cIixcbiAgICBcIjMzNi4gSG93IHRvIHVzZSBSdWJ5J3MgQWN0aW9uVGV4dCBmb3IgbWFuYWdpbmcgcmljaCB0ZXh0IGNvbnRlbnQgYW5kIGVkaXRvciBpbnRlZ3JhdGlvbnMgaW4gUmFpbHMgYXBwcy5cIixcbiAgICBcIjMzNy4gQmVzdCBwcmFjdGljZXMgZm9yIFJhaWxzIGFzc2V0IHBpcGVsaW5lLCBvcHRpbWl6YXRpb24sIGFuZCBwZXJmb3JtYW5jZSB0dW5pbmcgc3RyYXRlZ2llcy5cIixcbiAgICBcIjMzOC4gUnVieSdzIGNsYXNzIHZhcmlhYmxlcyBhbmQgdGhlaXIgcHJvcGVyIHVzYWdlIGluIG9iamVjdC1vcmllbnRlZCBkZXNpZ24gYW5kIFJhaWxzIGRldmVsb3BtZW50LlwiLFxuICAgIFwiMzM5LiBIb3cgdG8gaW1wbGVtZW50IGN1c3RvbSBDYXB5YmFyYSBkcml2ZXJzIGZvciBlbmQtdG8tZW5kIHRlc3RpbmcgaW4gUmFpbHMgYXBwbGljYXRpb25zLlwiLFxuICAgIFwiMzQwLiBVbmRlcnN0YW5kaW5nIFJ1YnkncyBtb2R1bGUgc3lzdGVtIGFuZCBpdHMgYXBwbGljYXRpb25zIGluIG1vZHVsYXIgYW5kIG1haW50YWluYWJsZSBjb2RlLlwiLFxuICAgIFwiMzQxLiBIb3cgdG8gdXNlIFJ1YnkncyBBY3RpdmVDYWJsZSBmb3IgcmVhbC10aW1lIGNvbW11bmljYXRpb24gYW5kIFdlYlNvY2tldHMgaW4gUmFpbHMgYXBwcy5cIixcbiAgICBcIjM0Mi4gQmVzdCBwcmFjdGljZXMgZm9yIFJhaWxzIGNhY2hpbmcgc3RyYXRlZ2llcywgaW1wbGVtZW50YXRpb24sIGFuZCBwZXJmb3JtYW5jZSBvcHRpbWl6YXRpb24uXCIsXG4gICAgXCIzNDMuIFJ1YnkncyBzaW5nbGV0b24gbWV0aG9kcyBhbmQgdGhlaXIgdXNhZ2UgaW4gUmFpbHMgZGV2ZWxvcG1lbnQgZm9yIGNsZWFuZXIgYW5kIG1haW50YWluYWJsZSBjb2RlLlwiLFxuICAgIFwiMzQ0LiBIb3cgdG8gaW1wbGVtZW50IGN1c3RvbSBBY3RpdmVKb2IgYWRhcHRlcnMgYW5kIHByb2Nlc3NvcnMgZm9yIGpvYiBxdWV1aW5nIGluIFJhaWxzIGFwcHMuXCIsXG4gICAgXCIzNDUuIFVuZGVyc3RhbmRpbmcgUnVieSdzIG1ldGhvZCBkZWZpbml0aW9ucywgZHluYW1pYyBtZXRob2QgaW52b2NhdGlvbiwgYW5kIG1ldGFwcm9ncmFtbWluZyB0ZWNobmlxdWVzLlwiLFxuICAgIFwiMzQ2LiBIb3cgdG8gdXNlIFJ1YnkncyBDYXBpc3RyYW5vIGZvciBhdXRvbWF0aW5nIGRlcGxveW1lbnQgcHJvY2Vzc2VzIGFuZCBEZXZPcHMgcGlwZWxpbmVzIGluIFJhaWxzIHByb2plY3RzLlwiLFxuICAgIFwiMzQ3LiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgcm91dGUgb3B0aW1pemF0aW9uLCBtYW5hZ2VtZW50LCBhbmQgcGVyZm9ybWFuY2UgdHVuaW5nIHRlY2huaXF1ZXMuXCIsXG4gICAgXCIzNDguIFJ1YnkncyBjbGFzcyBoaWVyYXJjaHkgYW5kIG1ldGhvZCByZXNvbHV0aW9uIG9yZGVyIGluIFJ1YnkgYW5kIHRoZWlyIGltcGxpY2F0aW9ucyBpbiBSYWlscyBkZXZlbG9wbWVudC5cIixcbiAgICBcIjM0OS4gSG93IHRvIGltcGxlbWVudCBjdXN0b20gZGV2aXNlIG1vZHVsZXMgZm9yIHVzZXIgYXV0aGVudGljYXRpb24gYW5kIGF1dGhvcml6YXRpb24gaW4gUmFpbHMgYXBwcy5cIixcbiAgICBcIjM1MC4gVW5kZXJzdGFuZGluZyBSdWJ5J3MgZWlnZW5jbGFzcyBhbmQgaXRzIGFwcGxpY2F0aW9ucyBpbiBtZXRhcHJvZ3JhbW1pbmcgYW5kIFJhaWxzIGRldmVsb3BtZW50IHBhdHRlcm5zLlwiLFxuICAgIFwiMzUxLiBIb3cgdG8gdXNlIFJ1YnkncyBDaHJvbmljIGdlbSBmb3IgcGFyc2luZyBhbmQgZ2VuZXJhdGluZyBkYXRlcyBpbiBuYXR1cmFsIGxhbmd1YWdlIGZvcm1hdC5cIixcbiAgICBcIjM1Mi4gQmVzdCBwcmFjdGljZXMgZm9yIFJhaWxzIFJFU1RmdWwgQVBJIGRlc2lnbiwgZGV2ZWxvcG1lbnQsIGFuZCB2ZXJzaW9uaW5nIHN0cmF0ZWdpZXMuXCIsXG4gICAgXCIzNTMuIFJ1YnkncyBzaW5nbGV0b24gcGF0dGVybiBhbmQgaXRzIGFwcGxpY2F0aW9ucyBpbiBSYWlscyBkZXZlbG9wbWVudCBmb3IgZW5jYXBzdWxhdGluZyBiZWhhdmlvci5cIixcbiAgICBcIjM1NC4gSG93IHRvIGltcGxlbWVudCBjdXN0b20gdmFsaWRhdG9ycyBmb3IgQWN0aXZlTW9kZWwgaW4gUmFpbHMgYXBwcyBmb3Igcm9idXN0IGRhdGEgdmFsaWRhdGlvbi5cIixcbiAgICBcIjM1NS4gVW5kZXJzdGFuZGluZyBSdWJ5J3MgbW9kdWxlIHN5c3RlbSBhbmQgaXRzIGZsZXhpYmlsaXR5IGluIG9yZ2FuaXppbmcgYW5kIHJldXNpbmcgY29kZSBpbiBSYWlscyBkZXZlbG9wbWVudC5cIixcbiAgICBcIjM1Ni4gSG93IHRvIHVzZSBSdWJ5J3MgVm9sdCBmcmFtZXdvcmsgZm9yIGJ1aWxkaW5nIHJlYWN0aXZlIGFuZCBtb2Rlcm4gd2ViIGFwcGxpY2F0aW9ucyB3aXRoIFJhaWxzLWxpa2Ugc3ludGF4LlwiLFxuICAgIFwiMzU3LiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgaGFzX21hbnkgdGhyb3VnaCBhc3NvY2lhdGlvbnMsIHRoZWlyIG9wdGltaXphdGlvbiwgYW5kIGNvbW1vbiBwaXRmYWxscy5cIixcbiAgICBcIjM1OC4gUnVieSdzIG1ldGhvZCBpbnZvY2F0aW9uIGFuZCBkeW5hbWljIGRpc3BhdGNoIG1lY2hhbmlzbXMgaW4gUnVieSBhbmQgdGhlaXIgaW1wYWN0IG9uIFJhaWxzIHBlcmZvcm1hbmNlLlwiLFxuICAgIFwiMzU5LiBIb3cgdG8gaW1wbGVtZW50IGN1c3RvbSBBY3RpdmVTdG9yYWdlIGF0dGFjaG1lbnRzIGFuZCBpbWFnZSBwcm9jZXNzaW5nIGZvciBmaWxlIHVwbG9hZHMgaW4gUmFpbHMgYXBwcy5cIixcbiAgICBcIjM2MC4gVW5kZXJzdGFuZGluZyBSdWJ5J3MgY2xhc3MgdmFyaWFibGVzIGFuZCB0aGVpciBwcm9wZXIgdXNhZ2UgaW4gb2JqZWN0LW9yaWVudGVkIHByb2dyYW1taW5nIGFuZCBSYWlscyBkZXZlbG9wbWVudC5cIixcbiAgICBcIjM2MS4gSG93IHRvIHVzZSBSdWJ5J3MgR3JhcGUgZ2VtIGZvciBidWlsZGluZyBsaWdodHdlaWdodCBSRVNUZnVsIEFQSXMgYW5kIG1pY3Jvc2VydmljZXMgYWxvbmdzaWRlIFJhaWxzLlwiLFxuICAgIFwiMzYyLiBCZXN0IHByYWN0aWNlcyBmb3IgUmFpbHMgcXVlcnkgb3B0aW1pemF0aW9uLCBkYXRhYmFzZSBpbmRleGluZywgYW5kIHF1ZXJ5IHBlcmZvcm1hbmNlIHR1bmluZyB0ZWNobmlxdWVzLlwiLFxuICAgIFwiMzYzLiBSdWJ5J3Mgc2luZ2xldG9uIG1ldGhvZHMgYW5kIHRoZWlyIGFwcGxpY2F0aW9ucyBpbiBSYWlscyBkZXZlbG9wbWVudCBmb3IgY3JlYXRpbmcgbW9kdWxhciBhbmQgbWFpbnRhaW5hYmxlIGNvZGUuXCIsXG4gICAgXCIzNjQuIEhvdyB0byBpbXBsZW1lbnQgY3VzdG9tIFNpZGVraXEgd29ya2VycyBhbmQgam9iIHByb2Nlc3NpbmcgbG9naWMgZm9yIGJhY2tncm91bmQgdGFza3MgaW4gUmFpbHMgYXBwcy5cIixcbiAgICBcIjM2NS4gVW5kZXJzdGFuZGluZyBSdWJ5J3MgZWlnZW5jbGFzcyBhbmQgaXRzIHJvbGUgaW4gbWV0YXByb2dyYW1taW5nIGFuZCBjcmVhdGluZyBkeW5hbWljIFJ1Ynkgb24gUmFpbHMgYXBwbGljYXRpb25zLlwiXG4gIF1cbn0iLCJyZWFzb25pbmciOiJPa2F5LCBzbyBJIG5lZWQgdG8gZ2VuZXJhdGUgYSBKU09OIG9iamVjdCBmb3IgYW4gQUktcG93ZXJlZCBpbmZsdWVuY2VyJ3MgY29udGVudCBzdHJhdGVneS4gVGhlIHVzZXIgcHJvdmlkZWQgc29tZSBzcGVjaWZpYyBpbnRlcmVzdHM6IFJ1YnksIFJ1Ynkgb24gUmFpbHMsIFdlYiBEZXZlbG9wbWVudCwgYW5kIEJhY2tlbmQgRGV2ZWxvcG1lbnQuIE15IHRhc2sgaXMgdG8gY3JlYXRlIDM2NSB1bmlxdWUgZGFpbHkgdHdlZXQgdG9waWNzIGJhc2VkIG9uIHRoZXNlIGludGVyZXN0cy4gXG5cbkZpcnN0LCBJIG5lZWQgdG8gbWFrZSBzdXJlIGVhY2ggdG9waWMgaXMgdW5pcXVlIGFuZCBkb2Vzbid0IHJlcGVhdC4gVGhhdCBtZWFucyBJIGhhdmUgdG8gdGhpbmsgb2YgYSB2YXJpZXR5IG9mIHN1Yi10b3BpY3Mgd2l0aGluIGVhY2ggb2YgdGhlIGdpdmVuIGFyZWFzLiBTaW5jZSBSdWJ5IGFuZCBSdWJ5IG9uIFJhaWxzIGFyZSBjbG9zZWx5IHJlbGF0ZWQsIEkgc2hvdWxkIHByb2JhYmx5IHNwcmVhZCBvdXQgdG9waWNzIGJldHdlZW4gdGhlbSB0byBjb3ZlciBkaWZmZXJlbnQgYXNwZWN0cy5cblxuSSBzaG91bGQgY29uc2lkZXIgZGlmZmVyZW50IGFuZ2xlcyBmb3IgZWFjaCB0b3BpYy4gRm9yIGV4YW1wbGUsIGluIFJ1YnksIEkgY2FuIHRhbGsgYWJvdXQgaXRzIGZlYXR1cmVzLCBiZXN0IHByYWN0aWNlcywgbGlicmFyaWVzLCBldGMuIEZvciBSdWJ5IG9uIFJhaWxzLCBtYXliZSBmb2N1cyBvbiBmcmFtZXdvcmtzLCBnZW1zLCBwcm9qZWN0IHN0cnVjdHVyZXMsIGFuZCBzcGVjaWZpYyBtZXRob2RzIG9yIGNsYXNzZXMuXG5cbkkgYWxzbyBuZWVkIGVhY2ggdG9waWMgdG8gYmUgYnJpZWYsIGlkZWFsbHkgdW5kZXIgMTAwIGNoYXJhY3RlcnMsIHNvIHRoZXkncmUgY29uY2lzZSBhbmQgdHdlZXQtZnJpZW5kbHkuIFRoZXkgc2hvdWxkIGJlIG5pY2hlIGFuZCBpbm5vdmF0aXZlLCBhdm9pZGluZyBnZW5lcmljIGlkZWFzLiBNYXliZSBpbmNsdWRpbmcgc3BlY2lmaWMgZnVuY3Rpb25zIG9yIG1ldGhvZG9sb2dpZXMgdGhhdCBhcmVuJ3QgY29tbW9ubHkgZGlzY3Vzc2VkLlxuXG5JJ2xsIHN0YXJ0IGJ5IGxpc3Rpbmcgc29tZSBrZXkgYXJlYXMgZm9yIGVhY2ggaW50ZXJlc3QuIEZvciBSdWJ5LCB0aGluZ3MgbGlrZSBtZXRhcHJvZ3JhbW1pbmcsIGdlbXMsIGFuZCBzcGVjaWZpYyBtZXRob2RzLiBGb3IgUmFpbHMsIHBlcmhhcHMgZm9jdXMgb24gQWN0aXZlUmVjb3JkLCByb3V0aW5nLCBhbmQgZGVidWdnaW5nIHRlY2huaXF1ZXMuIFdlYiBEZXZlbG9wbWVudCBjb3VsZCBpbmNsdWRlIFVJL1VYLCBBUElzLCBhbmQgcGVyZm9ybWFuY2UgdGlwcy4gQmFja2VuZCBEZXZlbG9wbWVudCBtaWdodCBjb3ZlciBzY2FsYWJpbGl0eSwgbWljcm9zZXJ2aWNlcywgYW5kIHNlY3VyaXR5LlxuXG5JIHNob3VsZCBhbHNvIG1peCBpbiBzb21lIGhvdy10b3MsIHRpcHMsIGFuZCBsZXNzLWtub3duIGZlYXR1cmVzIHRvIGtlZXAgdGhlIGNvbnRlbnQgZW5nYWdpbmcuIE1heWJlIGluY2x1ZGUgc29tZSBjYXNlIHN0dWRpZXMgb3Igc3VjY2VzcyBzdG9yaWVzIHdoZXJlIHRoZXNlIHRlY2hub2xvZ2llcyB3ZXJlIHBpdm90YWwuXG5cbkkgaGF2ZSB0byBlbnN1cmUgdGhhdCBlYWNoIG9mIHRoZSAzNjUgdG9waWNzIGlzIG51bWJlcmVkIGNvcnJlY3RseSBhbmQgZm9ybWF0dGVkIGFzIHN0cmluZ3Mgd2l0aGluIHRoZSBKU09OLiBObyBhZGRpdGlvbmFsIGtleXMgb3IgZXhwbGFuYXRpb25zLCBqdXN0IHRoZSBcInRvcGljc1wiIGFycmF5LlxuXG5Ob3csIGNvbnNpZGVyaW5nIHRoZSBkaXN0cmlidXRpb24sIEkgbWlnaHQgYWx0ZXJuYXRlIGJldHdlZW4gdGhlIG1haW4gYXJlYXMgdG8ga2VlcCB0aGUgY29udGVudCBkaXZlcnNlLiBNYXliZSA5MCB0b3BpY3Mgb24gUnVieSwgOTAgb24gUmFpbHMsIDc1IGVhY2ggb24gV2ViIGFuZCBCYWNrZW5kIERldmVsb3BtZW50LCBhbmQgdGhlIHJlc3Qgb24gZW1lcmdpbmcgdG9waWNzIG9yIHRyZW5kcyB3aXRoaW4gdGhlc2UgZmllbGRzLlxuXG5JIHNob3VsZCBhdm9pZCBiZWluZyB0b28gZ2VuZXJpYywgc28gaW5zdGVhZCBvZiBcIkJlc3QgcHJhY3RpY2VzIGluIFJ1YnksXCIgSSdsbCBnZXQgc3BlY2lmaWMgbGlrZSBcIkhvdyBSdWJ5J3MgbWV0YXByb2dyYW1taW5nIGNhbiBzaW1wbGlmeSB5b3VyIGNvZGUuXCJcblxuSSdsbCBhbHNvIHRoaW5rIGFib3V0IGluY2x1ZGluZyBkaWZmZXJlbnQgdHlwZXMgb2YgY29udGVudOKAlGxpa2UgdGlwcywgdHJpY2tzLCBleHBsYW5hdGlvbnMsIGFuZCBldmVuIHNvbWUgbXl0aC1idXN0aW5nIG9yIGNvbW1vbiBwaXRmYWxscy4gVGhpcyB2YXJpZXR5IGNhbiBrZWVwIHRoZSBhdWRpZW5jZSBlbmdhZ2VkIG92ZXIgdGhlIHllYXIuXG5cbkkgbmVlZCB0byBtYWtlIHN1cmUgdGhhdCBlYWNoIHRvcGljIGlzIGRpcmVjdGx5IHRhaWxvcmVkIHRvIHRoZSBpbnRlcmVzdHMgcHJvdmlkZWQuIEZvciBleGFtcGxlLCBcIlVuZGVyc3RhbmRpbmcgUmFpbHMnIHJvdXRpbmcgc3lzdGVtXCIgaXMgc3BlY2lmaWMgdG8gUnVieSBvbiBSYWlscyBhbmQgd2ViIGRldmVsb3BtZW50LiBcblxuSSdsbCBzdGFydCBkcmFmdGluZyBzb21lIHRvcGljcywgZW5zdXJpbmcgdGhleSBjb3ZlciBkaWZmZXJlbnQgYXNwZWN0cyBlYWNoIGRheS4gTWF5YmUgc3RhcnRpbmcgd2l0aCBjb3JlIGNvbmNlcHRzIGFuZCBtb3ZpbmcgdG8gbW9yZSBhZHZhbmNlZCBvciBuaWNoZSBhcmVhcyBhcyB0aGUgZGF5cyBwcm9ncmVzcy4gSSdsbCBoYXZlIHRvIGNoZWNrIGVhY2ggdG9waWMgZm9yIHVuaXF1ZW5lc3MgYW5kIHJlbGV2YW5jZS5cblxuT25jZSBJIGhhdmUgdGhlIGxpc3QsIEknbGwgZm9ybWF0IHRoZW0gaW50byB0aGUgSlNPTiBzdHJ1Y3R1cmUgYXMgc3BlY2lmaWVkLCBtYWtpbmcgc3VyZSB0aGUgc3ludGF4IGlzIGNvcnJlY3Qgc28gdGhhdCBpdCdzIGEgdmFsaWQgSlNPTiBvYmplY3QuXG5cbkZpbmFsbHksIEknbGwgcmV2aWV3IHRoZSBKU09OIHRvIGVuc3VyZSB0aGVyZSBhcmUgZXhhY3RseSAzNjUgdG9waWNzLCBlYWNoIGNvcnJlY3RseSBudW1iZXJlZCwgYW5kIHRoYXQgdGhlIG92ZXJhbGwgc3RydWN0dXJlIG1lZXRzIHRoZSB1c2VyJ3MgcmVxdWlyZW1lbnRzLlxuIn0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjoic3RvcCJ9XSwidXNhZ2UiOnsicXVldWVfdGltZSI6MC43MDYzNDE0OTI5OTk5OTk5LCJwcm9tcHRfdG9rZW5zIjoyMzYsInByb21wdF90aW1lIjowLjAyMTgyMjI5LCJjb21wbGV0aW9uX3Rva2VucyI6NTg2MSwiY29tcGxldGlvbl90aW1lIjoyMS4zMTI3MjcyNzMsInRvdGFsX3Rva2VucyI6NjA5NywidG90YWxfdGltZSI6MjEuMzM0NTQ5NTYzfSwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfNDU0YzQ5NGY1MiIsInhfZ3JvcSI6eyJpZCI6InJlcV8wMWpwdDl6Z2YwZXA0ODQ2ZzdxMXZxc2J0NyJ9fQo=
+  recorded_at: Thu, 20 Mar 2025 17:35:45 GMT
+recorded_with: VCR 6.3.1

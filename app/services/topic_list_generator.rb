@@ -1,12 +1,17 @@
 class TopicListGenerator < GroqService
   PROMPT = <<~PROMPT.freeze
-    Generate a JSON object for an AI-powered influencer's content strategy. The object should include:
-    1. A tweet topic timeline: Exactly 365 unique, short and niche topics for daily tweets, tailored to the provided interests.
+    Generate a JSON object for an influencer's content strategy. The object should include a tweet topic timeline comprising exactly 365 daily tweet topics. Each topic must be:
 
-    Output:
-    A JSON object with the format:
+    - Unique with no repetitions.
+    - Brief (ideally under 100 characters).
+    - Specifically tailored to the provided interests.
+    - Niche and innovative, avoiding generic ideas.
 
-    json
+    Requirements:
+    1. Create 365 topics formatted as numbered strings (e.g., "1. topic1", "2. topic2", etc.).
+    2. Each topic should be clear, concise, and directly reflect the given interests.
+    3. Do not include any additional keys or explanatory text in the JSON output.
+    4. Ensure the output is a valid JSON object with the following structure:
 
     {
       "topics": [
@@ -18,7 +23,7 @@ class TopicListGenerator < GroqService
       ]
     }
 
-    Topics: Each topic must be unique, specific, and directly relevant to the interests. Ensure exactly 365 topics with no repetitions.
+    Tailor each topic to inspire engaging, daily tweets that resonate with the niche audience.
   PROMPT
 
   def self.generate_topics_for(interests)
@@ -34,8 +39,8 @@ class TopicListGenerator < GroqService
 
     result = JSON.parse(response["content"])
 
-    result["topics"].map! { it.from(it.index(" ") + 1) }
+    result["topics"].map! { |it| it.from(it.index(" ") + 1) }
 
-    result
+    result["topics"]
   end
 end

@@ -1,32 +1,35 @@
-<%= form_with(model: post, class: "contents") do |form| %>
+<%= form_with(model: post, class: "max-w-xl mx-auto contents", multipart: true) do |form| %>
   <% if post.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-        <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-4 py-3 rounded-lg mb-6">
+      <h2 class="font-semibold"><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <ul class="list-disc list-inside mt-2 text-sm">
+        <% post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="my-5">
-    <%= form.label :content %>
-    <%= form.textarea :content, rows: 4, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  <!-- Content Field -->
+  <div class="mb-6">
+    <%= form.label :content, class: "block text-sm font-medium text-secondary-400" %>
+    <%= form.text_area :content, rows: 4, class: "mt-2 w-full px-3 py-2 bg-[var(--color-primary-800)] border border-[var(--color-secondary-700)] rounded-lg shadow-sm focus:ring-[var(--color-accent-500)] focus:border-[var(--color-accent-500)] text-secondary-400" %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :images %>
-    <%= form.file_field :images, multiple: true, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  <!-- Images Field -->
+  <div class="mb-6">
+    <%= form.label :images, class: "block text-sm font-medium text-secondary-400" %>
+    <%= form.file_field :images, multiple: true, class: "mt-2 w-full px-3 py-2 bg-[var(--color-primary-800)] border border-[var(--color-secondary-700)] rounded-lg shadow-sm focus:ring-[var(--color-accent-500)] focus:border-[var(--color-accent-500)] text-secondary-400" %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :video %>
-    <%= form.file_field :video, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  <!-- Video Field -->
+  <div class="mb-6">
+    <%= form.label :video, class: "block text-sm font-medium text-secondary-400" %>
+    <%= form.file_field :video, class: "mt-2 w-full px-3 py-2 bg-[var(--color-primary-800)] border border-[var(--color-secondary-700)] rounded-lg shadow-sm focus:ring-[var(--color-accent-500)] focus:border-[var(--color-accent-500)] text-secondary-400" %>
   </div>
 
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  <!-- Submit Button -->
+  <div class="text-right">
+    <%= form.submit "Create Post", class: "px-6 py-3 bg-[var(--color-accent-500)] hover:bg-[var(--color-accent-600)] text-white font-medium rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent-500)]" %>
   </div>
 <% end %>

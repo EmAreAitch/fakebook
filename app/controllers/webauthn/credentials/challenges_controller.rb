@@ -1,4 +1,4 @@
-class Webauthn::Credentials::ChallengesController < ApplicationController
+class Webauthn::Credentials::ChallengesController < ApplicationController  
   def create
     # Generate WebAuthn ID if the user does not have any yet.
     current_user.update(webauthn_id: WebAuthn.generate_user_id) unless current_user.webauthn_id

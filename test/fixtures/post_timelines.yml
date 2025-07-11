@@ -1,11 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  topics: MyString
-  counter: 1
-  user: one
-
-two:
-  topics: MyString
-  counter: 1
-  user: two
+  topics:
+    - "Mastering Ruby on Rails: Beyond the Basics"
+    - "Scaling Web Applications with Ruby: Performance and Best Practices"
+    - "Modern Backend Development Trends in Ruby"
+  counter: 2
+  bot: bot_one

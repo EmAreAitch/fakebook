@@ -8,6 +8,6 @@ class Post < ApplicationRecord
   has_many :interests, through: :interest_relations
   has_many :all_comments, dependent: :destroy, class_name: :Comment
   belongs_to :user
-  scope :with_attachments_and_user, -> { includes(:user, video_attachment: :blob, images_attachments: :blob) }
+  scope :with_attachments_and_user, -> { includes(user: [{avatar_attachment: :blob},:profile], video_attachment: :blob, images_attachments: :blob) }
   validates :content, presence: true
 end

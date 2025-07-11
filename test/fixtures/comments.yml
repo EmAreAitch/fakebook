@@ -4,10 +4,12 @@ one:
   content: MyText
   user: one
   commentable: one
-  commentable_type: Commentable
+  commentable_type: Post
+  post: one
 
 two:
   content: MyText
   user: two
-  commentable: two
-  commentable_type: Commentable
+  commentable: one
+  commentable_type: Comment
+  post: one

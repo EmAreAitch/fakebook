@@ -1,10 +1,6 @@
-class Webauthn::CredentialsController < ApplicationController
+class Webauthn::CredentialsController < ApplicationController  
   def index
-    credentials = current_user.webauthn_credentials.order(created_at: :desc)
-
-    render :index, locals: {
-      credentials: credentials
-    }
+    @credentials = current_user.webauthn_credentials.order(created_at: :desc)
   end
 
   def create
@@ -24,12 +20,14 @@ class Webauthn::CredentialsController < ApplicationController
       )
 
       if credential.save
-        render :create, locals: {credential: credential}, status: :created
+        render :create, locals: { credential: credential }, status: :created
       else
-        render turbo_stream: turbo_stream.update("webauthn_credential_error", "<p class=\"text-red-500\">Couldn't add your Security Key</p>")
+        flash.now.alert = "Couldn't add your Security Key"
+        render turbo_stream: render_flash_stream, status: :unprocessable_entity
       end
     rescue WebAuthn::Error => e
-      render turbo_stream: turbo_stream.update("webauthn_credential_error", "<p class=\"text-red-500\">Verification failed: #{e.message}</p>")
+      flash.now.alert = "Verification failed: #{e.message}"
+      render turbo_stream: render_flash_stream, status: :unprocessable_entity
     ensure
       session.delete(:webauthn_credential_register_challenge)
     end

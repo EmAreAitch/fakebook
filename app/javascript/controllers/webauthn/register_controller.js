@@ -1,6 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 import * as WebAuthnJSON from "@github/webauthn-json"
 import { FetchRequest } from "@rails/request.js"
+import HotwireNotyf from "misc/hotwire_notyf"
 
 export default class extends Controller {
   static targets = ["nickname"]
@@ -17,13 +18,13 @@ export default class extends Controller {
       WebAuthnJSON.create({ "publicKey": data }).then(async function(credential) {
         const request = new FetchRequest("post", _this.callbackValue + `?nickname=${_this.nicknameTarget.value}`, { body: JSON.stringify(credential)})
         await request.perform()
-      }).catch(function(error) {
-        console.log("something is wrong", error);
+      }).catch(function(error) {        
+        HotwireNotyf.error(error.message);
       });
     }        
   }
 
   error(event) {
-    console.log("something is wrong", event);
+    HotwireNotyf.error(error.message);
   }
 }

@@ -1,54 +1,80 @@
-<%= form_with(model: profile) do |f| %>
-  <% if profile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+<div class="max-w-2xl mx-auto px-4  text-gray-300">
+  <div class="bg-primary-800 bg-opacity-80 backdrop-blur-sm p-6 rounded-xl">    
 
-      <ul>
-        <% profile.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+    <%= form_with(model: profile) do |f| %>
+      <% if profile.errors.any? %>
+        <div class="bg-red-900 text-red-300 p-4 rounded-md mb-4">
+          <h3 class="font-semibold mb-2">
+            <%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:
+          </h3>
+          <ul class="list-disc list-inside">
+            <% profile.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="space-y-4">
+        <div>
+          <%= f.label :first_name, class: "block text-sm font-medium" %>
+          <%= f.text_field :first_name, required: true, class: "w-full mt-1 rounded-md bg-primary-900 border border-gray-700 p-2 text-white" %>
+        </div>
+
+        <div>
+          <%= f.label :last_name, class: "block text-sm font-medium" %>
+          <%= f.text_field :last_name, required: true, class: "w-full mt-1 rounded-md bg-primary-900 border border-gray-700 p-2 text-white" %>
+        </div>
+
+        <div>
+          <%= f.label :dob, class: "block text-sm font-medium" %>
+          <%= f.date_field :dob, required: true, class: "w-full mt-1 rounded-md bg-primary-900 border border-gray-700 p-2 text-white" %>
+        </div>
+
+        <div>
+          <span class="block text-sm font-medium">Gender *</span>
+          <div class="mt-2 space-y-2">
+            <%= f.collection_radio_buttons :gender, Profile.genders.map {|i,j| [i,i.capitalize]}, :first, :last do |b| %>
+              <div class="flex items-center gap-2">
+                <%= b.radio_button(class: "text-accent-500") %>
+                <%= b.label(class: "text-sm") %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div>
+          <%= f.label :bio, class: "block text-sm font-medium" %>
+          <%= f.text_area :bio, rows: 2, required: true, class: "w-full mt-1 rounded-md bg-primary-900 border border-gray-700 p-2 text-white" %>
+        </div>
+
+        <%= f.fields_for :user do |user_form| %>
+          <div>
+            <%= user_form.label :avatar, class: "block text-sm font-medium" %>
+            <%= user_form.file_field :avatar, class: "w-full mt-1 text-white" %>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
-	<div class="field">
-		<%= f.label :first_name %> *<br>
-		<%= f.text_field :first_name, required: true %>
-	</div>
-	<div class="field">
-		<%= f.label :last_name %> *<br>
-		<%= f.text_field :last_name, required: true %>
-	</div>
-	<div class="field">
-		<%= f.label :dob %> *<br>
-		<%= f.date_field :dob, required: true %>
-	</div>
-	<div class="field">
-		<span>Gender *<span><br>
-		<%= f.collection_radio_buttons :gender, Profile.genders.map {|i,j| [i,i.capitalize]}, :first, :last, required: true %>
-	</div>
-	<div class="field">
-		<%= f.label :bio %><br>
-		<%= f.textarea :bio, rows: 2, required: true %>
-	</div>
-	<%= f.fields_for :user do |user_form| %>
-    <div class="field">
-      <%= user_form.label :avatar %><br>
-      <%= user_form.file_field :avatar %>
-    </div>
-  <% end %>
-	<div class="field">
-		<%= f.label :country %><br>
-		<%= f.text_field :country %>
-	</div>
-	<div class="field">
-		<%= f.label :city %><br>
-		<%= f.text_field :city %>
-	</div>
-	<div class="field">
-		<%= f.label :profession %><br>
-		<%= f.text_field :profession %>
-	</div>	
-	<div class="submit">
-		<%= f.submit %>
-	</div>
-<% end %>
+
+        <div>
+          <%= f.label :country, class: "block text-sm font-medium" %>
+          <%= f.text_field :country, class: "w-full mt-1 rounded-md bg-primary-900 border border-gray-700 p-2 text-white" %>
+        </div>
+
+        <div>
+          <%= f.label :city, class: "block text-sm font-medium" %>
+          <%= f.text_field :city, class: "w-full mt-1 rounded-md bg-primary-900 border border-gray-700 p-2 text-white" %>
+        </div>
+
+        <div>
+          <%= f.label :profession, class: "block text-sm font-medium" %>
+          <%= f.text_field :profession, class: "w-full mt-1 rounded-md bg-primary-900 border border-gray-700 p-2 text-white" %>
+        </div>
+      </div>
+
+      <div class="mt-6">
+        <%= f.submit "Save Changes", class: "bg-accent-500 hover:bg-accent-600 text-white font-semibold px-6 py-2 rounded-md" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>

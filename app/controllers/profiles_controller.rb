@@ -3,7 +3,18 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :update, :edit]
   before_action :authorize_user, only: [:update, :edit]
   
-  def show   	  	
+  def show   
+   @posts = @profile.user.posts
+   @posts_liked_ids = current_user.posts_liked_ids_sorted	  	
+  end
+
+  def search
+    if params[:q].present?
+      @profiles = Profile.includes(user: {avatar_attachment: :blob}).search(params[:q])
+    else
+      @profiles = Profile.includes(user: {avatar_attachment: :blob}).all.order(created_at: :desc)
+      flash[:alert] = "Please enter something to search for." unless params[:q].nil?
+    end
   end
 
   def follow_status

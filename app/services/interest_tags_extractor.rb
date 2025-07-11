@@ -58,7 +58,9 @@ class InterestTagsExtractor < GroqService
       temperature: 0
     )
 
-    JSON.parse(response["content"])
+    JSON.parse(response["content"]).then do
+      it["tags"].values.reduce(&:merge)
+    end
   rescue JSON::ParserError
     { "tags" => { "niche" => {}, "general" => {} } }
   end

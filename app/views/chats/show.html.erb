@@ -1,8 +1,45 @@
-<h2><%= opposite_username(@chat,current_user) %></h2>
 <%= turbo_stream_from [@chat.sender_id, @chat.receiver_id].sort %>
-<div id="messages" class="space-y-4">
-	<%= render @chat.messages %>
-</div>
-<div>
-	<%= render "form", chat: @chat %>
+
+<style>
+  <% [@chat.sender, @chat.receiver].each do |user| %>
+    <% if user == current_user %>
+      .<%= dom_id(user) %> {
+        justify-content: flex-end;
+      }
+      .<%= dom_id(user) %> .message-bubble {
+        background-color: var(--color-secondary-700);
+        color: white;
+      }
+    <% else %>
+      .<%= dom_id(user) %> {
+        justify-content: flex-start;
+      }
+      .<%= dom_id(user) %> .message-bubble {
+        background-color: var(--color-primary-700);
+        color: white;
+      }
+    <% end %>
+  <% end %>
+</style>
+
+<div class="flex flex-col h-full max-w-2xl mx-auto bg-primary-900 rounded-2xl shadow p-6 text-secondary-400">
+  <!-- Chat Header -->
+  <header class="flex items-center gap-4 border-b border-primary-700 pb-4 mb-4">
+    <% other_user = (@chat.sender == current_user) ? @chat.receiver : @chat.sender %>
+    <%= image_tag(other_user.avatar.attached? ? other_user.avatar : "fakebook_pfp_placeholder.jpg", class: "w-10 h-10 rounded-full object-cover") %>
+    <div>
+      <h2 class="text-xl font-heading text-white leading-tight"><%= other_user.profile.fullname %></h2>
+      <p class="text-sm text-secondary-400"><%= link_to "@%s" % other_user.username, profile_path(username: other_user.username) %></p>
+    </div>
+  </header>
+
+  <!-- Messages Container -->
+  <div id="messages" class="flex-1 space-y-4 overflow-y-auto scrollbar-thin p-2 bg-texture bg-primary-800 rounded-lg">
+    <%= render @chat.messages %>
+  </div>
+
+  <!-- Message Form -->
+  <div class="mt-6">
+    <%= render "form", chat: @chat %>
+  </div>
 </div>

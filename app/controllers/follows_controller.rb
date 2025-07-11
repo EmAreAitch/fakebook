@@ -4,19 +4,21 @@ class FollowsController < ApplicationController
 		@follow_requests = 
 		Follow
 		.includes(:follower,:followed)
-		.where(follower: @user).or(Follow.where(followed: @user))		
-		.group_by do |record| 
+		.accepted.of_user(@user).or(Follow.pending.of_user(current_user))
+		.group_by do |record|
 			if record.follower == @user
 				record.accepted? ? "followings" : "pending_following_requests"
 			else
 				record.accepted? ? "followers" : "pending_follower_requests"
 			end 
 		end
+		@lists = ["pending_follower_requests", "pending_following_requests", "followings", "followers"].intersection @follow_requests.keys
 	end	
 
 	def create
 		followed = User.find_by(username: username_param)
-		follow = Follow.new(follower: current_user, followed:)		
+		follow = Follow.new(follower: current_user, followed:)	
+		follow.status = :accepted if followed.is_a? Bot
 		if follow.save
 			user_details = {follower_username: current_user.username, followed_username: followed.username }
 			render json: follow.as_json(except: [:created_at, :updated_at]).merge(user_details)

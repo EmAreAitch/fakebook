@@ -2,7 +2,7 @@ class Follow < ApplicationRecord
   belongs_to :follower, class_name: 'User'
   belongs_to :followed, class_name: 'User'
 
-  after_update if: [:accepted?, :status_previously_changed?] do 
+  after_save if: [:accepted?, :status_previously_changed?] do 
     User.increment_counter(:followers_count, self.followed_id)
     User.increment_counter(:followings_count, self.follower_id)
   end
@@ -18,4 +18,10 @@ class Follow < ApplicationRecord
   validates :followed_id, comparison: { other_than: :follower_id, message: "cannot be same as follower" }
   scope :accepted, -> { where(status: :accepted) }
   scope :pending, -> { where(status: :pending) }
+  scope :of_user, ->(user) { where(followed: user).or(where(follower: user)) }
+
+  def of_user(user)
+    follower == user or followed == user
+  end
 end
+

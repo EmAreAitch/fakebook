@@ -1,38 +1,58 @@
-<% _like_button_text_ =  like_button_text(posts_liked_ids,post) %>
-<div id="<%= dom_id post %>" class="space-y-2">
-  <p>
-    <strong class="font-medium mb-1">User: </strong>
-    <%= link_to post.user.username, profile_path(username: post.user.username) %>
-  </p>
-  <p>
-    <strong class="font-medium mb-1">Content: </strong>
-    <%= post.content %>
-  </p>
-  <% if post.images.attached? %>
-  <p>
-    <strong class="block font-medium mb-1">Images:</strong>
-    <div class="flex space-x-2 overflow-x-auto w-96">
-      <% post.images.each do |image| %>
-        <div class="max-h-56 flex items-center justify-center">
-          <%= image_tag image.url, class: "max-w-full max-h-full object-contain" %>
-        </div>
-      <% end %>
+<div id="<%= dom_id post %>" class="<%= token_list("bg-primary-800 bg-opacity-60 rounded-xl text-gray-200 transition-all duration-300",local_assigns[:class]) %>" data-controller="post-toggle">
+  <!-- User Info -->
+  <div class="flex items-center space-x-4 px-4 pt-4">    
+    <%= image_tag(post.user.avatar.attached? ? post.user.avatar.url : "fakebook_pfp_placeholder.jpg", loading: :lazy, class: "w-10 h-10 rounded-full object-cover border border-gray-600") %>    
+    <div>
+      <h2 class="font-semibold text-lg">
+        <%= link_to post.user.profile.fullname, profile_path(username: post.user.username), class: "hover:underline" %>
+        <% if post.user.is_a? Bot %>
+          <span class="text-xs bg-accent-500 text-white px-2 py-0.5 rounded-full font-semibold uppercase">Bot</span>
+        <% end %>
+        
+      </h2>
+      <p class="text-sm text-gray-400 font-semibold">@<%= post.user.username %></p>
+      <p class="text-sm text-gray-400"><%= time_ago_in_words(post.created_at) %> ago</p>
     </div>
-  </p>
-  <% end %>
-  <% if post.video.attached? %>
-  <p>
-    <strong class="block font-medium mb-1">Video:</strong>    
-      <div class="w-96 h-56">
-        <%= video_tag post.video.url, controls: true, class: "w-full h-full object-contain" %>
-      </div>    
-  </p>
-  <% end %>  
-  <div data-controller="likes" data-likes-liked-text-value="<%= _like_button_text_ %>" data-likes-post-id-value="<%= post.id %>">
-    <button class="px-4 py-2 bg-gray-100 rounded-lg" data-likes-target="button" data-action="likes#toggleLike"><%= _like_button_text_ %></button>
   </div>
-  <p>
-    <strong class="font-medium mb-1">Comments: </strong>
-    <%= tag.span post.comments_count, id: dom_id(post, :comments_count) %>
-  </p>
+
+  <!-- Collapsible Section -->
+  <div data-post-toggle-target="collapsible" class="transition-all duration-300 overflow-y-scroll max-h-[18rem] cursor-pointer scrollbar-thin" title="Click to read more">
+    <!-- Post Content -->
+    <div class="prose prose-invert px-4 max-w-none" data-action="click->post-toggle#toggle">
+      <div class="overflow-x-auto">
+        <%= markdown post.content %>
+      </div>
+    </div>
+
+    <!-- Images Gallery -->
+    <% if post.images.attached? %>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 px-4">
+        <% post.images.each do |image| %>
+          <div class="relative aspect-square overflow-hidden rounded-lg border border-gray-600">
+            <%= image_tag url_for(image), loading: "lazy", class: "absolute inset-0 w-full h-full object-cover" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <!-- Video -->
+    <% if post.video.attached? %>
+      <div class="w-full aspect-video rounded-lg overflow-hidden px-4">
+        <%= video_tag post.video.url, controls: true, class: "w-full h-full object-cover" %>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- Actions (always visible) -->
+  <div class="flex items-center space-x-4 pt-2 px-4 pb-4">
+    <div data-controller="likes" data-likes-liked-text-value="<%= like_button_text(posts_liked_ids, post) %>" data-likes-post-id-value="<%= post.id %>">
+      <button class="bg-accent-500 hover:bg-accent-600 text-white px-4 py-2 rounded text-sm font-medium font-ui" data-likes-target="button" data-action="likes#toggleLike">
+        <%= like_button_text(posts_liked_ids, post) %>
+      </button>
+    </div>
+
+    <a href="<%= post_path(post) %>" class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded text-sm font-medium font-ui">
+      Comment (<%= post.comments_count %>)
+    </a>
+  </div>
 </div>

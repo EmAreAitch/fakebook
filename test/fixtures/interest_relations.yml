@@ -2,12 +2,12 @@
 
 one:
   interest: one
-  interestable: one
-  interestable_type: Interestable
-  weight: 1.5
+  interestable: bot_one
+  interestable_type: Bot
+  weight: 0.5
 
 two:
   interest: two
-  interestable: two
-  interestable_type: Interestable
-  weight: 1.5
+  interestable: bot_two
+  interestable_type: Bot
+  weight: 0.5

@@ -1,11 +1,15 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit]
-  before_action :set_posts_liked_ids, only: %i[index show]
+  before_action :set_posts_liked_ids, only: %i[index show explore]
   # GET /posts or /posts.json
   def index
-    @posts = Post.with_attachments_and_user.order(created_at: :desc).all
-    @user = current_user
-    console
+    @posts = Post.with_attachments_and_user.order(created_at: :desc).where(user: current_user.followings).all  
+    @user = current_user    
+  end
+
+  def explore 
+    @posts = Post.with_attachments_and_user.order(created_at: :desc).all      
+    @user = current_user  
   end
 
   # GET /posts/1 or /posts/1.json
@@ -19,13 +23,13 @@ class PostsController < ApplicationController
   end
 
   # GET /posts/1/edit
-  def edit
+  def edit    
+    authorize_user  
   end
 
   # POST /posts or /posts.json
   def create
     @post = Post.new(post_params)
-
     respond_to do |format|
       if @post.save
         format.html do
@@ -42,6 +46,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
     @post = Post.find(params.expect(:id))
+    authorize_user
     respond_to do |format|
       if @post.update(post_params)
         format.html do
@@ -58,6 +63,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1 or /posts/1.json
   def destroy
     @post = Post.find(params.expect(:id))
+    authorize_user
     @post.destroy!
 
     respond_to do |format|
@@ -91,9 +97,15 @@ class PostsController < ApplicationController
 
   private
 
+  def authorize_user
+		unless @post.user == current_user
+			head :unauthorized
+		end
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_post
-    @post = Post.with_attachments_and_user.find(params.expect(:id))
+    @post = Post.with_attachments_and_user.find(params.expect(:id))    
   end
 
   def set_posts_liked_ids
@@ -102,7 +114,7 @@ class PostsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def post_params
-    params.expect(post: [:content, :video, images: []]).merge(
+    params.expect(post: [ :content, :video, images: [] ]).merge(
       user: current_user
     )
   end

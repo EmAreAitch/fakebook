@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
   defaults export: true do
+    resources :bots, only: [:new,:create]
     devise_for :users,
                controllers: {
                  registrations: "users/registrations",
-                 sessions: "users/sessions"
+                 sessions: "users/sessions",
+                 passwords: "users/passwords"
                }
     resources :posts do
       member do
         post "like", to: "posts#like" # POST request to /posts/:id/like
         delete "like", to: "posts#unlike" # DELETE request to /posts/:id/like
+      end
+      collection do
+        get :explore  # Adds /posts/explore
       end
       resources :comments, except: %i[edit update destroy show] do
         resources :comments,
@@ -19,8 +24,11 @@ Rails.application.routes.draw do
     end
 
     resources :profiles, param: :username do
-      get :follow_status, on: :member
+      get :follow_status, on: :member    
       resources :follows, only: [:index]
+      collection do
+        get :search
+      end
     end
 
     resources :chats, param: :username, only: [:show]

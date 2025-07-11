@@ -4,5 +4,5 @@ class Message < ApplicationRecord
 
   validates :content, presence: true
 
-  after_create { broadcast_append_to [self.chat.sender_id, self.chat.receiver_id].sort }
+  after_create_commit { broadcast_append_to [self.chat.sender_id, self.chat.receiver_id].sort }
 end

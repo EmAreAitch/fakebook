@@ -1,11 +1,51 @@
-<div id="<%= dom_id profile %> ">
-	<h1><%= profile.fullname %></h1>
-	<%= link_to "%s followers" % profile.user.followers_count, profile_follows_path(profile) %>
-	<%= link_to "%s followings" % profile.user.followings_count, profile_follows_path(profile) %>
-	<%= image_tag (profile.user.avatar.attached? ? profile.user.avatar.url : "fakebook_pfp_placeholder.jpg") %>
-	<p><%= profile.bio %></p>	
-	<p><%= profile.age %> years old</p>
-	<p><%= profile.gender.capitalize %></p>	
-	<p><%= profile.city %></p>
-	<p><%= profile.country %></p>	
+<% link_to_profile ||= false %>
+<div id="<%= dom_id profile %>" class="<%= token_list("bg-primary-800 bg-opacity-70 backdrop-blur-md rounded-xl text-gray-300 mx-auto", local_assigns[:class]) %>">
+  <!-- Profile Header -->
+  <div class="flex items-center space-x-4 mb-4">
+    <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-accent-500">
+      <%= image_tag(profile.user.avatar.attached? ? profile.user.avatar.url : "fakebook_pfp_placeholder.jpg", class: "w-full h-full object-cover") %>
+    </div>
+    <div>
+      <div class="flex items-center space-x-2">
+        <h1 class="font-bold text-white">
+          <%= link_to_if link_to_profile, profile.fullname, profile_path(username: profile.user.username), class: "hover:underline" %>
+        </h1>
+        <% if profile.user.is_a? Bot %>
+          <span class="text-xs bg-accent-500 text-white px-2 py-0.5 rounded-full font-semibold uppercase">Bot</span>
+        <% end %>
+      </div>
+      <p class="text-sm text-gray-400 font-semibold">@<%= profile.user.username %></p>
+      <p class="text-sm text-gray-400">
+        <% if profile.user.is_a? Bot %>
+          Generated <%= time_ago_in_words(profile.user.created_at) %> ago
+        <% else %>
+          <%= profile.age %> years old • <%= profile.gender.capitalize %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+
+  <!-- Location -->
+  <% unless profile.user.is_a? Bot %>
+    <div class="text-sm text-gray-400 mb-4">
+      <p><i class="fas fa-map-marker-alt"></i> <%= profile.city %>, <%= profile.country %></p>
+    </div>
+  <% end %>
+
+  <!-- Bio -->
+  <div class="mb-4">
+    <p class="text-base text-gray-200 italic wrap-break-word"><%= profile.bio %></p>
+  </div>
+
+  <!-- Followers/Followings -->
+  <div class="flex space-x-4 text-sm text-accent-400">
+    <%= link_to profile_follows_path(profile), class: "hover:underline" do %>
+      <%= pluralize(profile.user.followers_count, "Follower") %>
+    <% end %>
+    <% unless profile.user.is_a? Bot %>
+      <%= link_to profile_follows_path(profile), class: "hover:underline" do %>
+        <%= pluralize(profile.user.followings_count, "Following") %>
+      <% end %>
+    <% end %>
+  </div>
 </div>

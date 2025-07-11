@@ -1,8 +1,16 @@
-<div> 
-	<h1>Edit your profile</h1>
-	<p>Let people know what they dealing with</p>
-	<%= link_to "Back to profile", profile_path(@profile)%>
-	<div>
-		<%= render 'form', profile: @profile %>
-	</div>
+<div class="px-4 py-6 max-w-2xl mx-auto text-gray-300">
+  <div class="bg-primary-800 bg-opacity-70 backdrop-blur-sm p-6 rounded-xl shadow-xl">
+    <div class="mb-6 text-center">
+      <h1 class="text-2xl md:text-3xl font-bold text-white mb-2">Edit your profile</h1>
+      <p class="text-sm md:text-base text-gray-400">Let people know what they’re dealing with</p>
+    </div>
+
+    <div class="mb-4 text-left">
+      <%= link_to "← Back to profile", profile_path(@profile), class: "text-accent-500 hover:underline text-sm" %>
+    </div>
+
+    <div>
+      <%= render 'form', profile: @profile %>
+    </div>
+  </div>
 </div>

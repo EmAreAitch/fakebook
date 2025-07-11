@@ -1,0 +1,185 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.groq.com/openai/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"deepseek-r1-distill-llama-70b","messages":[{"role":"system","content":"Analyze
+        the following post content and extract interest tags in two categories: niche
+        and general.\n\n# Requirements\n- Generate two sets of tags:\n  1. **Niche
+        Tags (3-5 tags):** Capture the specific subject matter or context of the post.\n  2.
+        **General Tags (7-10 tags):** Represent broad topics with universal appeal.\n-
+        Both sets must include at least one tag that explicitly classifies the domain
+        of the content.\n- **Do not repeat tags:** Ensure that no tag appears in both
+        the niche and general categories.\n- Tags should be **generic, engaging, and
+        interesting**—optimized for user curiosity and discoverability.\n- All tags
+        must be **lemmatized** (reduced to their base form).\n\n# Compound Topics\n-
+        If a compound topic exists (e.g., \"ruby on rails\"), include:\n  - The full
+        topic (e.g., \"ruby on rails\").\n  - Key components if they are relevant
+        standalone interests (e.g., \"ruby\").\n- Standalone components should be
+        weighted at 90% of the compound tag''s weight, rounded to the nearest multiple
+        of 5.\n\n# Tag Format\n- Use **only lowercase alphanumeric characters and
+        spaces** (no punctuation, special symbols, dashes, or underscores).\n- Prefer
+        **single-word tags** unless two-word tags add clarity.\n\n# Weighting System\n-
+        Assign a weight from **1 to 100**:\n  - **Niche tags:** 85-100 (most specific
+        and targeted).\n  - **General tags:** 60-85 (broad and widely relevant).\n\n#
+        Output Format\n- Return a valid JSON object:\n  {\n    \"tags\": {\n      \"niche\":
+        {\n        \"tag1\": weight1,\n        \"tag2\": weight2,\n        ...\n      },\n      \"general\":
+        {\n        \"tag1\": weight1,\n        \"tag2\": weight2,\n        ...\n      }\n    }\n  }\n\nGenerate
+        JSON output for this post:\n"},{"role":"user","content":"Top 5 Ruby on Rails
+        Gems for E-commerce Development  \n\nBuilding an e-commerce platform with
+        Ruby on Rails? The right gems can save time, effort, and headaches while ensuring
+        scalability and performance. Here are the top 5 must-have gems for your e-commerce
+        project:  \n\n1. **Spree** – A full-featured, customizable e-commerce engine
+        that integrates seamlessly into your Rails app. It provides everything from
+        product management to payment processing.  \n\n2. **Solidus** – A fork of
+        Spree, Solidus is great for complex and high-volume e-commerce platforms.
+        It offers enterprise-level stability and flexibility.  \n\n3. **Devise** –
+        User authentication is crucial for e-commerce. Devise simplifies login, sign-up,
+        and session management while keeping security tight.  \n\n4. **Pundit** –
+        Handling roles and permissions? Pundit makes authorization a breeze, ensuring
+        customers, admins, and sellers have the right access levels.  \n\n5. **Stripe**
+        – The Stripe gem allows seamless integration with Stripe’s powerful payment
+        gateway for subscriptions, one-time purchases, and more.  \n\nBonus gems to
+        consider: ActiveStorage (for product images), Sidekiq (for background jobs),
+        and FriendlyId (for clean URLs).  \n"}],"max_tokens":32768,"temperature":0,"response_format":{"type":"json_object"}}'
+    headers:
+      Authorization:
+      - Bearer <GROQ_API_KEY>
+      User-Agent:
+      - groq-ruby/0.3.2
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 22 Mar 2025 16:04:42 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private, max-age=0, no-store, no-cache, must-revalidate
+      Vary:
+      - Origin
+      X-Groq-Region:
+      - gcp-asia-south1
+      X-Ratelimit-Limit-Requests:
+      - '1000'
+      X-Ratelimit-Limit-Tokens:
+      - '6000'
+      X-Ratelimit-Remaining-Requests:
+      - '999'
+      X-Ratelimit-Remaining-Tokens:
+      - '5274'
+      X-Ratelimit-Reset-Requests:
+      - 1m26.4s
+      X-Ratelimit-Reset-Tokens:
+      - 7.26s
+      X-Request-Id:
+      - req_01jpz9jr11ep1ak8brh67w5w6e
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=ptkCRQJ_3I2ZA_zSuOYkAFhaPy5eUHubR1fRx4B__Tk-1742659482-1.0.1.1-SASYE1aM2wG37RTa8lOH1CBqDiw3PPG5_hLWXBQQzai8jamWps1DyoSwbnugxFWgQ2Ic4PZkUXlXqfNOf9d3U12SarsKiW4j04hMyzy5b58;
+        path=/; expires=Sat, 22-Mar-25 16:34:42 GMT; domain=.groq.com; HttpOnly; Secure;
+        SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 9246ed0689cc5510-DEL
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"chatcmpl-e4d18906-27ca-4e2b-9886-592390090277","object":"chat.completion","created":1742659477,"model":"deepseek-r1-distill-llama-70b","choices":[{"index":0,"message":{"role":"assistant","content":"{\n  \"tags\":
+        {\n    \"niche\": {\n      \"ruby on rails\": 100,\n      \"ecommerce\": 95,\n      \"gems\":
+        90,\n      \"web development\": 85\n    },\n    \"general\": {\n      \"programming\":
+        80,\n      \"software development\": 75,\n      \"technology\": 70,\n      \"payment
+        processing\": 65,\n      \"user authentication\": 65,\n      \"scalability\":
+        65,\n      \"product management\": 65,\n      \"online shopping\": 65,\n      \"ruby\":
+        70\n    }\n  }\n}","reasoning":"Alright, I need to analyze the given post
+        content and extract interest tags into two categories: niche and general.
+        Let me start by understanding the requirements thoroughly.\n\nFirst, the post
+        is about the top 5 Ruby on Rails gems for e-commerce development. It lists
+        Spree, Solidus, Devise, Pundit, and Stripe, along with some bonus gems. So,
+        the main subject is Ruby on Rails gems, specifically for e-commerce.\n\nFor
+        the niche tags, I should capture the specific subject matter. The obvious
+        ones are \"ruby on rails\" and \"ecommerce\". Since the post focuses on gems,
+        \"gems\" is another niche tag. Also, \"web development\" is a specific area
+        within Rails. That gives me four niche tags, but I can add one more. Maybe
+        \"rails gems\" as a compound tag, but I think \"gems\" is sufficient. Wait,
+        the compound topic rule says if it''s like \"ruby on rails\", include the
+        full topic and key components. So, \"ruby on rails\" is a compound, and \"ruby\"
+        and \"rails\" as standalone. But since the post is about Rails gems, maybe
+        \"ruby on rails\" is the compound, and \"rails\" as a standalone. However,
+        the example in the requirements uses \"ruby on rails\" as a single tag, so
+        I''ll include that as a niche tag.\n\nNow, for the general tags, I need broader
+        topics. The post is about web development, so that''s a general tag. E-commerce
+        is also a general tag. It involves programming, software development, and
+        technology. The tools mentioned like Stripe and Devise relate to payment processing
+        and user authentication. Also, scalability and performance are important aspects.
+        Product management and online shopping are part of e-commerce. So, I can include
+        tags like \"web development\", \"programming\", \"software development\",
+        \"technology\", \"payment processing\", \"user authentication\", \"scalability\",
+        \"product management\", and \"online shopping\".\n\nI need to ensure that
+        no tags are repeated between niche and general. So, \"ruby on rails\" and
+        \"ecommerce\" are in niche, so they shouldn''t be in general. Wait, in the
+        example response, \"ecommerce\" is in both, but the user said not to repeat.
+        Hmm, maybe I should adjust. Let me check the example again. Oh, in the example,
+        \"ecommerce\" is in both, but the user''s instruction says not to repeat.
+        So, perhaps I should avoid that. Maybe in the general tags, instead of \"ecommerce\",
+        use a broader term like \"online shopping\".\n\nWait, the example response
+        has \"ecommerce\" in both, but the user''s instruction says not to repeat.
+        So, perhaps the example is incorrect, or maybe I''m misunderstanding. Let
+        me re-read the requirements. It says, \"Do not repeat tags: Ensure that no
+        tag appears in both the niche and general categories.\" So, I must avoid repetition.
+        Therefore, in the general tags, I shouldn''t include \"ecommerce\" if it''s
+        already in niche. So, I''ll replace it with \"online shopping\".\n\nNow, assigning
+        weights. Niche tags should be 85-100. General tags 60-85. For niche, \"ruby
+        on rails\" is the most specific, so 100. \"Ecommerce\" is also very specific,
+        95. \"Gems\" is specific to Rails, 90. \"Web development\" is a bit broader
+        but still niche, 85.\n\nFor general tags, \"web development\" is 85, but wait,
+        I already used it in niche. Oh, no, I can''t. So, I need to find other general
+        tags. Let me list them again without \"web development\". So, \"programming\"
+        is 80, \"software development\" 75, \"technology\" 70, \"payment processing\"
+        65, \"user authentication\" 65, \"scalability\" 65, \"product management\"
+        65, and \"online shopping\" 65.\n\nWait, but the example includes \"web development\"
+        in both, which I think is a mistake. So, I''ll make sure not to repeat any
+        tags. Therefore, my general tags will be \"programming\", \"software development\",
+        \"technology\", \"payment processing\", \"user authentication\", \"scalability\",
+        \"product management\", and \"online shopping\".\n\nNow, checking the compound
+        topics. \"Ruby on rails\" is a compound, so I include it as a niche tag. Its
+        components \"ruby\" and \"rails\" could be standalone, but since the focus
+        is on Rails, maybe \"rails\" is sufficient as a niche tag. But in the example,
+        they included \"ruby\" as a general tag. So, perhaps I should include \"ruby\"
+        in general. Wait, but \"ruby on rails\" is a niche tag, so \"ruby\" could
+        be a general tag. Let me think. The post is about Rails gems, so \"ruby\"
+        is the language, which is a general tag. So, I''ll include \"ruby\" in general
+        tags with a weight of 70.\n\nSimilarly, \"stripe\" is a specific gem, but
+        it''s part of the general tags as \"payment processing\". So, I think I''ve
+        covered that.\n\nNow, putting it all together. Niche tags: \"ruby on rails\",
+        \"ecommerce\", \"gems\", \"web development\". General tags: \"programming\",
+        \"software development\", \"technology\", \"payment processing\", \"user authentication\",
+        \"scalability\", \"product management\", \"online shopping\", \"ruby\".\n\nWait,
+        but \"ruby\" is part of \"ruby on rails\", so as a compound, I should include
+        \"ruby\" as a standalone in general. So, I''ll add \"ruby\" to general tags.\n\nLet
+        me check the counts. Niche: 4 tags, which is within 3-5. General: 9 tags,
+        which is within 7-10. No overlaps except \"ruby on rails\" and \"ruby\", but
+        they are in different categories, so that''s okay.\n\nAssigning weights: Niche
+        tags are 100, 95, 90, 85. General tags: 80, 75, 70, 65, etc.\n\nI think that''s
+        a solid approach. Now, I''ll structure the JSON accordingly.\n"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.048316858,"prompt_tokens":668,"prompt_time":0.040268851,"completion_tokens":1426,"completion_time":5.185454545,"total_tokens":2094,"total_time":5.225723396},"system_fingerprint":"fp_2834edf0f4","x_groq":{"id":"req_01jpz9jr11ep1ak8brh67w5w6e"}}
+
+        '
+  recorded_at: Sat, 22 Mar 2025 16:04:42 GMT
+recorded_with: VCR 6.3.1

@@ -1,0 +1,51 @@
+<%= form_with model: @bot, url: bots_path, method: :post, data: { controller: "bot-form" }, class: "max-w-lg mx-auto bg-[var(--color-primary-800)] p-6 rounded-lg shadow-sm" do |f| %>
+
+  <h2 class="text-2xl font-heading font-semibold mb-4 text-[var(--color-secondary-400)]">
+    Enter Your Interests
+  </h2>
+
+  <div data-bot-form-target="botInterestsContainer" class="space-y-3">
+    <%= f.fields_for :interests do |interest_fields| %>
+      <div data-bot-form-target="interest" class="flex items-center gap-2">
+        <%= interest_fields.text_field :name,
+            placeholder: "Enter interest",
+            class: "w-full px-3 py-2 bg-[var(--color-primary-700)] border border-[var(--color-secondary-700)] rounded-md shadow-sm focus:ring-[var(--color-accent-500)] focus:border-[var(--color-accent-500)] text-[var(--color-secondary-400)]"
+        %>
+        <button type="button"
+            data-action="click->bot-form#removeTag"
+            class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md"
+        >
+          Remove
+        </button>
+      </div>
+    <% end %>
+  </div>
+
+  <button type="button"
+      data-action="click->bot-form#addTag"
+      class="mt-4 inline-block bg-[var(--color-accent-500)] hover:bg-[var(--color-accent-600)] text-white px-4 py-2 rounded-md"
+  >
+    Add More Interests
+  </button>
+
+  <%= f.submit "Generate Bot",
+      class: "mt-6 w-full bg-[var(--color-primary-600)] hover:bg-[var(--color-primary-500)] text-white font-medium py-3 rounded-md shadow-sm"
+  %>
+
+  <template data-bot-form-target="tagTemplate">
+    <div data-bot-form-target="interest" class="flex items-center gap-2 mt-2">
+      <input type="text"
+          name="bot[interests_attributes][index][name]"
+          id="bot_interests_attributes_index_name"
+          placeholder="Enter interest"
+          class="w-full px-3 py-2 bg-[var(--color-primary-700)] border border-[var(--color-secondary-700)] rounded-md shadow-sm text-[var(--color-secondary-400)] focus:ring-[var(--color-accent-500)] focus:border-[var(--color-accent-500)]"
+      />
+      <button type="button"
+          data-action="click->bot-form#removeTag"
+          class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md"
+      >
+        Remove
+      </button>
+    </div>
+  </template>
+<% end %>

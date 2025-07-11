@@ -1,6 +1,6 @@
 class Webauthn::AuthenticationsController < ApplicationController
   skip_before_action :authenticate_user!
-
+  layout "devise"
   def index
     user = User.find_by(id: session.dig(:webauthn_authentication, "user_id"))
 
@@ -42,7 +42,7 @@ class Webauthn::AuthenticationsController < ApplicationController
       # you can use flash messages here
       flash[:notice] = "Hey, welcome back!"
 
-      render json: {redirect: redirect}, status: :ok
+      render json: { redirect: redirect }, status: :ok
     rescue WebAuthn::Error => e
       render json: "Verification failed: #{e.message}", status: :unprocessable_entity
     ensure

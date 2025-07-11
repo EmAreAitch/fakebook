@@ -1,15 +1,32 @@
 <%= turbo_stream.prepend(@comments_dom_id, @comment) %>
 <%= turbo_stream.update("flash", partial: "flash") %>
-<%= turbo_stream.update(dom_id(@comment.commentable, :comments_count), @comment.commentable.comments_count) if @comment.commentable.is_a?(Post) %>
+
+<% if @comment.commentable.is_a?(Post) %>
+  <%= turbo_stream.update(dom_id(@comment.commentable, :comments_count), @comment.commentable.comments_count) %>
+<% end %>
+
 <%= turbo_stream.update(dom_id(@comment.commentable, :list_button_text), list_button_text(@comment)) %>
-<%= turbo_stream.append(dom_id(@comment.commentable, :comment_actions)) do %>
-	<%= link_to comment_index_path(@comment), 
-	        class: class_names("rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium", "mt-2": @comment.commentable.is_a?(Post)), 
-	        data: { "turbo-frame": dom_id(@comment.commentable, :comments), "replies-target": :listButton, action: "replies#getList" } do
-	%>
-	  <span>Show</span> 
-	  <span id="<%= dom_id(@comment.commentable, :list_button_text) %>"><%= list_button_text(@comment) %></span>
-	<% end%>
-<% end if @comment.commentable.comments_count == 1 %>
-<% puts @comment.commentable.comments_count.zero? %>
-<%= turbo_stream.update(commentable_dom_id(@comment, "comment_form"), method: :morph, partial: "form", locals: { comment: @form_comment }) %>
+
+<% if @comment.commentable.comments_count == 1 %>
+  <%= turbo_stream.append(dom_id(@comment.commentable, :comment_actions)) do %>
+    <%= link_to comment_index_path(@comment),
+      class: class_names(
+        "rounded-lg py-2 px-4 bg-primary-700 hover:bg-primary-600 text-secondary-400 text-sm font-ui"        
+      ),
+      data: {
+        "turbo-frame": dom_id(@comment.commentable, :comments),
+        "replies-target": :listButton,
+        action: "replies#getList"
+      } do %>
+        <span>Show</span>
+        <span id="<%= dom_id(@comment.commentable, :list_button_text) %>"><%= list_button_text(@comment) %></span>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= turbo_stream.update(
+  commentable_dom_id(@comment, "comment_form"),
+  method: :morph,
+  partial: "form",
+  locals: { comment: @form_comment }
+) %>

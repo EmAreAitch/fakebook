@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+#
+# bin/prod — launch your production Procfile via Foreman
+
+# Ensure Foreman is available
+if ! gem list foreman -i --silent; then
+  echo "Installing foreman…"
+  gem install foreman --no-document
+fi
+
+# Force Rails into production mode
+export RAILS_ENV="production"
+
+# Start all processes in Procfile
+exec foreman start -f Procfile "$@"

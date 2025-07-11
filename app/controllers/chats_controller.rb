@@ -6,15 +6,13 @@ class ChatsController < ApplicationController
 		.where(sender: current_user).or(Chat.where(receiver: current_user))
 		.order(updated_at: :desc)		
 
-		@follows = Follow
-		.includes(:follower,:followed)
-		.select("*")
-		.from(
-			Follow                                                                                                                           
-			.select("DISTINCT ON (LEAST(follower_id,followed_id), GREATEST(follower_id,followed_id)) *")
-			.where(follower: current_user).or(Follow.where(followed: current_user))                                                                                            
-			.accepted
-		).order(updated_at: :desc)		
+		@follows = 
+			Follow       
+			.includes(:follower, :followed)
+			.select("DISTINCT ON (LEAST(follower_id,followed_id), GREATEST(follower_id,followed_id)) follows.*")
+			.where(follower: current_user, followed: {type: "User"}).or(Follow.where(followed: current_user, follower: {type: "User"}))
+			.accepted					
+			.order(Arel.sql("LEAST(follower_id,followed_id), GREATEST(follower_id,followed_id), updated_at desc"))
 	end	
 
 	def show
@@ -27,8 +25,8 @@ class ChatsController < ApplicationController
 	def create
 		receiver = User.find(params.expect(chat: [:receiver_id])[:receiver_id])
 		@chat = Chat.new(chat_params.merge({sender: current_user, receiver: }))
-		unless @chat.save			
-			flash.now.alert = @chat.errors.full_messages.join(", ")
+		unless @chat.save				  		  
+			flash.now.alert = @chat.errors.full_messages.join(", ")			
 			render turbo_stream: render_flash_stream, status: :unprocessable_entity
 		end
 	end
@@ -51,7 +49,7 @@ class ChatsController < ApplicationController
 	def users_are_connected
 		existing_connection = Follow
   	.joins(:follower, :followed)
-		.exists?(followed: {username: [current_user.username,username_param]}, follower: {username: [current_user.username,username_param]})
+		.exists?(followed: {username: [current_user.username,username_param], type: "User"}, follower: {username: [current_user.username,username_param], type: "User"})
 		head :unauthorized unless existing_connection		
 	end
 end

@@ -2,6 +2,27 @@
 
 one:
   content: MyText
+  user: one
 
 two:
   content: MyText
+  user: two
+
+third:
+  content: |
+    Top 5 Ruby on Rails Gems for E-commerce Development  
+
+    Building an e-commerce platform with Ruby on Rails? The right gems can save time, effort, and headaches while ensuring scalability and performance. Here are the top 5 must-have gems for your e-commerce project:  
+
+    1. **Spree** – A full-featured, customizable e-commerce engine that integrates seamlessly into your Rails app. It provides everything from product management to payment processing.  
+
+    2. **Solidus** – A fork of Spree, Solidus is great for complex and high-volume e-commerce platforms. It offers enterprise-level stability and flexibility.  
+
+    3. **Devise** – User authentication is crucial for e-commerce. Devise simplifies login, sign-up, and session management while keeping security tight.  
+
+    4. **Pundit** – Handling roles and permissions? Pundit makes authorization a breeze, ensuring customers, admins, and sellers have the right access levels.  
+
+    5. **Stripe** – The Stripe gem allows seamless integration with Stripe’s powerful payment gateway for subscriptions, one-time purchases, and more.  
+
+    Bonus gems to consider: ActiveStorage (for product images), Sidekiq (for background jobs), and FriendlyId (for clean URLs).  
+  user: one

@@ -7,5 +7,5 @@ one:
 
 two:
   content: MyText
-  chat: two
+  chat: one
   user: two

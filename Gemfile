@@ -15,7 +15,6 @@ gem "turbo-rails"
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 # Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
-gem "tailwindcss-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
@@ -50,8 +49,7 @@ group :development, :test do
   gem "brakeman", require: false
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
-  gem "rubocop-rails-omakase", require: false
-  gem "dotenv", "~> 3.1"
+  gem "rubocop-rails-omakase", require: false  
 end
 
 group :development do
@@ -67,6 +65,8 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem 'webmock'
+  gem 'vcr'
 end
 
 gem "devise", "~> 4.9"
@@ -92,3 +92,17 @@ gem "ruby-lsp-rails", "~> 0.3.27"
 gem "hugging-face", "~> 0.3.5", require: "hugging_face"
 
 gem "scenic", "~> 1.8"
+
+gem "redcarpet", "~> 3.6"
+
+gem "faraday-retry", "~> 2.2"
+
+gem "tailwindcss-rails", "~> 4.2"
+
+gem "kramdown", "~> 2.5"
+
+gem "kramdown-parser-gfm", "~> 1.1"
+
+gem "dotenv", "~> 3.1"
+
+gem "foreman", "~> 0.88.1"

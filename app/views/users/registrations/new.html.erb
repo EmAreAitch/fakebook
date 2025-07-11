@@ -1,36 +1,39 @@
-<h2>Sign up</h2>
+<div class="bg-opacity-70 p-6 rounded-xl">
+      <h2 class="text-2xl font-semibold text-white mb-4 text-center">Sign Up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-  
-  <div class="field">
-    <%= f.label :username %>
-    <em>(only use 3-15 chars, all lowercase, numbers, & underscores)</em>
-    <br />
-    <%= f.text_field :username%>
-  </div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "users/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
+        <div class="mb-4">
+          <%= f.label :username, class: "block text-sm mb-1" %>
+          <p class="text-xs text-gray-400 mb-1">Only 3-15 characters: lowercase, numbers, & underscores</p>
+          <%= f.text_field :username, class: "w-full px-4 py-2 rounded-md bg-primary-700 text-white focus:outline-none focus:ring-2 focus:ring-accent-500" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+        <div class="mb-4">
+          <%= f.label :email, class: "block text-sm mb-1" %>
+          <%= f.email_field :email, autocomplete: "email", class: "w-full px-4 py-2 rounded-md bg-primary-700 text-white focus:outline-none focus:ring-2 focus:ring-accent-500" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+        <div class="mb-4">
+          <%= f.label :password, class: "block text-sm mb-1" %>
+          <% if @minimum_password_length %>
+            <p class="text-xs text-gray-400 mb-1">(<%= @minimum_password_length %> characters minimum)</p>
+          <% end %>
+          <%= f.password_field :password, autocomplete: "new-password", class: "w-full px-4 py-2 rounded-md bg-primary-700 text-white focus:outline-none focus:ring-2 focus:ring-accent-500" %>
+        </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+        <div class="mb-6">
+          <%= f.label :password_confirmation, class: "block text-sm mb-1" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w-full px-4 py-2 rounded-md bg-primary-700 text-white focus:outline-none focus:ring-2 focus:ring-accent-500" %>
+        </div>
 
-<%= render "users/shared/links" %>
+        <div class="mb-4">
+          <%= f.submit "Sign up", class: "w-full bg-accent-500 hover:bg-accent-600 text-white font-semibold py-2 rounded-md transition duration-200" %>
+        </div>
+      <% end %>
+
+        <div class="mt-6 text-sm text-center text-gray-400">
+          <%= render "users/shared/links" %>
+        </div>
+</div>

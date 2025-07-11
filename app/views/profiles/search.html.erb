@@ -1,0 +1,24 @@
+<div class="max-w-4xl mx-auto space-y-8">
+  <h1 class="text-3xl font-heading font-bold text-accent-500">Search Profiles</h1>
+
+  <%= form_with url: search_profiles_path, method: :get, local: true do |f| %>
+    <div class="flex flex-col md:flex-row md:items-center gap-4">
+      <%= f.text_field :q,
+            value: params[:q],
+            placeholder: "Search by name, username, bio, profession...",
+            class: "flex-1 rounded-xl px-4 py-2 bg-primary-800 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-500"
+      %>
+      <%= f.submit "Search",
+            class: "px-6 py-2 rounded-xl bg-accent-500 text-white font-semibold hover:bg-accent-600 transition"
+      %>
+    </div>
+  <% end %>
+
+  <% if @profiles.load.any? %>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">          
+        <%= render @profiles, link_to_profile: true, class: "p-4 w-full" %>      
+    </div>
+  <% elsif params[:q].present? %>
+    <p class="text-gray-400">No matching profiles found for "<%= params[:q] %>"</p>
+  <% end %>
+</div>

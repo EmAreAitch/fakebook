@@ -82,9 +82,12 @@ test:
 production:
   primary: &primary_production
     <<: *default
+    host: pg-free-postgres-free-node.e.aivencloud.com  
+    port: 10252    
     database: fakebook_production
-    username: fakebook
-    password: <%= ENV["FAKEBOOK_DATABASE_PASSWORD"] %>
+    username: avnadmin
+    password: <%= ENV["FAKEBOOK_DATABASE_PASSWORD"] %>    
+    sslmode: require
   cache:
     <<: *primary_production
     database: fakebook_production_cache

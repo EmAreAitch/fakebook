@@ -1,18 +1,42 @@
-<div class="">
-	<div class="">		
-		<%= link_to "Back to posts", root_path %>
-		<% if @profile.present? %>
-			<%= link_to "Edit profile", edit_profile_path(@profile) if @profile.user == current_user %>			
-			<%= render "profile", profile: @profile %>
-			<% unless current_user == @profile.user %>
-				<div data-controller="follows" data-follows-profile-username-value="<%= @profile.user.username %>">
-					<p data-follows-target="followStatusText" class="empty:hidden"></p>
-					<div data-follows-target="profileUserRequestAction" class="empty:hidden space-x-1"></div>
-					<div data-follows-target="currentUserRequestAction" class="empty:hidden"></div>
-				</div>			
-			<% end %>
-		<% else %>
-			<h1>Profile does not exist</h1>
-		<% end %>
-	</div>
+<div class="flex justify-between items-center mb-4">
+  <%= link_to "← Back", "#", onclick: "history.back(); return false;", class: "text-accent-500 hover:underline text-sm" %>  
+  <% if @profile.present? && @profile.user == current_user %>
+    <div>
+      <%= link_to "Edit Profile", edit_profile_path(@profile), class: "bg-accent-500 text-white px-4 py-2 rounded-md hover:bg-accent-600 text-sm font-medium" %>
+      <%= link_to "Edit Account", edit_registration_path(current_user), class: "bg-accent-500 text-white px-4 py-2 rounded-md hover:bg-accent-600 text-sm font-medium" %>
+    </div>
+  <% end %>
+</div>
+<div class="max-w-5xl w-full mx-auto text-gray-300">
+  <div class="bg-primary-800 bg-opacity-70 rounded-xl">
+    <!-- Navigation Buttons Row -->
+    <% if @profile.present? %>
+    <!-- Profile Partial -->
+    <%= render @profile, class: "max-w-xl p-4" %>    
+    <% unless current_user == @profile.user %>
+    <!-- Follow Controls -->
+    <div data-controller="follows" data-follows-profile-username-value="<%= @profile.user.username %>">
+      <p data-follows-target="followStatusText" class="text-sm text-center text-gray-400 empty:hidden mb-2"></p>
+      <div data-follows-target="profileUserRequestAction" class="flex justify-center space-x-2 empty:hidden mb-2"></div>
+      <div data-follows-target="currentUserRequestAction" class="flex justify-center empty:hidden"></div>
+    </div>
+    <% end %>
+    <!-- User's Posts -->
+    <% if @posts.any? %>
+    <div class="mt-6 space-y-6">
+      <% @posts.each do |post| %>
+      <div>
+        <%= render post, posts_liked_ids: @posts_liked_ids %>
+      </div>
+      <% end %>
+    </div>
+    <% else %>
+    <p class="text-center text-gray-400 py-6">No posts yet.</p>
+    <% end %>
+    <% else %>
+    <div class="text-center text-red-400">
+      <h1 class="text-xl font-semibold">Profile does not exist</h1>
+    </div>
+    <% end %>
+  </div>
 </div>

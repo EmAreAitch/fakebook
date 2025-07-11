@@ -1,22 +1,46 @@
-<%= link_to "Back to profile", profile_path(@user.username) %>
+<%= link_to "← Back", "#", onclick: "history.back(); return false;", class: "text-accent-500 hover:underline text-sm" %>
 <% params = { username: @user.username } %>
-<div class="space-y-4">
-	<% @follow_requests.each do |k,v| %>
-		<div class="space-y-4">
-			<h2 class="font-bold"><%= k.humanize %></h2>
-			<% v.each do |i| %>		
-				<% if i.accepted? %>
-					<p><%= k.starts_with?("following") ? i.followed.username : i.follower.username %></p>
-					<%= button_to (i.follower == current_user ? "Unfollow" : "Remove"), follow_path(i), method: :delete, params: %>
-				<% elsif i.followed == current_user%>		
-					<p><%= k.starts_with?("following") ? i.followed.username : i.follower.username %></p>
-					<%= button_to "Accept", accept_follow_path(i), method: :patch, params: %>
-					<%= button_to "Reject", follow_path(i), method: :delete, params: %>
-				<% elsif i.follower == current_user%>
-					<p><%= k.starts_with?("following") ? i.followed.username : i.follower.username %></p>
-					<%= button_to "Remove", follow_path(i), method: :delete, params: %>
-				<% end %>			
-			<% end %>
-		</div>
-	<% end %>
+
+<div class="space-y-6 mt-6">
+  <% @lists.each do |k| %>
+  <% v = @follow_requests[k] %>  
+    <div class="space-y-4 bg-primary-800 p-4 rounded-xl border border-primary-700">
+      <h2 class="text-secondary-400 text-base font-semibold font-heading capitalize"><%= k.humanize %></h2>
+
+      <% v.each do |i| %>
+        <div class="flex items-center justify-between bg-primary-700 p-3 rounded-lg">
+          <p class="text-gray-100 font-body">
+            <% user = {
+                "pending_follower_requests" => i.follower, 
+                "pending_following_requests" => i.followed, 
+                "followings" => i.followed, 
+                "followers" => i.follower
+              }[k]
+            %>
+            <%= link_to user.username, profile_path(username: user.username), class: "hover:underline" %>
+            <% if user.is_a? Bot %>
+                <span class="text-xs bg-accent-500 text-white px-2 py-0.5 rounded-full font-semibold uppercase">Bot</span>
+            <% end %>
+          </p>
+
+          <div class="flex gap-2">
+            <% if i.accepted? and i.of_user(current_user) %>
+              <%= button_to (i.follower == current_user ? "Unfollow" : "Remove"), follow_path(i), method: :delete, params: params,
+                    class: "bg-secondary-600 hover:bg-secondary-500 text-white text-sm px-4 py-1.5 rounded-lg font-ui" %>
+
+            <% elsif i.followed == current_user %>
+              <%= button_to "Accept", accept_follow_path(i), method: :patch, params: params,
+                    class: "bg-accent-600 hover:bg-accent-500 text-white text-sm px-4 py-1.5 rounded-lg font-ui" %>
+              <%= button_to "Reject", follow_path(i), method: :delete, params: params,
+                    class: "bg-red-600 hover:bg-red-500 text-white text-sm px-4 py-1.5 rounded-lg font-ui" %>
+
+            <% elsif i.follower == current_user %>
+              <%= button_to "Remove", follow_path(i), method: :delete, params: params,
+                    class: "bg-red-600 hover:bg-red-500 text-white text-sm px-4 py-1.5 rounded-lg font-ui" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>

@@ -83,6 +83,11 @@ class PostGenerator < GroqService
 
     JSON.parse(response["content"]).tap do
       it["tags"] = it["tags"].values.reduce(&:merge).transform_keys(&:upcase)
+      it["images"].map! do |img|
+        PollinationsService.generate_image(img).then do |gen_img|
+          { io: gen_img, filename: SecureRandom.hex(10), content_type: gen_img.content_type }
+        end
+      end
     end
   rescue JSON::ParserError
     { "content" => "Failed to generate content.", "images" => [] }

@@ -11,7 +11,7 @@ class Chat < ApplicationRecord
   validate :users_are_connected
   scope :between, -> (user1_id, user2_id) { find_by(sender_id: [user1_id, user2_id], receiver_id: [user1_id, user2_id]) }  
 
-  after_create { broadcast_replace_to [self.sender_id, self.receiver_id].sort, target: "chat_form", partial: "chats/form", chat: self }
+  after_create_commit { broadcast_replace_to [self.sender_id, self.receiver_id].sort, target: "chat_form", partial: "chats/form", chat: Chat.new }
 
   private  
 
@@ -28,7 +28,8 @@ class Chat < ApplicationRecord
   def users_are_connected
     if sender_id.present? and receiver_id.present? and sender_id != receiver_id   
       existing_connection = Follow
-      .exists?(follower_id: [sender_id, receiver_id], followed_id: [sender_id, receiver_id])
+      .joins(:follower, :followed)
+      .exists?(follower: {id: [sender_id, receiver_id], type: "User"}, followed: {id: [sender_id, receiver_id], type: "User"})
       
       errors.add(:base, "Users are not connected by follow") unless existing_connection
     end    
