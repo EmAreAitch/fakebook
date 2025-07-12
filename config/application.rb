@@ -23,5 +23,21 @@ module Fakebook
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.action_mailer.default_url_options = {
+      host: ENV['RENDER_EXTERNAL_HOSTNAME'] || 'localhost',
+      port: ENV['PORT'] || 3000,
+      protocol: ENV["RENDER"].present? ? "https" : 'http'
+    }
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.smtp_settings = {
+      address: 'smtp.gmail.com',
+      port: 587,
+      domain: ENV['RENDER_EXTERNAL_HOSTNAME'] || 'localhost',
+      user_name: ENV['GMAIL_USERNAME'],
+      password: ENV['GMAIL_PASSWORD'],
+      authentication: 'plain',
+      enable_starttls_auto: true
+    }
   end
 end

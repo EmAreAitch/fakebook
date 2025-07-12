@@ -106,3 +106,5 @@ gem "kramdown-parser-gfm", "~> 1.1"
 gem "dotenv", "~> 3.1"
 
 gem "foreman", "~> 0.88.1"
+
+gem "cloudinary", "~> 2.3"
