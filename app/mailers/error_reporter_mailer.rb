@@ -8,13 +8,13 @@ class ErrorReporterMailer < ApplicationMailer
     @exception = exception
     
     mail(
-      subject: "[#{Rails.env.upcase}] Job Failed: #{job_class}",
+      subject: "[#{Rails.env.upcase}] Job Failed: #{@job_class}",
       body:    <<~BODY
-        Job:       #{job_class}
+        Job:       #{@job_class}
         Arguments: #{@args.inspect}
-        Error:     #{exception.class}: #{exception.message}
+        Error:     #{@exception.class}: #{@exception.message}
         Backtrace:
-        #{exception.backtrace&.take(10).join("\n")}
+        #{@exception.backtrace&.take(10).join("\n")}
       BODY
     )
   end
