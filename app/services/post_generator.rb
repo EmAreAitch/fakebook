@@ -5,7 +5,7 @@ class PostGenerator < GroqService
        - Begin with the topic title.
        - Include clear and structured points or numbered lists.
        - Be engaging and easy to read.
-       - Code blocks should be fenced
+       - Code blocks should be fenced and language specific
        - Only include a conclusion section if it is absolutely necessary for clarity or summarization. If the content is already clear and complete, do not append a conclusion.
        - Reflect current information without referencing outdated events.
     2. images: Optional image prompts that visually complement the post content. Decide whether to include images based on the nature of the content:

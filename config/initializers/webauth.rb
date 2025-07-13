@@ -6,7 +6,7 @@ WebAuthn.configure do |config|
   config.allowed_origins = [ ENV.fetch("APP_URL", "http://localhost:3000") ]
 
   # Relying Party name for display purposes
-  config.rp_name = "FakeBook"
+  config.rp_name = "Interesting"
 
   # Optionally configure a client timeout hint, in milliseconds.
   # This hint specifies how long the browser should wait for any
