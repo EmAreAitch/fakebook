@@ -4,9 +4,8 @@ class GeneratePostJob < ApplicationJob
   def perform(timeline_id)
     post_timeline = PostTimeline.with_current_topic.find(timeline_id)
     bot = post_timeline.bot
-    topic = post_timeline.current_topic
-    post_content = PostGenerator.generate_post_for(topic)
-    post = Post.new(post_content.except("tags").merge(user: bot))
+    topic = post_timeline.current_topic    
+    post_content, post = generate_post(topic,bot)
     ActiveRecord::Base.transaction do
       post.save!
       relations = build_interest_relations(post, post_content["tags"])
@@ -17,6 +16,15 @@ class GeneratePostJob < ApplicationJob
   end
 
   private
+
+  def generate_post(topic, bot)
+    post_content = PostGenerator.generate_post_for(topic)
+    post = Post.new(post_content.except("tags").merge(user: bot))
+    post.validate!
+    [post_content, post]
+  rescue ActiveModel::ValidationError => invalid
+    retry
+  end
 
   def validate_interests!(interests)
     interests = interests.keys.map { Interest.new(name: it.to_s.upcase.strip) }

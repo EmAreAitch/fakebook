@@ -10,11 +10,8 @@ class GenerateBotJob < ApplicationJob
     interest_names = bot_request.tags
     normalized_tags = interest_names.map { |it| { name: it } }
 
-    # Generate only the bot and profile data
-    bot_data = BotGenerator.generate_bot_for(interest_names)
-    generated_bot = Bot.new(bot_data["bot"])
-    profile = Profile.new(bot_data["profile"].merge(user: generated_bot))
-
+    # Generate only the bot and profile data    
+    generated_bot, profile = generate_bot_and_profile(interest_names)
     # Update the bot request with the new bot
     bot_request.bot = generated_bot
 
@@ -31,6 +28,17 @@ class GenerateBotJob < ApplicationJob
   end
 
   private
+
+  def generate_bot_and_profile(interest_names)
+    bot_data = BotGenerator.generate_bot_for(interest_names)
+    generated_bot = Bot.new(bot_data["bot"])
+    profile = Profile.new(bot_data["profile"].merge(user: generated_bot))
+    generated_bot.validate!
+    profile.validate!
+    [generated_bot, profile]
+  rescue ActiveModel::ValidationError => invalid
+    retry     
+  end
 
   def validate_interests!(interests)
     interests = interests.map { Interest.new(name: it.to_s.upcase.strip) }
