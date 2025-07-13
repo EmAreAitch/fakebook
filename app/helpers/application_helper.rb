@@ -18,8 +18,7 @@ module ApplicationHelper
   end
 
   def markdown(text)
-    html = Kramdown::Document.new(text, input: 'GFM', hard_wrap: false).to_html
-    html.html_safe
+    Commonmarker.to_html(text).html_safe    
   end
 
   def admin?(user)

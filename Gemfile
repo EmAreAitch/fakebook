@@ -108,3 +108,5 @@ gem "dotenv", "~> 3.1"
 gem "foreman", "~> 0.88.1"
 
 gem "cloudinary", "~> 2.3"
+
+gem "commonmarker", "~> 2.3"
