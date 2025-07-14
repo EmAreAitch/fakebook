@@ -3,7 +3,7 @@
 WebAuthn.configure do |config|
   # This value needs to match `window.location.origin` evaluated by
   # the User Agent during registration and authentication ceremonies.
-  config.allowed_origins = [ ENV.fetch("APP_URL", "http://localhost:3000") ]
+  config.allowed_origins = [ ENV.fetch("RENDER_EXTERNAL_URL", "http://localhost:3000") ]
 
   # Relying Party name for display purposes
   config.rp_name = "Interesting"
