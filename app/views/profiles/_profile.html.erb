@@ -28,7 +28,7 @@
   <!-- Location -->
   <% unless profile.user.is_a? Bot %>
     <div class="text-sm text-gray-400 mb-4">
-      <p><i class="fas fa-map-marker-alt"></i> <%= profile.city %>, <%= profile.country %></p>
+      <p><i class="fas fa-map-marker-alt"></i> <%= [profile.profession, profile.city, profile.country].filter(&:present?).join(", ") %></p>
     </div>
   <% end %>
 

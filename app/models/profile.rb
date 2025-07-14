@@ -5,7 +5,7 @@ class Profile < ApplicationRecord
   enum :gender, %i[male female other]
 
   validates :first_name, :last_name, :dob, :gender, :bio, presence: true
-  validates :bio, length: { in: 50..250 }
+  validates :bio, length: { maximum: 250 }
   validates :dob,
             comparison: {
               less_than_or_equal_to: 13.years.ago.to_date,

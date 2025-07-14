@@ -28,6 +28,7 @@ class User < ApplicationRecord
   has_many :interests, through: :interest_relations
   accepts_nested_attributes_for :interests, allow_destroy: true
 
+  before_destroy :prevent_demo_deletion
   # Custom methods for specific statuses
   def accepted_followers
     followers.merge(Follow.accepted)
@@ -69,5 +70,14 @@ class User < ApplicationRecord
 
   def self.reset_follow_counters(id)  
     User.update(id, followers_count: Follow.accepted.where(followed_id: id).count, followings_count: Follow.accepted.where(follower_id: id).count)
+  end  
+
+  private
+
+  def prevent_demo_deletion
+    if id == ENV["DUMMY_ID"]&.to_i
+      errors.add(:base, "Demo user cannot be deleted")
+      throw(:abort)     # halts the destroy
+    end
   end
 end

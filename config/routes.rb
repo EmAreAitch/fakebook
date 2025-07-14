@@ -7,6 +7,9 @@ Rails.application.routes.draw do
                  sessions: "users/sessions",
                  passwords: "users/passwords"
                }
+    devise_scope :user do
+      get "guest_sign_in", to: "users/sessions#guest_sign_in"
+    end               
     resources :posts do
       member do
         post "like", to: "posts#like" # POST request to /posts/:id/like

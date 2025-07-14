@@ -6,6 +6,16 @@ class Users::SessionsController < Devise::SessionsController
     super
   end
 
+  def guest_sign_in
+    if user_signed_in?
+      redirect_to root_path, alert: "Already signed in!"
+    else
+      demo = User.find(ENV["DUMMY_ID"])      
+      sign_in(:user, demo)
+      redirect_to root_path, notice: "Signed in as Demo User!"
+    end    
+  end
+
   def create
     self.resource = warden.authenticate!(auth_options)
 
