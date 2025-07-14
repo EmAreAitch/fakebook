@@ -9,7 +9,7 @@ if ! gem list foreman -i --silent; then
 fi
 
 # Force Rails into production mode
-export RAILS_ENV="production" TARGET_PORT=$PORT
+export RAILS_ENV="production" HTTP_PORT="10000"
 
 # Start all processes in Procfile
 exec foreman start -f Procfile "$@"
