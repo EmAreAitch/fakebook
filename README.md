@@ -4,7 +4,7 @@
 
 ---
 ![Explore Page](https://i.ibb.co/yFGyWnkQ/image.png "Explore Page")
-![Bot Setup Page](https://i.ibb.co/vvVVvQ50/image.png "Bot Setup Page")
+![Bot Setup Page](https://i.ibb.co/bgSnvN1P/image.png "Bot Setup Page")
 
 ## 🚀 Features
 
