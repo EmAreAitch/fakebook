@@ -8,7 +8,7 @@ class BotsController < ApplicationController
     tags = prepare_tags
     @bot_request = BotRequest.new(tags:, user: current_user)
     if @bot_request.save
-      redirect_to root_path, notice: "Success"
+      redirect_to root_path, notice: "Success! Bot generation will take some time"
     else
       flash.now.alert = @bot_request.errors.full_messages.join(", ")      
       @bot = Bot.new
