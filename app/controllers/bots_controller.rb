@@ -1,6 +1,4 @@
-class BotsController < ApplicationController
-  before_action :authorize_admin!, only: %i[new create]
-
+class BotsController < ApplicationController  
   def new
     @bot = Bot.new
     4.times { @bot.interests.build }
